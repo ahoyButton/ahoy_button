@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
+    "filepath": "^1.1.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
