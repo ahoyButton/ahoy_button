@@ -1,0 +1,11 @@
+[
+  {
+    "group_name": "怪叫",
+    "buttons": [
+      {
+        "name": "ahoy",
+        "path": "怪叫/ahoy.mp3"
+      }
+    ]
+  }
+]
