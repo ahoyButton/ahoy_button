@@ -11,12 +11,14 @@
                 </el-button>
             </el-row>
         </el-card>
+
+        <!--弹出内容垂直居中-->
         <el-popover placement="bottom-start">
-            <el-button class="sound-control"  slot="reference"  type="danger" circle icon="el-icon-headset"></el-button>
-            <div>
-                <span>音量</span>
-                <el-icon class="el-icon-headset sound-icon"></el-icon>
-                <el-slider max="100" v-model="volume"></el-slider>
+            <el-button class="sound-control"  slot="reference"  type="danger" circle icon="iconfont el-icon-absound-filling"></el-button>
+            <div class="popover-container">
+                <el-button circle @click="soundSwitch" v-if="volume > 0" class="iconfont el-icon-absound-filling sound-icon"></el-button>
+                <el-button circle @click="soundSwitch" v-else class="iconfont el-icon-absound-Mute sound-icon"></el-button>
+                <el-slider class="sound-slider" v-model="volume"></el-slider>
             </div>
         </el-popover>
     </div>
@@ -25,6 +27,7 @@
 <script>
     import groups from '../assets/voices.json'
     import {addSourcePrefix} from '../utils'
+
     export default {
         name: "Buttons",
         data() {
@@ -44,6 +47,13 @@
                 player.preload = 'auto'
                 player.volume = this.volume / 100
                 player.play()
+            },
+            soundSwitch() {
+                if (this.volume === 0) {
+                    this.volume = 100
+                    return
+                }
+                this.volume = 0
             }
         }
     }
@@ -84,7 +94,20 @@
 }
 
 .sound-icon {
-    display: inline-block;
+    float: left;
     margin-left: 5px;
+    font-size: 30px;
+    border: 0;
+}
+
+.sound-slider {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.popover-container {
+    display: flex;
+    align-items: center;
 }
 </style>
