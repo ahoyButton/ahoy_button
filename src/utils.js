@@ -17,5 +17,5 @@ export function genMessage(names, splitter = '、') {
     if (names.length === 1) {
         return names[0]
     }
-    return splitter.join(names)
+    return names.join(splitter)
 }
