@@ -2,6 +2,9 @@ import Vue from 'vue'
 import {
     Button,
     Card,
+    Col,
+    Divider,
+    Link,
     Icon,
     Popover,
     Row,
@@ -12,6 +15,9 @@ import 'element-ui/lib/theme-chalk/base.css'
 
 Vue.use(Button)
 Vue.use(Card)
+Vue.use(Col)
+Vue.use(Divider)
+Vue.use(Link)
 Vue.use(Icon)
 Vue.use(Popover)
 Vue.use(Row)
