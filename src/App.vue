@@ -1,19 +1,25 @@
 <template>
   <div id="app">
-    <buttons-panel></buttons-panel>
-    <transition name="el-fade-in-linear">
-      <el-button class="back-top" v-show="goTop" plain circle type="primary" icon="el-icon-top" @click="toTop"></el-button>
-    </transition>
+      <HeaderBar></HeaderBar>
+      <buttons-panel></buttons-panel>
+      <FooterBar></FooterBar>
+      <transition name="el-fade-in-linear">
+        <el-button class="back-top" v-show="goTop" plain circle type="primary" icon="el-icon-top" @click="toTop"></el-button>
+      </transition>
   </div>
 </template>
 
 <script>
 import ButtonsPanel from './components/Buttons'
+import FooterBar from './components/Footer'
+import HeaderBar from './components/Header'
 
 export default {
   name: 'app',
   components: {
-    ButtonsPanel
+    ButtonsPanel,
+    HeaderBar,
+    FooterBar,
   },
   data() {
     return {
@@ -37,6 +43,18 @@ export default {
 </script>
 
 <style>
+#app {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+html,body{
+  padding:0;
+  margin:0;
+}
+
 .back-top {
   height: 60px;
   width: 60px;
