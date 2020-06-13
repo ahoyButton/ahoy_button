@@ -1,0 +1,51 @@
+{
+  "id": "1882735",
+  "name": "ahoyButton",
+  "font_family": "iconfont",
+  "css_prefix_text": "el-icon-ab",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "545002",
+      "name": "social-twitter-outline",
+      "font_class": "socialtwitteroutline",
+      "unicode": "e921",
+      "unicode_decimal": 59681
+    },
+    {
+      "icon_id": "11983543",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "ea0b",
+      "unicode_decimal": 59915
+    },
+    {
+      "icon_id": "14465282",
+      "name": "youtube",
+      "font_class": "youtube",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
+      "icon_id": "11488000",
+      "name": "category",
+      "font_class": "category",
+      "unicode": "e747",
+      "unicode_decimal": 59207
+    },
+    {
+      "icon_id": "11488135",
+      "name": "sound-Mute",
+      "font_class": "sound-Mute",
+      "unicode": "e766",
+      "unicode_decimal": 59238
+    },
+    {
+      "icon_id": "11488137",
+      "name": "sound-filling",
+      "font_class": "sound-filling",
+      "unicode": "e767",
+      "unicode_decimal": 59239
+    }
+  ]
+}
