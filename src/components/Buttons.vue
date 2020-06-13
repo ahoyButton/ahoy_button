@@ -63,7 +63,6 @@
 .group {
     padding: 10px;
     margin-bottom: 10px;
-
     margin-left: 80px;
     margin-right: 80px;
 }
@@ -74,6 +73,7 @@
 }
 
 .sound-control {
+    z-index: 999;
     height: 60px;
     width: 60px;
     position: fixed;
