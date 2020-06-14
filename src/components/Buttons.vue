@@ -19,16 +19,13 @@
         <el-popover placement="bottom-start">
             <el-button class="sound-control" slot="reference" 
                        type="danger"
-                       circle icon="iconfont el-icon-absound-filling">
+                       circle
+                       :icon="soundControlIcon">
             </el-button>
             <div class="popover-container">
                 <el-button circle @click="soundSwitch"
-                           v-if="volume"
-                           class="iconfont el-icon-absound-filling sound-icon">
-                </el-button>
-                <el-button circle @click="soundSwitch"
-                           v-else
-                           class="iconfont el-icon-absound-Mute sound-icon">
+                           class="iconfont sound-icon"
+                           :class="soundIconClass">
                 </el-button>
                 <el-slider class="sound-slider" v-model="volume"></el-slider>
             </div>
@@ -47,8 +44,7 @@
                 btnGroups: groups,
                 // to use a absolute path avoiding resolving a relative one
                 sourcePrefix: "/voices/",
-                volume: 100,
-                a:0,
+                volume: 100
             }
         },
         methods: {
@@ -67,7 +63,21 @@
                 }
                 this.volume = 0
             }
-        }
+        },
+        computed: {
+            soundIconClass() {
+                return {
+                    'el-icon-absound-filling': this.volume,
+                    'el-icon-absound-Mute': !this.volume
+                }
+            },
+            soundControlIcon() {
+                return [
+                        'iconfont',
+                        this.volume?'el-icon-absound-filling':'el-icon-absound-Mute'
+                    ].join(' ')
+            }
+        },
     }
 </script>
 
