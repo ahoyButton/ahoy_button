@@ -6,7 +6,10 @@
                 <span style="font-size: 32px">{{group.group_name}}</span>
             </div>
             <el-row :gutter="15" class="btn-row">
-                <el-button class="sound-btn" type="danger" round v-for="(btn, i) in group.buttons" :key="i" @click="play(btn.path)">
+                <el-button class="sound-btn" type="danger"
+                           round v-for="(btn, i) in group.buttons"
+                           :key="i"
+                           @click="play(btn.path)">
                     {{btn.name}}
                 </el-button>
             </el-row>
@@ -14,10 +17,19 @@
 
         <!--弹出内容垂直居中-->
         <el-popover placement="bottom-start">
-            <el-button class="sound-control"  slot="reference"  type="danger" circle icon="iconfont el-icon-absound-filling"></el-button>
+            <el-button class="sound-control" slot="reference" 
+                       type="danger"
+                       circle icon="iconfont el-icon-absound-filling">
+            </el-button>
             <div class="popover-container">
-                <el-button circle @click="soundSwitch" v-if="volume > 0" class="iconfont el-icon-absound-filling sound-icon"></el-button>
-                <el-button circle @click="soundSwitch" v-else class="iconfont el-icon-absound-Mute sound-icon"></el-button>
+                <el-button circle @click="soundSwitch"
+                           v-if="volume"
+                           class="iconfont el-icon-absound-filling sound-icon">
+                </el-button>
+                <el-button circle @click="soundSwitch"
+                           v-else
+                           class="iconfont el-icon-absound-Mute sound-icon">
+                </el-button>
                 <el-slider class="sound-slider" v-model="volume"></el-slider>
             </div>
         </el-popover>
