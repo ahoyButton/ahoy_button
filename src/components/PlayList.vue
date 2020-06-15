@@ -21,26 +21,24 @@
                 </el-tag>
             </el-row>
             <el-row>
-              <el-col :span="2">
-                  <el-button type="primary" @click="startPlay">
+                <el-button-group>
+                  <el-button type="primary" @click="startPlay"
+                             icon="el-icon-video-play">
                     播放
                   </el-button>
-              </el-col>
-              <el-col :span="2">
-                  <el-button type="warning" @click="handlePause">
+                  <el-button type="warning" @click="handlePause"
+                             icon="el-icon-video-pause">
                     暂停
-                  </el-button>
-              </el-col>
-              <el-col :span="2">
-                  <el-button type="info" @click="handleStop">
+                  </el-button>            
+                  <el-button type="info" @click="handleStop"
+                             icon="el-icon-switch-button">
                     停止
                   </el-button>
-              </el-col>
-              <el-col :span="2">
-                  <el-button type="danger" @click="handleClean">
+                  <el-button type="danger" @click="handleClean"
+                             icon="el-icon-delete">
                     清空列表
                   </el-button>
-              </el-col>
+                </el-button-group>
             </el-row>
         </div>
     </el-dialog>
@@ -170,5 +168,9 @@ export default {
     margin-right: 20px;
     border: 1px solid #c16275;
     margin-bottom: 10px;
+}
+
+.el-button {
+    font-size: 18px;
 }
 </style>

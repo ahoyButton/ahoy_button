@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import {
     Button,
+    ButtonGroup,
     Card,
     Col,
     Dialog,
@@ -17,6 +18,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/base.css'
 
 Vue.use(Button)
+Vue.use(ButtonGroup)
 Vue.use(Card)
 Vue.use(Col)
 Vue.use(Dialog)
