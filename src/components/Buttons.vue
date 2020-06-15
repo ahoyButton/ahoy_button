@@ -56,6 +56,10 @@
     import groups from '../assets/voices.json'
     import {addSourcePrefix} from '../utils'
     import PlayList from './PlayList'
+    import {
+        ADD_ORDER,
+        OPEN_PLAY_LIST_DIALOG
+    } from '../store/mutation-types'
 
     export default {
         name: "Buttons",
@@ -75,7 +79,7 @@
             play(item) {
                 const voicePath = addSourcePrefix(item.path, this.sourcePrefix)
                 if (this.isOrdered) {
-                    this.$store.commit('addOrder', item)
+                    this.$store.commit(ADD_ORDER, item)
                 }
                 const player = new Audio(voicePath)
                 player.preload = 'auto'
@@ -90,7 +94,7 @@
                 this.volume = 0
             },
             showPlayList() {
-                this.$store.commit('openPlayListDialog')
+                this.$store.commit(OPEN_PLAY_LIST_DIALOG)
             }
         },
         computed: {

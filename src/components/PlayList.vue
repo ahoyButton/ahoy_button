@@ -48,6 +48,11 @@
 
 <script>
 import {addSourcePrefix} from '../utils'
+import {
+    REMOVE_ORDER,
+    CLEAN_ALL_ITEMS,
+    CLOSE_PLAY_LIST_DIALOG
+} from '../store/mutation-types'
 
 export default {
     name: 'PlayList',
@@ -77,7 +82,7 @@ export default {
             if (index < this.currentIndex) {
                 this.currentIndex -= 1
             }
-            this.$store.commit('removeOrder', index)
+            this.$store.commit(REMOVE_ORDER, index)
         },
         startPlay() {
             this.currentIndex = 0
@@ -107,10 +112,10 @@ export default {
         },
         handleClean() {
             this.handleStop()
-            this.$store.commit('cleanAllItems')
+            this.$store.commit(CLEAN_ALL_ITEMS)
         },
         handleClose() {
-            this.$store.commit('closePlayListDialog')
+            this.$store.commit(CLOSE_PLAY_LIST_DIALOG)
         }
     },
     computed: {
