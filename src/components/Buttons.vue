@@ -1,6 +1,15 @@
 <template>
     <div>
         <div class="btn-panel-title">船长按钮</div>
+        <el-row style="margin: 20px 0;" type="flex" justify="center">
+            <el-col :span="2">
+                <el-switch v-model="isOrdered"
+                           active-color="#c16275"
+                           active-text="播放列表模式">
+                </el-switch>
+            </el-col>
+        </el-row>
+        
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
                 <span style="font-size: 32px">{{group.group_name}}</span>
@@ -9,7 +18,7 @@
                 <el-button class="sound-btn" type="danger"
                            round v-for="(btn, i) in group.buttons"
                            :key="i"
-                           @click="play(btn.path)">
+                           @click="play(btn)">
                     {{btn.name}}
                 </el-button>
             </el-row>
@@ -30,27 +39,44 @@
                 <el-slider class="sound-slider" v-model="volume"></el-slider>
             </div>
         </el-popover>
+
+        <el-button type="primary" class="play-list-btn"
+                   circle icon="iconfont el-icon-abcategory"
+                   v-show="isOrdered"
+                   @click="showPlayList">
+        </el-button>
+
+        <play-list :audio-prefix="sourcePrefix"
+                   :volume="volume">
+        </play-list>
     </div>
 </template>
 
 <script>
     import groups from '../assets/voices.json'
     import {addSourcePrefix} from '../utils'
+    import PlayList from './PlayList'
 
     export default {
         name: "Buttons",
+        components: {
+            PlayList
+        },
         data() {
             return {
                 btnGroups: groups,
                 // to use a absolute path avoiding resolving a relative one
                 sourcePrefix: "/voices/",
-                volume: 100
+                volume: 100,
+                isOrdered: false
             }
         },
         methods: {
-            play(source) {
-                const voicePath = addSourcePrefix(source, this.sourcePrefix)
-                console.log(voicePath)
+            play(item) {
+                const voicePath = addSourcePrefix(item.path, this.sourcePrefix)
+                if (this.isOrdered) {
+                    this.$store.commit('addOrder', item)
+                }
                 const player = new Audio(voicePath)
                 player.preload = 'auto'
                 player.volume = this.volume / 100
@@ -62,6 +88,9 @@
                     return
                 }
                 this.volume = 0
+            },
+            showPlayList() {
+                this.$store.commit('openPlayListDialog')
             }
         },
         computed: {
@@ -131,5 +160,15 @@
 .popover-container {
     display: flex;
     align-items: center;
+}
+
+.play-list-btn {
+  z-index: 999;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  font-size: 30px;
 }
 </style>

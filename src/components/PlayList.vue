@@ -1,0 +1,169 @@
+<template>
+    <el-dialog :visible="show" center
+               :before-close="handleClose"
+               :show-close="!false">
+        <div slot="title" class="play-list-title">
+            {{titleInfo}}
+        </div>
+        <div>
+            <el-row>
+                <span class='current-list-title'>
+                    当前列表:
+                </span>
+            </el-row>
+            <el-row class="play-list">
+                <el-tag color="#c16275" closable
+                        class="play-list-item"
+                        effect="dark"
+                        v-for="(item, index) in listItems" :key="index"
+                        @close="removeItem(index)">
+                    {{item.name}}
+                </el-tag>
+            </el-row>
+            <el-row>
+              <el-col :span="2">
+                  <el-button type="primary" @click="startPlay">
+                    播放
+                  </el-button>
+              </el-col>
+              <el-col :span="2">
+                  <el-button type="warning" @click="handlePause">
+                    暂停
+                  </el-button>
+              </el-col>
+              <el-col :span="2">
+                  <el-button type="info" @click="handleStop">
+                    停止
+                  </el-button>
+              </el-col>
+              <el-col :span="2">
+                  <el-button type="danger" @click="handleClean">
+                    清空列表
+                  </el-button>
+              </el-col>
+            </el-row>
+        </div>
+    </el-dialog>
+</template>
+
+<script>
+import {addSourcePrefix} from '../utils'
+
+export default {
+    name: 'PlayList',
+    props: {
+        audioPrefix: {
+            type: String,
+            required: true
+        },
+        volume: {
+            type: Number,
+            default: 100
+        }
+    },
+    created() {
+        this.audio.addEventListener('ended', this.handleOrder, false)
+        this.audio.preload = 'auto'
+    },
+    data() {
+        return {
+            audio: new Audio,
+            currentIndex: 0,
+            isPlaying: false
+        }
+    },
+    methods: {
+        removeItem(index) {
+            if (index < this.currentIndex) {
+                this.currentIndex -= 1
+            }
+            this.$store.commit('removeOrder', index)
+        },
+        startPlay() {
+            this.currentIndex = 0
+            this.handleOrder()
+        },
+        handleOrder() {
+            //TODO: loop
+            if (this.currentIndex >= this.listItems.length) {
+                return
+            }
+            const source = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
+            this.audio.src = source
+            console.log(source)
+            this.audio.volume = 1
+            this.isPlaying = true
+            this.audio.play()
+            this.currentIndex++
+        },
+        handlePause() {
+            this.audio.pause()
+            this.isPlaying = false
+        },
+        handleStop() {
+            this.currentIndex = 0
+            this.handlePause()
+            this.audio.currentTime = 0
+        },
+        handleClean() {
+            this.handleStop()
+            this.$store.commit('cleanAllItems')
+        },
+        handleClose() {
+            this.$store.commit('closePlayListDialog')
+        }
+    },
+    computed: {
+        titleInfo() {
+            const prefix = '播放列表'
+            const title = `当前有${this.listItems.length}个音频`
+            if (this.isPlaying) {
+                // index在play后被立即+1,无需重复
+                const currentPlaying = `正在播放第${this.currentIndex ===0?1:this.currentIndex}个`
+                return prefix + '（' + title + '，' + currentPlaying + '）'
+            }
+
+            return prefix + '(' + title + ')'
+        },
+        show() {
+            return this.$store.state.showPlayListDialog
+        },
+        listItems() {
+            return this.$store.state.playList
+        },
+        audioVolume() {
+            return this.volume / 100
+        }
+    }
+}
+</script>
+
+<style scoped>
+.play-list-title {
+    height: 100%;
+    width: 100%;
+    background-color: #c16275;
+    padding: 20px 20px 10px 20px;
+    margin: -20px -20px 0;
+    font-size: 25px;
+}
+
+.current-list-title {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.play-list {
+    margin: 10px 0 40px;
+}
+
+.play-list-item {
+    color: aliceblue;
+    font-size: 22px;
+    margin-right: 20px;
+    border: 1px solid #c16275;
+    margin-bottom: 10px;
+}
+</style>
