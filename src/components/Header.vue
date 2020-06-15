@@ -49,9 +49,8 @@
     position: sticky;
     top: 0;
     z-index: 200;
-    margin: 0 0 30px 0;
+    margin: 0;
     padding: 15px 5px;
-    width: 100%;
     height: 64px;
     border: 0;
     border-radius: 0;
