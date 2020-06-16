@@ -8,7 +8,7 @@
             <span>{{$t('footer.license')}}</span>
             <br>
             <el-row style="margin: 10px 0">
-                <el-col :span="8">
+                <el-col :span="10">
                 <span>{{$t('footer.followUs')}}</span>
                     <el-link icon="iconfont el-icon-abgithub"
                              href="https://github.com/ahoyButton/ahoy_button/">
