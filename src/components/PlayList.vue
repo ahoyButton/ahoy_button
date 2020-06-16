@@ -1,9 +1,16 @@
 <template>
     <el-dialog :visible="show" center
                :before-close="handleClose"
-               :show-close="!false">
+               :show-close="false">
         <div slot="title" class="play-list-title">
-            {{titleInfo}}
+            <span>
+                {{titleInfo}}
+            </span>
+            <el-button icon="el-icon-close"
+                       class="close-btn"
+                       circle
+                       @click="handleClose">
+            </el-button>
         </div>
         <div>
             <el-row>
@@ -149,6 +156,16 @@ export default {
     padding: 20px 20px 10px 20px;
     margin: -20px -20px 0;
     font-size: 25px;
+    color: aliceblue;
+}
+
+.close-btn {
+    font-size: 20px;
+    color: aliceblue;
+    float: right;
+    background-color: #c16275;
+    margin-top: -10px;
+    border: 0;
 }
 
 .current-list-title {
