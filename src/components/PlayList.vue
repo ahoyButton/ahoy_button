@@ -96,6 +96,7 @@ export default {
         handleOrder() {
             //TODO: loop
             if (this.currentIndex >= this.listItems.length) {
+                this.isPlaying = false
                 return
             }
             const source = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
