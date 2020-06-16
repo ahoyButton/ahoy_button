@@ -1,0 +1,64 @@
+---
+# 格式：
+# 采用yaml，json将由工具自动生成
+# 缩进2 space
+# 字符串一律单引号包裹
+# 
+# - group_name: '分类名1'
+#   buttons:
+#     -
+#       name: '按钮1'
+#       path: '音频路径'
+# - group_name: '分类名2'
+#   buttons:
+#     -
+#       name: '按钮2'
+#       path: '音频路径'
+
+- group_name: '笑声'
+  buttons:
+    - 
+      name: 'rua-hihihi'
+      path: '笑声/rua-hihihi.mp3'
+    - 
+      name: '奸笑 嘲讽'
+      path: '笑声/奸笑 嘲讽.mp3'
+
+- group_name: '台词'
+  buttons:
+    -
+      name: '宝宝很生气-摔手柄-喘气'
+      path: '台词/宝宝很生气-摔手柄-喘气.mp3'
+    -
+      name: '胜利-尖叫-拍手'
+      path: '台词/胜利-尖叫-拍手.mp3'
+    -
+      name: '这么久远的问题船长不懂'
+      path: '台词/这么久远的问题船长不懂.mp3'
+
+- group_name: '哈欠'
+  buttons:
+    -
+      name: '哈欠1'
+      path: '哈欠/哈欠1.mp3'
+    -
+      name: '哈欠2'
+      path: '哈欠/哈欠2.mp3'
+    -
+      name: '困了 晚安'
+      path: '哈欠/困了 晚安.mp3'
+
+- group_name: '拟声'
+  buttons:
+    -
+      name: 'bayaya'
+      path: '拟声/bayaya.mp3'
+    -
+      name: 'do gann'
+      path: '拟声/do gann.mp3'
+    -
+      name: 'dua'
+      path: '拟声/dua.mp3'
+    -
+      name: '电话铃'
+      path: '拟声/电话铃.mp3'
