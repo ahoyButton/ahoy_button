@@ -1,0 +1,25 @@
+{
+  "header": {
+    "helpUsImprove": "HELP IMPROVE THIS WEBSITE"
+  },
+  "buttons": {
+    "mainTitle": "marine's buttons",
+    "playListMode": "Playlist Mode"
+  },
+  "footer": {
+    "authors": "authors:",
+    "contributors": "thanks to:",
+    "license": "This site has nothing to do with Hololive, do not use it for any commercial purpose!",
+    "followUs": "follow us:"
+  },
+  "playList": {
+    "currentList": "current list",
+    "play": "play",
+    "pause": "pause",
+    "stop": "stop",
+    "clear": "clear list",
+    "dialogTitle": "Playlist",
+    "currentTotal": "{} ITEM(S)",
+    "currentPlayingInfo": "NOW PLAYING {}"
+  }
+}

@@ -1,15 +1,15 @@
 <template>
     <el-card class="footer" shadow="never">
         <div class="footer-container">
-            <span>作者：{{authorMessage}}</span>
+            <span>{{$t('footer.authors')}}{{authorMessage}}</span>
             <br>
-            <span>特别鸣谢：{{contributorMessage}}</span>
+            <span>{{$t('footer.contributors')}}{{contributorMessage}}</span>
             <br>
-            <span>{{license}}</span>
+            <span>{{$t('footer.license')}}</span>
             <br>
             <el-row style="margin: 10px 0">
                 <el-col :span="8">
-                <span>关注我们：</span>
+                <span>{{$t('footer.followUs')}}</span>
                     <el-link icon="iconfont el-icon-abgithub"
                              href="https://github.com/ahoyButton/ahoy_button/">
                     </el-link>
@@ -33,8 +33,6 @@
                 authors: [],
                 // 素材提供者
                 contributors: [],
-                // 免责声明
-                license: "本站为爱好者学习交流创作，与Hololive官方无关，切勿用于任何商业目的"
             }
         },
         computed: {

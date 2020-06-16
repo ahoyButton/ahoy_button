@@ -1,68 +1,164 @@
 [
   {
-    "group_name": "\u7b11\u58f0",
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u7b11\u58f0",
+        "en": "",
+        "ja_JP": "\u7b11\u3044\u58f0"
+      }
+    },
     "buttons": [
       {
-        "name": "rua-hihihi",
+        "name": {
+          "lang": {
+            "zh_CN": "rua-hihihi",
+            "en": "rua-hihihi",
+            "ja_JP": "rua-hihihi"
+          }
+        },
         "path": "\u7b11\u58f0/rua-hihihi.mp3"
       },
       {
-        "name": "\u5978\u7b11 \u5632\u8bbd",
+        "name": {
+          "lang": {
+            "zh_CN": "\u5978\u7b11 \u5632\u8bbd",
+            "en": "",
+            "ja_JP": ""
+          }
+        },
         "path": "\u7b11\u58f0/\u5978\u7b11 \u5632\u8bbd.mp3"
       }
     ]
   },
   {
-    "group_name": "\u53f0\u8bcd",
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u53f0\u8bcd",
+        "en": "",
+        "ja_JP": "\u30bb\u30ea\u30d5"
+      }
+    },
     "buttons": [
       {
-        "name": "\u5b9d\u5b9d\u5f88\u751f\u6c14-\u6454\u624b\u67c4-\u5598\u6c14",
+        "name": {
+          "lang": {
+            "zh_CN": "\u5b9d\u5b9d\u5f88\u751f\u6c14-\u6454\u624b\u67c4-\u5598\u6c14",
+            "en": "",
+            "ja_JP": ""
+          }
+        },
         "path": "\u53f0\u8bcd/\u5b9d\u5b9d\u5f88\u751f\u6c14-\u6454\u624b\u67c4-\u5598\u6c14.mp3"
       },
       {
-        "name": "\u80dc\u5229-\u5c16\u53eb-\u62cd\u624b",
+        "name": {
+          "lang": {
+            "zh_CN": "\u80dc\u5229-\u5c16\u53eb-\u62cd\u624b",
+            "en": "vectory-scream-handclap",
+            "ja_JP": ""
+          }
+        },
         "path": "\u53f0\u8bcd/\u80dc\u5229-\u5c16\u53eb-\u62cd\u624b.mp3"
       },
       {
-        "name": "\u8fd9\u4e48\u4e45\u8fdc\u7684\u95ee\u9898\u8239\u957f\u4e0d\u61c2",
+        "name": {
+          "lang": {
+            "zh_CN": "\u8fd9\u4e48\u4e45\u8fdc\u7684\u95ee\u9898\u8239\u957f\u4e0d\u61c2",
+            "en": "",
+            "ja_JP": ""
+          }
+        },
         "path": "\u53f0\u8bcd/\u8fd9\u4e48\u4e45\u8fdc\u7684\u95ee\u9898\u8239\u957f\u4e0d\u61c2.mp3"
       }
     ]
   },
   {
-    "group_name": "\u54c8\u6b20",
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u54c8\u6b20",
+        "en": "",
+        "ja_JP": "\u6b20\u4f38"
+      }
+    },
     "buttons": [
       {
-        "name": "\u54c8\u6b201",
+        "name": {
+          "lang": {
+            "zh_CN": "\u54c8\u6b201",
+            "en": "",
+            "ja_JP": "\u6b20\u4f381"
+          }
+        },
         "path": "\u54c8\u6b20/\u54c8\u6b201.mp3"
       },
       {
-        "name": "\u54c8\u6b202",
+        "name": {
+          "lang": {
+            "zh_CN": "\u54c8\u6b202",
+            "en": "",
+            "ja_JP": "\u6b20\u4f382"
+          }
+        },
         "path": "\u54c8\u6b20/\u54c8\u6b202.mp3"
       },
       {
-        "name": "\u56f0\u4e86 \u665a\u5b89",
+        "name": {
+          "lang": {
+            "zh_CN": "\u56f0\u4e86 \u665a\u5b89",
+            "en": "",
+            "ja_JP": "\u7720\u304f\u306a\u3063\u305f\u3001\u304a\u3084\u3059\u307f"
+          }
+        },
         "path": "\u54c8\u6b20/\u56f0\u4e86 \u665a\u5b89.mp3"
       }
     ]
   },
   {
-    "group_name": "\u62df\u58f0",
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u62df\u58f0",
+        "en": "",
+        "ja_JP": ""
+      }
+    },
     "buttons": [
       {
-        "name": "bayaya",
+        "name": {
+          "lang": {
+            "zh_CN": "bayaya",
+            "en": "bayaya",
+            "ja_JP": ""
+          }
+        },
         "path": "\u62df\u58f0/bayaya.mp3"
       },
       {
-        "name": "do gann",
+        "name": {
+          "lang": {
+            "zh_CN": "do gann",
+            "en": "do gann",
+            "ja_JP": ""
+          }
+        },
         "path": "\u62df\u58f0/do gann.mp3"
       },
       {
-        "name": "dua",
+        "name": {
+          "lang": {
+            "zh_CN": "dua",
+            "en": "dua",
+            "ja_JP": ""
+          }
+        },
         "path": "\u62df\u58f0/dua.mp3"
       },
       {
-        "name": "\u7535\u8bdd\u94c3",
+        "name": {
+          "lang": {
+            "zh_CN": "\u7535\u8bdd\u94c3",
+            "en": "phone call",
+            "ja_JP": ""
+          }
+        },
         "path": "\u62df\u58f0/\u7535\u8bdd\u94c3.mp3"
       }
     ]

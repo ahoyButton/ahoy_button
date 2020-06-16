@@ -6,6 +6,9 @@ import {
     Col,
     Dialog,
     Divider,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
     Link,
     Icon,
     Popover,
@@ -23,6 +26,9 @@ Vue.use(Card)
 Vue.use(Col)
 Vue.use(Dialog)
 Vue.use(Divider)
+Vue.use(Dropdown)
+Vue.use(DropdownItem)
+Vue.use(DropdownMenu)
 Vue.use(Link)
 Vue.use(Icon)
 Vue.use(Popover)

@@ -15,7 +15,7 @@
         <div>
             <el-row>
                 <span class='current-list-title'>
-                    当前列表:
+                    {{$t('playList.currentList')}}:
                 </span>
             </el-row>
             <el-row class="play-list">
@@ -24,26 +24,26 @@
                         effect="dark"
                         v-for="(item, index) in listItems" :key="index"
                         @close="removeItem(index)">
-                    {{item.name}}
+                    {{item.name.lang[lang]}}
                 </el-tag>
             </el-row>
             <el-row>
                 <el-button-group>
                   <el-button type="primary" @click="startPlay"
                              icon="el-icon-video-play">
-                    播放
+                      {{$t('playList.play')}}
                   </el-button>
                   <el-button type="warning" @click="handlePause"
                              icon="el-icon-video-pause">
-                    暂停
+                      {{$t('playList.pause')}}
                   </el-button>            
                   <el-button type="info" @click="handleStop"
                              icon="el-icon-switch-button">
-                    停止
+                      {{$t('playList.stop')}}
                   </el-button>
                   <el-button type="danger" @click="handleClean"
                              icon="el-icon-delete">
-                    清空列表
+                      {{$t('playList.clear')}}
                   </el-button>
                 </el-button-group>
             </el-row>
@@ -52,7 +52,10 @@
 </template>
 
 <script>
-import {addSourcePrefix} from '../utils'
+import {
+    addSourcePrefix,
+    formatStr
+} from '../utils'
 import {
     REMOVE_ORDER,
     CLEAN_ALL_ITEMS,
@@ -102,12 +105,13 @@ export default {
             const source = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
             this.audio.src = source
             console.log(source)
-            this.audio.volume = 1
+            this.audio.volume = this.audioVolume
             this.isPlaying = true
             this.audio.play()
             this.currentIndex++
         },
         handlePause() {
+            //FIXME
             this.audio.pause()
             this.isPlaying = false
         },
@@ -126,15 +130,17 @@ export default {
     },
     computed: {
         titleInfo() {
-            const prefix = '播放列表'
-            const title = `当前有${this.listItems.length}个音频`
+            const prefix = this.$t('playList.dialogTitle')
+            const currentTotal = this.$t('playList.currentTotal')
+            const title = formatStr(currentTotal, this.listItems.length)
             if (this.isPlaying) {
                 // index在play后被立即+1,无需重复
-                const currentPlaying = `正在播放第${this.currentIndex ===0?1:this.currentIndex}个`
-                return prefix + '（' + title + '，' + currentPlaying + '）'
+                const currentPlayingInfo = this.$t('playList.currentPlayingInfo')
+                const currentPlaying = formatStr(currentPlayingInfo, this.currentIndex===0?1:this.currentIndex)
+                return prefix + '（' + title + '-' + currentPlaying + '）'
             }
 
-            return prefix + '(' + title + ')'
+            return prefix + '（' + title + '）'
         },
         show() {
             return this.$store.state.showPlayListDialog
@@ -144,6 +150,9 @@ export default {
         },
         audioVolume() {
             return this.volume / 100
+        },
+        lang() {
+            return this.$i18n.locale
         }
     }
 }

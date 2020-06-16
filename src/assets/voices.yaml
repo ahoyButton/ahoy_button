@@ -4,61 +4,142 @@
 # 缩进2 space
 # 字符串一律单引号包裹
 # 
-# - group_name: '分类名1'
+# - group_name:
+#     lang:
+#       zh_CN: '分类1'         ---> 中文
+#       en: 'category1'       --->　English
+#       ja_JP: 'カテゴリー1'    ---> 日本語
 #   buttons:
 #     -
-#       name: '按钮1'
+#       name:
+#         lang:
+#           zh_CN: '按钮1'     ---> 中文
+#           en: 'button1'      --->　English
+#           ja_JP: 'ボタン1'    ---> 日本語
 #       path: '音频路径'
-# - group_name: '分类名2'
+#
+# - group_name:
+#     lang:
+#       zh_CN: '分类2'         ---> 中文
+#       en: 'category2'       --->　English
+#       ja_JP: 'カテゴリー2'    ---> 日本語
 #   buttons:
 #     -
-#       name: '按钮2'
+#       name:
+#         lang:
+#           zh_CN: '按钮2'     ---> 中文
+#           en: 'button2'     --->　English
+#           ja_JP: 'ボタン2'   ---> 日本語
 #       path: '音频路径'
 
-- group_name: '笑声'
+- group_name:
+    lang:
+      zh_CN: '笑声'
+      en: ''
+      ja_JP: '笑い声'
   buttons:
     - 
-      name: 'rua-hihihi'
+      name:
+        lang:
+          zh_CN: 'rua-hihihi'
+          en: 'rua-hihihi'
+          ja_JP: 'rua-hihihi'
       path: '笑声/rua-hihihi.mp3'
     - 
-      name: '奸笑 嘲讽'
+      name:
+        lang:
+          zh_CN: '奸笑 嘲讽'
+          en: ''
+          ja_JP: ''
       path: '笑声/奸笑 嘲讽.mp3'
 
-- group_name: '台词'
+- group_name:
+    lang:
+      zh_CN: '台词'
+      en: ''
+      ja_JP: 'セリフ'
   buttons:
     -
-      name: '宝宝很生气-摔手柄-喘气'
+      name:
+        lang:
+          zh_CN: '宝宝很生气-摔手柄-喘气'
+          en: ''
+          ja_JP: ''
       path: '台词/宝宝很生气-摔手柄-喘气.mp3'
     -
-      name: '胜利-尖叫-拍手'
+      name:
+        lang:
+          zh_CN: '胜利-尖叫-拍手'
+          en: 'vectory-scream-handclap'
+          ja_JP: ''
       path: '台词/胜利-尖叫-拍手.mp3'
     -
-      name: '这么久远的问题船长不懂'
+      name:
+        lang:
+          zh_CN: '这么久远的问题船长不懂'
+          en: ''
+          ja_JP: ''
       path: '台词/这么久远的问题船长不懂.mp3'
 
-- group_name: '哈欠'
+- group_name:
+    lang:
+      zh_CN: '哈欠'
+      en: ''
+      ja_JP: '欠伸'
   buttons:
     -
-      name: '哈欠1'
+      name:
+        lang:
+          zh_CN: '哈欠1'
+          en: ''
+          ja_JP: '欠伸1'
       path: '哈欠/哈欠1.mp3'
     -
-      name: '哈欠2'
+      name:
+        lang:
+          zh_CN: '哈欠2'
+          en: ''
+          ja_JP: '欠伸2'
       path: '哈欠/哈欠2.mp3'
     -
-      name: '困了 晚安'
+      name:
+        lang:
+          zh_CN: '困了 晚安'
+          en: ''
+          ja_JP: '眠くなった、おやすみ'
       path: '哈欠/困了 晚安.mp3'
 
-- group_name: '拟声'
+- group_name:
+    lang:
+      zh_CN: '拟声'
+      en: ''
+      ja_JP: ''
   buttons:
     -
-      name: 'bayaya'
+      name:
+        lang:
+          zh_CN: 'bayaya'
+          en: 'bayaya'
+          ja_JP: ''
       path: '拟声/bayaya.mp3'
     -
-      name: 'do gann'
+      name:
+        lang:
+          zh_CN: 'do gann'
+          en: 'do gann'
+          ja_JP: ''
       path: '拟声/do gann.mp3'
     -
-      name: 'dua'
+      name:
+        lang:
+          zh_CN: 'dua'
+          en: 'dua'
+          ja_JP: ''
       path: '拟声/dua.mp3'
     -
-      name: '电话铃'
+      name:
+        lang:
+          zh_CN: '电话铃'
+          en: 'phone call'
+          ja_JP: ''
       path: '拟声/电话铃.mp3'

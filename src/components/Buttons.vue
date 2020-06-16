@@ -1,25 +1,25 @@
 <template>
     <div>
-        <div class="btn-panel-title">船长按钮</div>
+        <div class="btn-panel-title">{{$t('buttons.mainTitle')}}</div>
         <el-row style="margin: 20px 0;" type="flex" justify="center">
-            <el-col :span="2">
+            <el-col :span="3" style="text-align: center;">
                 <el-switch v-model="isOrdered"
                            active-color="#c16275"
-                           active-text="播放列表模式">
+                           :active-text="$t('buttons.playListMode')">
                 </el-switch>
             </el-col>
         </el-row>
         
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
-                <span style="font-size: 32px">{{group.group_name}}</span>
+                <span style="font-size: 32px">{{group.group_name.lang[lang]}}</span>
             </div>
             <el-row :gutter="15" class="btn-row">
                 <el-button class="sound-btn" type="danger"
                            round v-for="(btn, i) in group.buttons"
                            :key="i"
                            @click="play(btn)">
-                    {{btn.name}}
+                    {{btn.name.lang[lang]}}
                 </el-button>
             </el-row>
         </el-card>
@@ -109,6 +109,9 @@
                         'iconfont',
                         this.volume?'el-icon-absound-filling':'el-icon-absound-Mute'
                     ].join(' ')
+            },
+            lang() {
+                return this.$i18n.locale
             }
         },
     }

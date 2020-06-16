@@ -1,0 +1,25 @@
+{
+  "header": {
+    "helpUsImprove": "あなたのお手伝いいただきたい！"
+  },
+  "buttons": {
+    "mainTitle": "マリンボタン",
+    "playListMode": "再生リストモード"
+  },
+  "footer": {
+    "authors": "作者：",
+    "contributors": "ご協力頂いた方々：",
+    "license": "本サイトは個人的な興味に基づいて立てられており、ホロライブプロダクション公式との関係はありません",
+    "followUs": "私たちをフォローする："
+  },
+  "playList": {
+    "currentList": "カレントプレイリスト",
+    "play": "プレイ",
+    "pause": "一時停止",
+    "stop": "ストップ",
+    "clear": "リストをクリア",
+    "dialogTitle": "再生リスト",
+    "currentTotal": "今{}のボイスがあります",
+    "currentPlayingInfo": "{}番目のボイス再生中です"
+  }
+}

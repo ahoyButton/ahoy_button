@@ -4,10 +4,12 @@ import './plugins/element.js'
 import './plugins/vuegithubbutton.js'
 import './assets/iconfont/iconfont.css'
 import store from './store'
+import i18n from './i18n'
 
 Vue.config.productionTip = false
 
 new Vue({
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
