@@ -82,7 +82,8 @@ export default {
         return {
             audio: new Audio,
             currentIndex: 0,
-            isPlaying: false
+            isPlaying: false,
+            isPaused: false
         }
     },
     methods: {
@@ -111,8 +112,15 @@ export default {
             this.currentIndex++
         },
         handlePause() {
-            //FIXME
+            if (this.isPaused) {
+                this.audio.play()
+                this.isPaused = false
+                this.isPlaying = true
+                return
+            }
+
             this.audio.pause()
+            this.isPaused = true
             this.isPlaying = false
         },
         handleStop() {
