@@ -19,10 +19,3 @@ export function genMessage(names, splitter = '、') {
     }
     return names.join(splitter)
 }
-
-// 替换字符串中的值，类似python的format
-// 默认替换{}，只能替换一次
-//TODO support more than one content
-export function formatStr(source, content, substitution='{}') {
-    return source.replace(substitution, content.toString())
-}

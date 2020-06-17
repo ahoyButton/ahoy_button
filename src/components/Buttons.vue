@@ -40,11 +40,14 @@
             </div>
         </el-popover>
 
-        <el-button type="primary" class="play-list-btn"
-                   circle icon="iconfont el-icon-abcategory"
-                   v-show="isOrdered"
-                   @click="showPlayList">
-        </el-button>
+        <transition name="el-zoom-in-center">
+            <el-button type="primary" class="play-list-btn"
+                       circle
+                       icon="iconfont el-icon-abcategory"
+                       v-show="isOrdered"
+                       @click="showPlayList">
+            </el-button>
+        </transition>
 
         <play-list :audio-prefix="sourcePrefix"
                    :volume="volume">

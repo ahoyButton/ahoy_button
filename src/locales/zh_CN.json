@@ -19,7 +19,7 @@
     "stop": "停止",
     "clear": "清空列表",
     "dialogTitle": "播放列表",
-    "currentTotal": "当前有{}个音频",
-    "currentPlayingInfo": "正在播放第{}个"
+    "currentTotal": "当前有%d个音频",
+    "currentPlayingInfo": "正在播放第%d个"
   }
 }

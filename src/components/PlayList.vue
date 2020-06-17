@@ -52,15 +52,13 @@
 </template>
 
 <script>
-import {
-    addSourcePrefix,
-    formatStr
-} from '../utils'
+import {addSourcePrefix} from '../utils'
 import {
     REMOVE_ORDER,
     CLEAN_ALL_ITEMS,
     CLOSE_PLAY_LIST_DIALOG
 } from '../store/mutation-types'
+import {sprintf} from 'sprintf-js'
 
 export default {
     name: 'PlayList',
@@ -140,15 +138,15 @@ export default {
         titleInfo() {
             const prefix = this.$t('playList.dialogTitle')
             const currentTotal = this.$t('playList.currentTotal')
-            const title = formatStr(currentTotal, this.listItems.length)
+            const title = sprintf(currentTotal, this.listItems.length)
             if (this.isPlaying) {
                 // index在play后被立即+1,无需重复
                 const currentPlayingInfo = this.$t('playList.currentPlayingInfo')
-                const currentPlaying = formatStr(currentPlayingInfo, this.currentIndex===0?1:this.currentIndex)
-                return prefix + '（' + title + '-' + currentPlaying + '）'
+                const currentPlaying = sprintf(currentPlayingInfo, this.currentIndex===0?1:this.currentIndex)
+                return sprintf('%s（%s - %s）', prefix, title, currentPlaying)
             }
 
-            return prefix + '（' + title + '）'
+            return sprintf('%s（%s）', prefix, title)
         },
         show() {
             return this.$store.state.showPlayListDialog

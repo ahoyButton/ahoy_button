@@ -19,7 +19,7 @@
     "stop": "stop",
     "clear": "clear list",
     "dialogTitle": "Playlist",
-    "currentTotal": "{} ITEM(S)",
-    "currentPlayingInfo": "NOW PLAYING {}"
+    "currentTotal": "%d ITEM(S)",
+    "currentPlayingInfo": "NOW PLAYING %d"
   }
 }

@@ -19,7 +19,7 @@
     "stop": "ストップ",
     "clear": "リストをクリア",
     "dialogTitle": "再生リスト",
-    "currentTotal": "今{}のボイスがあります",
-    "currentPlayingInfo": "{}番目のボイス再生中です"
+    "currentTotal": "今%dのボイスがあります",
+    "currentPlayingInfo": "%d番目のボイス再生中です"
   }
 }
