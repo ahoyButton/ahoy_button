@@ -101,9 +101,8 @@ export default {
                 this.isPlaying = false
                 return
             }
-            const source = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
-            this.audio.src = source
-            console.log(source)
+
+            this.audio.src = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
             this.audio.volume = this.audioVolume
             this.isPlaying = true
             this.audio.play()
@@ -115,6 +114,9 @@ export default {
                 this.isPaused = false
                 this.isPlaying = true
                 return
+            } else if (!this.isPlaying && !this.isPaused) {
+                // 播放没有开始，暂停无效果
+                return
             }
 
             this.audio.pause()
@@ -123,7 +125,9 @@ export default {
         },
         handleStop() {
             this.currentIndex = 0
-            this.handlePause()
+            this.audio.pause()
+            this.isPlaying = false
+            this.isPaused = false
             this.audio.currentTime = 0
         },
         handleClean() {
@@ -193,6 +197,8 @@ export default {
 
 .play-list {
     margin: 10px 0 40px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .play-list-item {
@@ -204,6 +210,6 @@ export default {
 }
 
 .el-button {
-    font-size: 18px;
+    font-size: 16px;
 }
 </style>
