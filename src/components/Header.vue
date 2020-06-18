@@ -7,23 +7,23 @@
             <el-col :span="1" class="divider">
                 <el-divider direction="vertical"></el-divider>
             </el-col>
-            <el-col :span="4">
+            <el-col :span="11">
+                <el-button-group>
                 <el-button round type="danger"
-                           class="btn"
+                           class="btn ytb-btn"
                            icon="iconfont el-icon-abyoutube"
                            @click="see('https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg?sub_confirmation=1')">
                     Marine Ch. 宝鐘マリン
                 </el-button>
-            </el-col>
-            <el-col :span="4">
                 <el-button round type="primary"
-                           class="btn"
+                           class="btn twt-btn"
                            icon="iconfont el-icon-absocialtwitteroutline"
                            @click="see('https://twitter.com/houshoumarine')">
                     @houshoumarine
                 </el-button>
+                </el-button-group>
             </el-col>
-            <el-col :span="5" :offset="9">
+            <el-col :span="11">
                     <el-dropdown @command="changeLang" class="lang-selector">
                         <el-button circle
                                    class="btn lang-btn"
@@ -38,7 +38,7 @@
                         </el-dropdown-menu>
                     </el-dropdown>
                     <el-button icon="iconfont el-icon-abgithub"
-                                :class="helpUsBtnClass"
+                                class="help-us-btn"
                                 @click="see('https://github.com/ahoyButton/ahoy_button')">
                         {{$t('header.helpUsImprove')}}
                     </el-button>
@@ -75,14 +75,6 @@
             changeLang(lang) {
                 this.$i18n.locale = lang
             }
-        },
-        computed: {
-            helpUsBtnClass() {
-                return {
-                    'help-us-btn': this.$i18n.locale === 'zh_CN',
-                    'small-help-us-btn': this.$i18n.locale !== 'zh_CN'
-                }
-            }
         }
     }
 </script>
@@ -103,22 +95,22 @@
 
 .btn {
     margin-top: -15px;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     align-items: center;
+}
+
+.ytb-btn {
+    background-color: red;
+}
+
+.twt-btn {
+    background-color: #1da1f2;
 }
 
 .help-us-btn {
     margin-top: -15px;
     font-size: 20px;
-    display: flex;
-    align-items: center;
-    float: right;
-}
-
-.small-help-us-btn {
-    margin-top: -15px;
-    font-size: 15px;
     display: flex;
     align-items: center;
     float: right;
