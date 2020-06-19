@@ -30,13 +30,26 @@ export default {
     window.addEventListener('scroll', this.handleScroll, true)
   },
   methods: {
+    getScrollLength() {
+        const scrollLength = document.documentElement.scrollTop || document.body.scrollTop
+        return scrollLength
+    },
     handleScroll() {
-      const scrollLength = document.documentElement.scrollTop || document.body.scrollTop
+      const scrollLength = this.getScrollLength()
       this.goTop = (scrollLength > 30)
     },
     toTop() {
-      //TODO: add animations
-      document.body.scrollTop = document.documentElement.scrollTop = 0
+      const scroll2Top = () => {
+          const scrollLength = this.getScrollLength()
+          if (scrollLength === 0) {
+              return
+          }
+
+          document.body.scrollTop = document.documentElement.scrollTop = scrollLength - 50
+          window.requestAnimationFrame(scroll2Top)
+      }
+
+      window.requestAnimationFrame(scroll2Top)
     }
   }
 }
