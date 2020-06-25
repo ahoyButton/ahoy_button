@@ -31,8 +31,7 @@ export default {
   },
   methods: {
     getScrollLength() {
-        const scrollLength = document.documentElement.scrollTop || document.body.scrollTop
-        return scrollLength
+        return document.documentElement.scrollTop || document.body.scrollTop
     },
     handleScroll() {
       const scrollLength = this.getScrollLength()
