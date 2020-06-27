@@ -19,10 +19,7 @@ module.exports = {
     css: {
         loaderOptions: {
             scss: {
-                prependData: ` 
-               @import "@/assets/custom_theme.scss";
-               @import "@nutui/nutui/dist/styles/index.scss";
-               `,
+                prependData: `@import "@nutui/nutui/dist/styles/index.scss";`,
             }
         },
     }

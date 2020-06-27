@@ -6,10 +6,10 @@
             <span>
                 {{titleInfo}}
             </span>
-            <el-button icon="el-icon-close"
-                       class="close-btn"
+            <el-button class="close-btn"
                        circle
                        @click="handleClose">
+                <i class="el-icon-close"></i>
             </el-button>
         </div>
         <div>
@@ -188,15 +188,21 @@ export default {
     margin: -20px -20px 0;
     font-size: 25px;
     color: aliceblue;
+    position: relative;
 }
 
 .close-btn {
     font-size: 20px;
     color: aliceblue;
-    float: right;
+    position: absolute;
+    top: 33%;
+    bottom: 33%;
+    right: 20px;
     background-color: #c16275;
-    margin-top: -10px;
     border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .current-list-title {

@@ -13,8 +13,8 @@
                     <el-link icon="iconfont el-icon-abgithub"
                              href="https://github.com/ahoyButton/ahoy_button/">
                     </el-link>
-                    <gh-btns-fork class="git-btn" slug="ahoyButton/ahoy_button" show-count></gh-btns-fork>
-                    <gh-btns-star class="git-btn" slug="ahoyButton/ahoy_button" show-count></gh-btns-star>
+                    <gh-btns-fork slug="ahoyButton/ahoy_button" show-count></gh-btns-fork>
+                    <gh-btns-star slug="ahoyButton/ahoy_button" show-count></gh-btns-star>
                     <gh-btns-follow user="ahoyButton" show-count></gh-btns-follow>
                 </el-col>
             </el-row>

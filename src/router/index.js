@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from '../App'
+import Index from "../views/Index";
 
 Vue.use(VueRouter)
 
   const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: App
-  }
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: '/pc',
+      name: 'pc',
+      component: () => import('../components/PCApp')
+    }
 ]
 
 const router = new VueRouter({
