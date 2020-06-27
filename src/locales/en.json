@@ -20,6 +20,7 @@
     "clear": "clear list",
     "dialogTitle": "Playlist",
     "currentTotal": "%d ITEM(S)",
-    "currentPlayingInfo": "NOW PLAYING %d"
+    "currentPlayingInfo": "NOW PLAYING %d",
+    "loopMode": "loop mode"
   }
 }

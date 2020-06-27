@@ -28,6 +28,13 @@
                 </el-tag>
             </el-row>
             <el-row>
+                <el-switch v-model="isLoop"
+                           active-color="#c16275"
+                           :active-text="$t('playList.loopMode')"
+                           style="margin-bottom: 10px">
+                </el-switch>
+            </el-row>
+            <el-row>
                 <el-button-group>
                   <el-button type="primary" @click="startPlay"
                              icon="el-icon-video-play">
@@ -81,7 +88,8 @@ export default {
             audio: new Audio,
             currentIndex: 0,
             isPlaying: false,
-            isPaused: false
+            isPaused: false,
+            isLoop: false
         }
     },
     methods: {
@@ -96,10 +104,13 @@ export default {
             this.handleOrder()
         },
         handleOrder() {
-            //TODO: loop
             if (this.currentIndex >= this.listItems.length) {
-                this.isPlaying = false
-                return
+                if (!this.isLoop) {
+                    this.isPlaying = false
+                    return
+                } else {
+                    this.currentIndex = 0
+                }
             }
 
             this.audio.src = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
