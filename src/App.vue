@@ -2,7 +2,9 @@
   <div id="app">
       <transition name="switch-page"
                   enter-active-class="animate__animated animate__zoomIn">
-        <router-view class="view"></router-view>
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
       </transition>
   </div>
 </template>

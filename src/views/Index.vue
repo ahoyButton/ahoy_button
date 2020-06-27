@@ -27,9 +27,20 @@
 <script>
     export default {
         name: "Index",
+        data() {
+            return {
+                clicked: false
+            }
+        },
+        mounted() {
+            if (!this.clicked) {
+                setTimeout(() => {this.toPCApp()}, 3000)
+            }
+        },
         methods: {
             toPCApp() {
                 this.$router.push('/pc')
+                this.clicked = true
             }
         }
     }

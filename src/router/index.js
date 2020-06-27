@@ -8,7 +8,10 @@ Vue.use(VueRouter)
     {
       path: '/',
       name: 'Index',
-      component: Index
+      component: Index,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/pc',
