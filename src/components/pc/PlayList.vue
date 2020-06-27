@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import {addSourcePrefix} from '../../utils'
+import {addSourcePrefix} from '../../utils/utils'
 import {
     REMOVE_ORDER,
     CLEAN_ALL_ITEMS,

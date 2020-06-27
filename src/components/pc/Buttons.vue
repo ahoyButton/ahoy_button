@@ -57,7 +57,7 @@
 
 <script>
     import groups from '../../assets/voices.json'
-    import {addSourcePrefix} from '../../utils'
+    import {addSourcePrefix} from '../../utils/utils'
     import PlayList from './PlayList'
     import {
         ADD_ORDER,

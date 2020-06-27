@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import {genMessage} from '../../utils'
+    import {genMessage} from '../../utils/utils'
 
     export default {
         name: "Footer",
