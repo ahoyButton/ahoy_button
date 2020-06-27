@@ -1,48 +1,89 @@
 <template>
     <div>
-        <div class="btn-panel-title">船长按钮</div>
+        <div class="btn-panel-title">{{$t('buttons.mainTitle')}}</div>
+        <el-row style="margin: 20px 0;" type="flex" justify="center">
+            <el-col :span="3" style="text-align: center;">
+                <el-switch v-model="isOrdered"
+                           active-color="#c16275"
+                           :active-text="$t('buttons.playListMode')">
+                </el-switch>
+            </el-col>
+        </el-row>
+        
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
-                <span style="font-size: 32px">{{group.group_name}}</span>
+                <span style="font-size: 32px">{{group.group_name.lang[lang]}}</span>
             </div>
             <el-row :gutter="15" class="btn-row">
-                <el-button class="sound-btn" type="danger" round v-for="(btn, i) in group.buttons" :key="i" @click="play(btn.path)">
-                    {{btn.name}}
+                <el-button class="sound-btn" type="danger"
+                           round v-for="(btn, i) in group.buttons"
+                           :key="i"
+                           @click="play(btn)">
+                    {{btn.name.lang[lang]}}
                 </el-button>
             </el-row>
         </el-card>
 
         <!--弹出内容垂直居中-->
         <el-popover placement="bottom-start">
-            <el-button class="sound-control"  slot="reference"  type="danger" circle icon="iconfont el-icon-absound-filling"></el-button>
+            <el-button class="sound-control" slot="reference" 
+                       type="danger"
+                       circle
+                       :icon="soundControlIcon">
+            </el-button>
             <div class="popover-container">
-                <el-button circle @click="soundSwitch" v-if="volume > 0" class="iconfont el-icon-absound-filling sound-icon"></el-button>
-                <el-button circle @click="soundSwitch" v-else class="iconfont el-icon-absound-Mute sound-icon"></el-button>
+                <el-button circle @click="soundSwitch"
+                           class="iconfont sound-icon"
+                           :class="soundIconClass">
+                </el-button>
                 <el-slider class="sound-slider" v-model="volume"></el-slider>
             </div>
         </el-popover>
+
+        <transition name="el-zoom-in-center">
+            <el-button type="primary" class="play-list-btn"
+                       circle
+                       icon="iconfont el-icon-abcategory"
+                       v-show="isOrdered"
+                       @click="showPlayList">
+            </el-button>
+        </transition>
+
+        <play-list :audio-prefix="sourcePrefix"
+                   :volume="volume">
+        </play-list>
     </div>
 </template>
 
 <script>
     import groups from '../assets/voices.json'
     import {addSourcePrefix} from '../utils'
+    import PlayList from './PlayList'
+    import {
+        ADD_ORDER,
+        OPEN_PLAY_LIST_DIALOG
+    } from '../store/mutation-types'
 
     export default {
         name: "Buttons",
+        components: {
+            PlayList
+        },
         data() {
             return {
                 btnGroups: groups,
                 // to use a absolute path avoiding resolving a relative one
                 sourcePrefix: "/voices/",
                 volume: 100,
-                a:0,
+                isOrdered: false
             }
         },
         methods: {
-            play(source) {
-                const voicePath = addSourcePrefix(source, this.sourcePrefix)
-                console.log(voicePath)
+            play(item) {
+                const voicePath = addSourcePrefix(item.path, this.sourcePrefix)
+                if (this.isOrdered) {
+                    this.$store.commit(ADD_ORDER, item)
+                }
                 const player = new Audio(voicePath)
                 player.preload = 'auto'
                 player.volume = this.volume / 100
@@ -54,8 +95,28 @@
                     return
                 }
                 this.volume = 0
+            },
+            showPlayList() {
+                this.$store.commit(OPEN_PLAY_LIST_DIALOG)
             }
-        }
+        },
+        computed: {
+            soundIconClass() {
+                return {
+                    'el-icon-absound-filling': this.volume,
+                    'el-icon-absound-Mute': !this.volume
+                }
+            },
+            soundControlIcon() {
+                return [
+                        'iconfont',
+                        this.volume?'el-icon-absound-filling':'el-icon-absound-Mute'
+                    ].join(' ')
+            },
+            lang() {
+                return this.$i18n.locale
+            }
+        },
     }
 </script>
 
@@ -109,5 +170,15 @@
 .popover-container {
     display: flex;
     align-items: center;
+}
+
+.play-list-btn {
+  z-index: 999;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  font-size: 30px;
 }
 </style>

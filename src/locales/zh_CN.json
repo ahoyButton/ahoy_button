@@ -1,0 +1,26 @@
+{
+  "header": {
+    "helpUsImprove": "帮助我们改进网页"
+  },
+  "buttons": {
+    "mainTitle": "船长按钮",
+    "playListMode": "播放列表模式"
+  },
+  "footer": {
+    "authors": "作者：",
+    "contributors": "特别鸣谢：",
+    "license": "本站为爱好者学习交流创作，与Hololive官方无关，切勿用于任何商业目的",
+    "followUs": "关注我们："
+  },
+  "playList": {
+    "currentList": "当前列表",
+    "play": "播放",
+    "pause": "暂停",
+    "stop": "停止",
+    "clear": "清空列表",
+    "dialogTitle": "播放列表",
+    "currentTotal": "当前有%d个音频",
+    "currentPlayingInfo": "正在播放第%d个",
+    "loopMode": "循环播放"
+  }
+}

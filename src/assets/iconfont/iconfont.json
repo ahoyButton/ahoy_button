@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1294651",
+      "name": "地球",
+      "font_class": "diqiu",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "545002",
       "name": "social-twitter-outline",
       "font_class": "socialtwitteroutline",
