@@ -57,7 +57,7 @@
 
 <script>
     import groups from '../../assets/voices.json'
-    import {addSourcePrefix} from '../../utils/utils'
+    import {Player} from '../../utils/player'
     import PlayList from './PlayList'
     import {
         ADD_ORDER,
@@ -80,14 +80,11 @@
         },
         methods: {
             play(item) {
-                const voicePath = addSourcePrefix(item.path, this.sourcePrefix)
                 if (this.isOrdered) {
                     this.$store.commit(ADD_ORDER, item)
                 }
-                const player = new Audio(voicePath)
-                player.preload = 'auto'
-                player.volume = this.volume / 100
-                player.play()
+                const player = new Player(this.sourcePrefix, this.volume)
+                player.play(item.path)
             },
             soundSwitch() {
                 if (this.volume === 0) {

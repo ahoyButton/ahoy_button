@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import {addSourcePrefix} from '../../utils/utils'
+import {Player} from "../../utils/player"
 import {
     REMOVE_ORDER,
     CLEAN_ALL_ITEMS,
@@ -79,13 +79,9 @@ export default {
             default: 100
         }
     },
-    created() {
-        this.audio.addEventListener('ended', this.handleOrder, false)
-        this.audio.preload = 'auto'
-    },
     data() {
         return {
-            audio: new Audio,
+            audio: new Player(this.audioPrefix, this.volume, this.handleOrder),
             currentIndex: 0,
             isPlaying: false,
             isPaused: false,
@@ -113,15 +109,14 @@ export default {
                 }
             }
 
-            this.audio.src = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
-            this.audio.volume = this.audioVolume
+            this.audio.volume = this.volume
             this.isPlaying = true
-            this.audio.play()
+            this.audio.play(this.listItems[this.currentIndex].path)
             this.currentIndex++
         },
         handlePause() {
             if (this.isPaused) {
-                this.audio.play()
+                this.audio.continuePlay()
                 this.isPaused = false
                 this.isPlaying = true
                 return
@@ -136,10 +131,9 @@ export default {
         },
         handleStop() {
             this.currentIndex = 0
-            this.audio.pause()
+            this.audio.stop()
             this.isPlaying = false
             this.isPaused = false
-            this.audio.currentTime = 0
         },
         handleClean() {
             this.handleStop()
@@ -168,9 +162,6 @@ export default {
         },
         listItems() {
             return this.$store.state.playList
-        },
-        audioVolume() {
-            return this.volume / 100
         },
         lang() {
             return this.$i18n.locale
