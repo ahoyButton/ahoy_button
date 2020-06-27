@@ -3,7 +3,9 @@
       <HeaderBar></HeaderBar>
       <buttons-panel></buttons-panel>
       <FooterBar></FooterBar>
-      <transition name="el-fade-in-linear">
+      <transition name="backtop-anime"
+                  enter-active-class="animate__animated animate__fadeInRight"
+                  leave-active-class="animate__animated animate__fadeOutLeft">
         <el-button class="back-top" v-show="goTop" plain circle type="primary" icon="el-icon-top" @click="toTop"></el-button>
       </transition>
   </div>

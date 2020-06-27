@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-      <transition name="el-fade-in-linear">
+      <transition name="switch-page"
+                  enter-active-class="animate__animated animate__zoomIn">
         <router-view class="view"></router-view>
       </transition>
   </div>
