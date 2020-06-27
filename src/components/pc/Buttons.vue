@@ -56,13 +56,13 @@
 </template>
 
 <script>
-    import groups from '../assets/voices.json'
-    import {addSourcePrefix} from '../utils'
+    import groups from '../../assets/voices.json'
+    import {addSourcePrefix} from '../../utils'
     import PlayList from './PlayList'
     import {
         ADD_ORDER,
         OPEN_PLAY_LIST_DIALOG
-    } from '../store/mutation-types'
+    } from '../../store/mutation-types'
 
     export default {
         name: "Buttons",

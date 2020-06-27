@@ -13,7 +13,7 @@ Vue.use(VueRouter)
     {
       path: '/pc',
       name: 'pc',
-      component: () => import('../components/PCApp')
+      component: () => import('../components/pc/PCApp')
     }
 ]
 

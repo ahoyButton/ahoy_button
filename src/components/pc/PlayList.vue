@@ -59,12 +59,12 @@
 </template>
 
 <script>
-import {addSourcePrefix} from '../utils'
+import {addSourcePrefix} from '../../utils'
 import {
     REMOVE_ORDER,
     CLEAN_ALL_ITEMS,
     CLOSE_PLAY_LIST_DIALOG
-} from '../store/mutation-types'
+} from '../../store/mutation-types'
 import {sprintf} from 'sprintf-js'
 
 export default {
