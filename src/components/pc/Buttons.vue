@@ -63,6 +63,7 @@
         ADD_ORDER,
         OPEN_PLAY_LIST_DIALOG
     } from '../../store/mutation-types'
+    import {AUDIO_PREFIX} from "../../utils/constants";
 
     export default {
         name: "Buttons",
@@ -73,7 +74,7 @@
             return {
                 btnGroups: groups,
                 // to use a absolute path avoiding resolving a relative one
-                sourcePrefix: "/voices/",
+                sourcePrefix: AUDIO_PREFIX,
                 volume: 100,
                 isOrdered: false
             }

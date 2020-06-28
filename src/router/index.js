@@ -17,6 +17,11 @@ Vue.use(VueRouter)
       path: '/pc',
       name: 'pc',
       component: () => import('../components/pc/PCApp')
+    },
+    {
+      path: '/mobile',
+      name: 'mobile',
+      component: () => import('../components/mobile/MobileApp')
     }
 ]
 
