@@ -36,7 +36,7 @@
                            class="iconfont sound-icon"
                            :class="soundIconClass">
                 </el-button>
-                <el-slider class="sound-slider" v-model="volume"></el-slider>
+                <el-slider class="sound-slider" v-model.number.lazy="volume"></el-slider>
             </div>
         </el-popover>
 
@@ -60,7 +60,7 @@
     import {Player} from '../../utils/player'
     import PlayList from './PlayList'
     import {
-        ADD_ORDER,
+        ADD_ORDER, MODIFY_VOLUME,
         OPEN_PLAY_LIST_DIALOG
     } from '../../store/mutation-types'
     import {AUDIO_PREFIX} from "../../utils/constants";
@@ -75,7 +75,6 @@
                 btnGroups: groups,
                 // to use a absolute path avoiding resolving a relative one
                 sourcePrefix: AUDIO_PREFIX,
-                volume: 100,
                 isOrdered: false
             }
         },
@@ -113,6 +112,14 @@
             },
             lang() {
                 return this.$i18n.locale
+            },
+            volume: {
+                get: function () {
+                    return this.$store.state.volume
+                },
+                set: function (value) {
+                    this.$store.commit(MODIFY_VOLUME, value)
+                }
             }
         },
     }

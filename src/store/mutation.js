@@ -3,7 +3,8 @@ import {
     REMOVE_ORDER,
     CLEAN_ALL_ITEMS,
     OPEN_PLAY_LIST_DIALOG,
-    CLOSE_PLAY_LIST_DIALOG
+    CLOSE_PLAY_LIST_DIALOG,
+    MODIFY_VOLUME
 } from './mutation-types'
 
 const mutations = {
@@ -21,6 +22,9 @@ const mutations = {
     },
     [CLOSE_PLAY_LIST_DIALOG](state) {
         state.showPlayListDialog = false
+    },
+    [MODIFY_VOLUME](state, volume) {
+        state.volume = volume
     }
 }
 

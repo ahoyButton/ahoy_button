@@ -43,13 +43,15 @@
             return {
                 btnGroups: groups,
                 isListMode: false,
-                volume: 100,
                 sourcePrefix: AUDIO_PREFIX
             }
         },
         computed: {
             lang() {
                 return this.$i18n.locale
+            },
+            volume() {
+                return this.$store.state.volume
             }
         },
         methods: {
@@ -67,7 +69,7 @@
 <style scoped>
 .mobile-btn-panel-title {
     text-align: center;
-    font-size: 3rem
+    font-size: 2rem
 }
 
 .sound-btn {
