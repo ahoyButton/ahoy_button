@@ -50,7 +50,7 @@
                 this.clicked = true
             },
             toMobileApp() {
-                this.$router.push('/mobile')
+                this.$router.push('/mobile/main')
                 this.clicked = true
             }
         }

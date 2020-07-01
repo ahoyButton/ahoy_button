@@ -21,7 +21,16 @@ Vue.use(VueRouter)
     {
       path: '/mobile',
       name: 'mobile',
-      component: () => import('../components/mobile/MobileApp')
+      component: () => import('../components/mobile/MobileApp'),
+      children: [
+        {
+          path: 'main',
+          component: () => import('../components/mobile/Buttons'),
+          mate: {
+            keepAlive: true
+          }
+        }
+      ]
     }
 ]
 

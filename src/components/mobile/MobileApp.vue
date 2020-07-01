@@ -5,7 +5,11 @@
                     @on-click-more="showSettings = !showSettings">
             {{$t('buttons.mainTitle')}}
         </nut-navbar>
-        <Buttons></Buttons>
+
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+
         <nut-backtop :distance="20"></nut-backtop>
 
         <nut-popup position="left"
@@ -72,7 +76,6 @@
 </template>
 
 <script>
-    import Buttons from './Buttons'
     import {FILLING_ICON_PATH,
         languages,
         MUTE_ICON_PATH
@@ -81,7 +84,6 @@
 
     export default {
         name: "MobileApp",
-        components: {Buttons},
         data() {
             let langs = []
             for (let i = 0; i < languages.length; i++) {
