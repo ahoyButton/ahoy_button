@@ -49,8 +49,7 @@
             </el-button>
         </transition>
 
-        <play-list :audio-prefix="sourcePrefix"
-                   :volume="volume">
+        <play-list :audio-prefix="sourcePrefix">
         </play-list>
     </div>
 </template>

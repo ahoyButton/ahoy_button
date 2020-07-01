@@ -73,10 +73,6 @@ export default {
         audioPrefix: {
             type: String,
             required: true
-        },
-        volume: {
-            type: Number,
-            default: 100
         }
     },
     data() {
@@ -165,6 +161,9 @@ export default {
         },
         lang() {
             return this.$i18n.locale
+        },
+        volume() {
+            return this.$store.state.volume
         }
     }
 }
