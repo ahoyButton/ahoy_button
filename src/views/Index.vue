@@ -26,6 +26,8 @@
 </template>
 
 <script>
+    import {isMobile} from "../utils/utils";
+
     export default {
         name: "Index",
         data() {
@@ -34,10 +36,13 @@
             }
         },
         mounted() {
-            //TODO: auto check whether a PC or a mobile device
             if (!this.clicked) {
                 setTimeout(() => {
                     if (this.clicked) {
+                        return
+                    }
+                    if (isMobile()) {
+                        this.toMobileApp()
                         return
                     }
                     this.toPCApp()
