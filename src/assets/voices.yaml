@@ -38,6 +38,12 @@
       en: 'laughing'
       ja_JP: '笑い声'
   buttons:
+    - name:
+        lang:
+          zh_CN: '咕hihihihihi'
+          en: 'gu-hihihi'
+          ja_JP: 'ぐふふふ'
+      path: '笑声/咕hihihihihi.mp3'
     - 
       name:
         lang:
@@ -80,6 +86,34 @@
           en: ''
           ja_JP: 'こんな昔のこと船長分かんないですぅ'
       path: '台词/这么久远的问题船长不懂.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '玛琳琳（的朋友）要坏掉了'
+          en: ''
+          ja_JP: 'マリリン（の友達）が壊れちゃったよ'
+      path: '台词/玛琳琳（的朋友）要坏掉了.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '倒车请注意'
+          en: ''
+          ja_JP: 'バックします！'
+      path: '台词/倒车请注意.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '唔啊好过分'
+          en: ''
+          ja_JP: 'うぇんー、ひどいよ'
+      path: '台词/唔啊好过分.mp3'
+    -
+      name:
+        lang:
+          zh_CN: 'etc卡'
+          en: 'ETC Card'
+          ja_JP: 'etcカードが挿入されました'
+      path: '台词/etc卡.mp3'
 
 - group_name:
     lang:
@@ -150,3 +184,74 @@
           en: 'ahoy'
           ja_JP: 'ahoy'
       path: '拟声/ahoy.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '喵~'
+          en: 'nya~'
+          ja_JP: 'にゃ~'
+      path: '拟声/喵~.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '嗷呜'
+          en: ''
+          ja_JP: 'はうううー'
+      path: '拟声/嗷呜.mp3'
+
+- group_name:
+    lang:
+      zh_CN: '母国语'
+      en: ''
+      ja_JP: '母国語'
+  buttons:
+    -
+      name:
+        lang:
+          zh_CN: '母国语1'
+          en: ''
+          ja_JP: '母国語1'
+      path: '母国语/母国语1.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '得得得得得得得得得得得得得得得得得'
+          en: 'dududududududu'
+          ja_JP: 'dududududududu'
+      path: '母国语/得得得得得得得得得得得得得得得得得.mp3'
+
+- group_name:
+    lang:
+      zh_CN: '通用'
+      en: 'General'
+      ja_JP: '通用'
+  buttons:
+    -
+      name:
+        lang:
+          zh_CN: '我知道了（委屈巴巴）'
+          en: ''
+          ja_JP: '分かった（悔しそう）'
+        path: '通用/我知道了（委屈巴巴）.mp3'
+
+- group_name:
+    lang:
+      zh_CN: '倒计时'
+      en: 'Countdown'
+      ja_JP: 'カウントダウン'
+  buttons:
+    -
+      name:
+        lang:
+          zh_CN: '倒计时（元气）'
+          en: ''
+          ja_JP: 'カウントダウン（元気）'
+      path: '倒计时/倒计时（元气）.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '倒计时（安眠）'
+          en: ''
+          ja_JP: 'カウントダウン（おやすみ）'
+      path: '倒计时/倒计时（安眠）.mp3'
+

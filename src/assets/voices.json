@@ -11,6 +11,16 @@
       {
         "name": {
           "lang": {
+            "zh_CN": "\u5495hihihihihi",
+            "en": "gu-hihihi",
+            "ja_JP": "\u3050\u3075\u3075\u3075"
+          }
+        },
+        "path": "\u7b11\u58f0/\u5495hihihihihi.mp3"
+      },
+      {
+        "name": {
+          "lang": {
             "zh_CN": "rua-hihihi",
             "en": "rua-hihihi",
             "ja_JP": "rua-hihihi"
@@ -68,6 +78,46 @@
           }
         },
         "path": "\u53f0\u8bcd/\u8fd9\u4e48\u4e45\u8fdc\u7684\u95ee\u9898\u8239\u957f\u4e0d\u61c2.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u739b\u7433\u7433\uff08\u7684\u670b\u53cb\uff09\u8981\u574f\u6389\u4e86",
+            "en": "",
+            "ja_JP": "\u30de\u30ea\u30ea\u30f3\uff08\u306e\u53cb\u9054\uff09\u304c\u58ca\u308c\u3061\u3083\u3063\u305f\u3088"
+          }
+        },
+        "path": "\u53f0\u8bcd/\u739b\u7433\u7433\uff08\u7684\u670b\u53cb\uff09\u8981\u574f\u6389\u4e86.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u5012\u8f66\u8bf7\u6ce8\u610f",
+            "en": "",
+            "ja_JP": "\u30d0\u30c3\u30af\u3057\u307e\u3059\uff01"
+          }
+        },
+        "path": "\u53f0\u8bcd/\u5012\u8f66\u8bf7\u6ce8\u610f.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u5514\u554a\u597d\u8fc7\u5206",
+            "en": "",
+            "ja_JP": "\u3046\u3047\u3093\u30fc\u3001\u3072\u3069\u3044\u3088"
+          }
+        },
+        "path": "\u53f0\u8bcd/\u5514\u554a\u597d\u8fc7\u5206.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "etc\u5361",
+            "en": "ETC Card",
+            "ja_JP": "etc\u30ab\u30fc\u30c9\u304c\u633f\u5165\u3055\u308c\u307e\u3057\u305f"
+          }
+        },
+        "path": "\u53f0\u8bcd/etc\u5361.mp3"
       }
     ]
   },
@@ -170,6 +220,109 @@
           }
         },
         "path": "\u62df\u58f0/ahoy.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u55b5~",
+            "en": "nya~",
+            "ja_JP": "\u306b\u3083~"
+          }
+        },
+        "path": "\u62df\u58f0/\u55b5~.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u55f7\u545c",
+            "en": "",
+            "ja_JP": "\u306f\u3046\u3046\u3046\u30fc"
+          }
+        },
+        "path": "\u62df\u58f0/\u55f7\u545c.mp3"
+      }
+    ]
+  },
+  {
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u6bcd\u56fd\u8bed",
+        "en": "",
+        "ja_JP": "\u6bcd\u56fd\u8a9e"
+      }
+    },
+    "buttons": [
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u6bcd\u56fd\u8bed1",
+            "en": "",
+            "ja_JP": "\u6bcd\u56fd\u8a9e1"
+          }
+        },
+        "path": "\u6bcd\u56fd\u8bed/\u6bcd\u56fd\u8bed1.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97",
+            "en": "dududududududu",
+            "ja_JP": "dududududududu"
+          }
+        },
+        "path": "\u6bcd\u56fd\u8bed/\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97\u5f97.mp3"
+      }
+    ]
+  },
+  {
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u901a\u7528",
+        "en": "General",
+        "ja_JP": "\u901a\u7528"
+      }
+    },
+    "buttons": [
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u6211\u77e5\u9053\u4e86\uff08\u59d4\u5c48\u5df4\u5df4\uff09",
+            "en": "",
+            "ja_JP": "\u5206\u304b\u3063\u305f\uff08\u6094\u3057\u305d\u3046\uff09"
+          },
+          "path": "\u901a\u7528/\u6211\u77e5\u9053\u4e86\uff08\u59d4\u5c48\u5df4\u5df4\uff09.mp3"
+        }
+      }
+    ]
+  },
+  {
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u5012\u8ba1\u65f6",
+        "en": "Countdown",
+        "ja_JP": "\u30ab\u30a6\u30f3\u30c8\u30c0\u30a6\u30f3"
+      }
+    },
+    "buttons": [
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u5012\u8ba1\u65f6\uff08\u5143\u6c14\uff09",
+            "en": "",
+            "ja_JP": "\u30ab\u30a6\u30f3\u30c8\u30c0\u30a6\u30f3\uff08\u5143\u6c17\uff09"
+          }
+        },
+        "path": "\u5012\u8ba1\u65f6/\u5012\u8ba1\u65f6\uff08\u5143\u6c14\uff09.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u5012\u8ba1\u65f6\uff08\u5b89\u7720\uff09",
+            "en": "",
+            "ja_JP": "\u30ab\u30a6\u30f3\u30c8\u30c0\u30a6\u30f3\uff08\u304a\u3084\u3059\u307f\uff09"
+          }
+        },
+        "path": "\u5012\u8ba1\u65f6/\u5012\u8ba1\u65f6\uff08\u5b89\u7720\uff09.mp3"
       }
     ]
   }
