@@ -75,6 +75,7 @@
 .sound-btn {
     margin-bottom: 0.5rem;
     margin-right: 0.5rem;
+    padding: 0 10px;
     float: left;
     background-color: #c16275;
     color: aliceblue;
