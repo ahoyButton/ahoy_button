@@ -39,9 +39,13 @@
                 </div>
             </nut-cell>
             <nut-cell>
-                <el-slider slot="title"
-                            v-model.lazy.number="volume" style="margin-right: 0.5em">
-                </el-slider>
+                <div slot="title" style="display: flex;align-items: center;">
+                    <el-slider v-model.lazy.number="volume"
+                               :show-tooltip="false"
+                               style="margin-right: 0.5em;display: inline-block;width: 80%;">
+                    </el-slider>
+                    <span style="margin: 0 0.5em">{{volume}}</span>
+                </div>
                 <nut-avatar slot="avatar"
                             size="large"
                             bg-color="#fff"
