@@ -35,7 +35,7 @@
 - group_name:
     lang:
       zh_CN: '笑声'
-      en: ''
+      en: 'laughing'
       ja_JP: '笑い声'
   buttons:
     - 
@@ -50,96 +50,103 @@
         lang:
           zh_CN: '奸笑 嘲讽'
           en: ''
-          ja_JP: ''
+          ja_JP: '陰険に笑う、煽る'
       path: '笑声/奸笑 嘲讽.mp3'
 
 - group_name:
     lang:
-      zh_CN: '台词'
-      en: ''
-      ja_JP: 'セリフ'
+      zh_CN: '名台词'
+      en: 'Classic Lines'
+      ja_JP: '名セリフ'
   buttons:
     -
       name:
         lang:
           zh_CN: '宝宝很生气-摔手柄-喘气'
           en: ''
-          ja_JP: ''
+          ja_JP: '怒った、台パン、喘ぐ'
       path: '台词/宝宝很生气-摔手柄-喘气.mp3'
     -
       name:
         lang:
           zh_CN: '胜利-尖叫-拍手'
-          en: 'vectory-scream-handclap'
-          ja_JP: ''
+          en: 'vectory-screaming-handclap'
+          ja_JP: 'ヴィクトリー、絶叫、拍手'
       path: '台词/胜利-尖叫-拍手.mp3'
     -
       name:
         lang:
           zh_CN: '这么久远的问题船长不懂'
           en: ''
-          ja_JP: ''
+          ja_JP: 'こんな昔のこと船長分かんないですぅ'
       path: '台词/这么久远的问题船长不懂.mp3'
 
 - group_name:
     lang:
       zh_CN: '哈欠'
-      en: ''
+      en: 'Yawn'
       ja_JP: '欠伸'
   buttons:
     -
       name:
         lang:
           zh_CN: '哈欠1'
-          en: ''
+          en: 'yawn2'
           ja_JP: '欠伸1'
       path: '哈欠/哈欠1.mp3'
     -
       name:
         lang:
           zh_CN: '哈欠2'
-          en: ''
+          en: 'yawn2'
           ja_JP: '欠伸2'
       path: '哈欠/哈欠2.mp3'
     -
       name:
         lang:
           zh_CN: '困了 晚安'
-          en: ''
+          en: 'Im sleepy, good night guys'
           ja_JP: '眠くなった、おやすみ'
       path: '哈欠/困了 晚安.mp3'
 
 - group_name:
     lang:
       zh_CN: '拟声'
-      en: ''
-      ja_JP: ''
+      en: 'onomatopoeia'
+      ja_JP: '擬声語'
   buttons:
     -
       name:
         lang:
           zh_CN: 'bayaya'
           en: 'bayaya'
-          ja_JP: ''
+          ja_JP: 'bayaya'
       path: '拟声/bayaya.mp3'
     -
       name:
         lang:
           zh_CN: 'do gann'
           en: 'do gann'
-          ja_JP: ''
+          ja_JP: 'dogann'
       path: '拟声/do gann.mp3'
     -
       name:
         lang:
           zh_CN: 'dua'
           en: 'dua'
-          ja_JP: ''
+          ja_JP: 'dua'
       path: '拟声/dua.mp3'
     -
       name:
         lang:
           zh_CN: '电话铃'
           en: 'phone call'
-          ja_JP: ''
+          ja_JP: 'お電話かけちゃうお〜'
       path: '拟声/电话铃.mp3'
+    -
+      name:
+        lang:
+          zh_CN: 'ahoy'
+          en: 'ahoy'
+          ja_JP: 'ahoy'
+      path: '拟声/ahoy.mp3'
