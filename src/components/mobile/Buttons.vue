@@ -6,7 +6,7 @@
         <nut-row style="margin-bottom: 2rem;">
             <nut-col :span="24"
                      style="text-align: center">
-                <nut-switch v-model="isListMode">
+                <nut-switch :active.sync="isListMode">
                 </nut-switch>
                 <span style="margin-left: 1rem">
                     {{$t('buttons.playListMode')}}
