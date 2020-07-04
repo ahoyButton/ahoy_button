@@ -49,8 +49,7 @@
             </el-button>
         </transition>
 
-        <play-list :audio-prefix="sourcePrefix">
-        </play-list>
+        <play-list></play-list>
     </div>
 </template>
 
@@ -79,8 +78,6 @@
         data() {
             return {
                 btnGroups: groups,
-                // to use a absolute path avoiding resolving a relative one
-                sourcePrefix: AUDIO_PREFIX,
                 isOrdered: false
             }
         },
@@ -89,7 +86,7 @@
                 if (this.isOrdered) {
                     this.$store.commit(ADD_ORDER, item)
                 }
-                const player = new Player(this.sourcePrefix, this.volume)
+                const player = new Player(AUDIO_PREFIX, this.volume)
                 player.play(item.path)
             },
             soundSwitch() {

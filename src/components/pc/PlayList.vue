@@ -59,9 +59,10 @@
 </template>
 
 <script>
-import {Player} from "../../utils/player"
+import {Player} from '../../utils/player'
 import {REMOVE_ORDER} from '../../store/mutation-types'
 import {sprintf} from 'sprintf-js'
+import {AUDIO_PREFIX} from '../../utils/constants'
 
 import PlayListControlMixin from '../../mixins/play-list-control'
 import GetLangMixin from '../../mixins/get-lang'
@@ -74,19 +75,9 @@ export default {
         GetLangMixin,
         GetVolumeMixin
     ],
-    props: {
-        audioPrefix: {
-            type: String,
-            required: true
-        }
-    },
     data() {
         return {
-            audio: new Player(this.audioPrefix, this.volume, this.handleOrder),
-            currentIndex: 0,
-            isPlaying: false,
-            isPaused: false,
-            isLoop: false
+            audio: new Player(AUDIO_PREFIX, this.volume, this.handleOrder)
         }
     },
     methods: {
