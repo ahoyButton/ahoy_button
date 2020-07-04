@@ -41,12 +41,17 @@
         </el-popover>
 
         <transition name="el-zoom-in-center">
-            <el-button type="primary" class="play-list-btn"
-                       circle
-                       icon="iconfont el-icon-abcategory"
-                       v-show="isOrdered"
-                       @click="showPlayList">
-            </el-button>
+            <div v-show="isOrdered" class="play-list-btn">
+                <el-badge :value="playListLength"
+                          :hidden="playListLength === 0"
+                          :max="99">
+                    <el-button type="primary"
+                               circle
+                               icon="iconfont el-icon-abcategory"
+                               @click="showPlayList">
+                    </el-button>
+                </el-badge>
+            </div>
         </transition>
 
         <play-list></play-list>
@@ -112,6 +117,9 @@
                         'iconfont',
                         this.volume?'el-icon-absound-filling':'el-icon-absound-Mute'
                     ].join(' ')
+            },
+            playListLength() {
+                return this.$store.state.playList.length
             }
         },
     }
