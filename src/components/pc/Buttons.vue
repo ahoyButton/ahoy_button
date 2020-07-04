@@ -59,13 +59,20 @@
     import {Player} from '../../utils/player'
     import PlayList from './PlayList'
     import {
-        ADD_ORDER, MODIFY_VOLUME,
+        ADD_ORDER,
         OPEN_PLAY_LIST_DIALOG
     } from '../../store/mutation-types'
-    import {AUDIO_PREFIX} from "../../utils/constants";
+    import {AUDIO_PREFIX} from "../../utils/constants"
+
+    import GetLangMixin from '../../mixins/get-lang'
+    import GetVolumeMixin from '../../mixins/get-volume'
 
     export default {
         name: "Buttons",
+        mixins: [
+            GetLangMixin,
+            GetVolumeMixin
+        ],
         components: {
             PlayList
         },
@@ -108,17 +115,6 @@
                         'iconfont',
                         this.volume?'el-icon-absound-filling':'el-icon-absound-Mute'
                     ].join(' ')
-            },
-            lang() {
-                return this.$i18n.locale
-            },
-            volume: {
-                get: function () {
-                    return this.$store.state.volume
-                },
-                set: function (value) {
-                    this.$store.commit(MODIFY_VOLUME, value)
-                }
             }
         },
     }

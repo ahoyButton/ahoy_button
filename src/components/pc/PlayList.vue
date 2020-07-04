@@ -60,15 +60,20 @@
 
 <script>
 import {Player} from "../../utils/player"
-import {
-    REMOVE_ORDER,
-    CLEAN_ALL_ITEMS,
-    CLOSE_PLAY_LIST_DIALOG
-} from '../../store/mutation-types'
+import {REMOVE_ORDER} from '../../store/mutation-types'
 import {sprintf} from 'sprintf-js'
+
+import PlayListControlMixin from '../../mixins/play-list-control'
+import GetLangMixin from '../../mixins/get-lang'
+import GetVolumeMixin from '../../mixins/get-volume'
 
 export default {
     name: 'PlayList',
+    mixins: [
+        PlayListControlMixin,
+        GetLangMixin,
+        GetVolumeMixin
+    ],
     props: {
         audioPrefix: {
             type: String,
@@ -90,53 +95,6 @@ export default {
                 this.currentIndex -= 1
             }
             this.$store.commit(REMOVE_ORDER, index)
-        },
-        startPlay() {
-            this.currentIndex = 0
-            this.handleOrder()
-        },
-        handleOrder() {
-            if (this.currentIndex >= this.listItems.length) {
-                if (!this.isLoop) {
-                    this.isPlaying = false
-                    return
-                } else {
-                    this.currentIndex = 0
-                }
-            }
-
-            this.audio.volume = this.volume
-            this.isPlaying = true
-            this.audio.play(this.listItems[this.currentIndex].path)
-            this.currentIndex++
-        },
-        handlePause() {
-            if (this.isPaused) {
-                this.audio.continuePlay()
-                this.isPaused = false
-                this.isPlaying = true
-                return
-            } else if (!this.isPlaying && !this.isPaused) {
-                // 播放没有开始，暂停无效果
-                return
-            }
-
-            this.audio.pause()
-            this.isPaused = true
-            this.isPlaying = false
-        },
-        handleStop() {
-            this.currentIndex = 0
-            this.audio.stop()
-            this.isPlaying = false
-            this.isPaused = false
-        },
-        handleClean() {
-            this.handleStop()
-            this.$store.commit(CLEAN_ALL_ITEMS)
-        },
-        handleClose() {
-            this.$store.commit(CLOSE_PLAY_LIST_DIALOG)
         }
     },
     computed: {
@@ -155,15 +113,6 @@ export default {
         },
         show() {
             return this.$store.state.showPlayListDialog
-        },
-        listItems() {
-            return this.$store.state.playList
-        },
-        lang() {
-            return this.$i18n.locale
-        },
-        volume() {
-            return this.$store.state.volume
         }
     }
 }
