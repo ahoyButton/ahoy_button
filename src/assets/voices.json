@@ -3,7 +3,7 @@
     "group_name": {
       "lang": {
         "zh_CN": "\u7b11\u58f0",
-        "en": "laughing",
+        "en": "Laughing",
         "ja_JP": "\u7b11\u3044\u58f0"
       }
     },
@@ -32,7 +32,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u5978\u7b11 \u5632\u8bbd",
-            "en": "",
+            "en": "wicked laugh + taunting",
             "ja_JP": "\u9670\u967a\u306b\u7b11\u3046\u3001\u717d\u308b"
           }
         },
@@ -53,7 +53,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u5b9d\u5b9d\u5f88\u751f\u6c14-\u6454\u624b\u67c4-\u5598\u6c14",
-            "en": "",
+            "en": "Got mad + smash table + heavy breathing",
             "ja_JP": "\u6012\u3063\u305f\u3001\u53f0\u30d1\u30f3\u3001\u5598\u3050"
           }
         },
@@ -63,7 +63,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u80dc\u5229-\u5c16\u53eb-\u62cd\u624b",
-            "en": "vectory-screaming-handclap",
+            "en": "Victory + screaming + hand clap",
             "ja_JP": "\u30f4\u30a3\u30af\u30c8\u30ea\u30fc\u3001\u7d76\u53eb\u3001\u62cd\u624b"
           }
         },
@@ -73,7 +73,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u8fd9\u4e48\u4e45\u8fdc\u7684\u95ee\u9898\u8239\u957f\u4e0d\u61c2",
-            "en": "",
+            "en": "Senchou can't understand questions that ancient",
             "ja_JP": "\u3053\u3093\u306a\u6614\u306e\u3053\u3068\u8239\u9577\u5206\u304b\u3093\u306a\u3044\u3067\u3059\u3045"
           }
         },
@@ -83,7 +83,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u739b\u7433\u7433\uff08\u7684\u670b\u53cb\uff09\u8981\u574f\u6389\u4e86",
-            "en": "",
+            "en": "Marinin ('s friends) going to break",
             "ja_JP": "\u30de\u30ea\u30ea\u30f3\uff08\u306e\u53cb\u9054\uff09\u304c\u58ca\u308c\u3061\u3083\u3063\u305f\u3088"
           }
         },
@@ -93,7 +93,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u5012\u8f66\u8bf7\u6ce8\u610f",
-            "en": "",
+            "en": "Backing up!",
             "ja_JP": "\u30d0\u30c3\u30af\u3057\u307e\u3059\uff01"
           }
         },
@@ -103,7 +103,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u5514\u554a\u597d\u8fc7\u5206",
-            "en": "",
+            "en": "Uwee, thats cruel",
             "ja_JP": "\u3046\u3047\u3093\u30fc\u3001\u3072\u3069\u3044\u3088"
           }
         },
@@ -166,7 +166,7 @@
     "group_name": {
       "lang": {
         "zh_CN": "\u62df\u58f0",
-        "en": "onomatopoeia",
+        "en": "Onomatopoeia",
         "ja_JP": "\u64ec\u58f0\u8a9e"
       }
     },
@@ -235,7 +235,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u55f7\u545c",
-            "en": "",
+            "en": "Hauuu",
             "ja_JP": "\u306f\u3046\u3046\u3046\u30fc"
           }
         },
@@ -247,7 +247,7 @@
     "group_name": {
       "lang": {
         "zh_CN": "\u6bcd\u56fd\u8bed",
-        "en": "",
+        "en": "Mother Tongue",
         "ja_JP": "\u6bcd\u56fd\u8a9e"
       }
     },
@@ -256,7 +256,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u6bcd\u56fd\u8bed1",
-            "en": "",
+            "en": "mother tongue1",
             "ja_JP": "\u6bcd\u56fd\u8a9e1"
           }
         },
@@ -287,7 +287,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u6211\u77e5\u9053\u4e86\uff08\u59d4\u5c48\u5df4\u5df4\uff09",
-            "en": "",
+            "en": "understood.. (weep)",
             "ja_JP": "\u5206\u304b\u3063\u305f\uff08\u6094\u3057\u305d\u3046\uff09"
           }
         },
@@ -308,7 +308,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u5012\u8ba1\u65f6\uff08\u5143\u6c14\uff09",
-            "en": "",
+            "en": "Countdown (pumped)",
             "ja_JP": "\u30ab\u30a6\u30f3\u30c8\u30c0\u30a6\u30f3\uff08\u5143\u6c17\uff09"
           }
         },
@@ -318,7 +318,7 @@
         "name": {
           "lang": {
             "zh_CN": "\u5012\u8ba1\u65f6\uff08\u5b89\u7720\uff09",
-            "en": "",
+            "en": "Countdown (Goodnight)",
             "ja_JP": "\u30ab\u30a6\u30f3\u30c8\u30c0\u30a6\u30f3\uff08\u304a\u3084\u3059\u307f\uff09"
           }
         },

@@ -2,7 +2,7 @@
 # 格式：
 # 采用yaml，json将由工具自动生成
 # 缩进2 space
-# 字符串一律单引号包裹
+# 字符串一律单引号包裹（英文可酌情使用双引号）
 # 
 # - group_name:
 #     lang:
@@ -35,7 +35,7 @@
 - group_name:
     lang:
       zh_CN: '笑声'
-      en: 'laughing'
+      en: 'Laughing'
       ja_JP: '笑い声'
   buttons:
     - name:
@@ -55,7 +55,7 @@
       name:
         lang:
           zh_CN: '奸笑 嘲讽'
-          en: ''
+          en: 'wicked laugh + taunting'
           ja_JP: '陰険に笑う、煽る'
       path: '笑声/奸笑 嘲讽.mp3'
 
@@ -69,42 +69,42 @@
       name:
         lang:
           zh_CN: '宝宝很生气-摔手柄-喘气'
-          en: ''
+          en: 'Got mad + smash table + heavy breathing'
           ja_JP: '怒った、台パン、喘ぐ'
       path: '台词/宝宝很生气-摔手柄-喘气.mp3'
     -
       name:
         lang:
           zh_CN: '胜利-尖叫-拍手'
-          en: 'vectory-screaming-handclap'
+          en: 'Victory + screaming + hand clap'
           ja_JP: 'ヴィクトリー、絶叫、拍手'
       path: '台词/胜利-尖叫-拍手.mp3'
     -
       name:
         lang:
           zh_CN: '这么久远的问题船长不懂'
-          en: ''
+          en: "Senchou can't understand questions that ancient"
           ja_JP: 'こんな昔のこと船長分かんないですぅ'
       path: '台词/这么久远的问题船长不懂.mp3'
     -
       name:
         lang:
           zh_CN: '玛琳琳（的朋友）要坏掉了'
-          en: ''
+          en: "Marinin ('s friends) going to break"
           ja_JP: 'マリリン（の友達）が壊れちゃったよ'
       path: '台词/玛琳琳（的朋友）要坏掉了.mp3'
     -
       name:
         lang:
           zh_CN: '倒车请注意'
-          en: ''
+          en: 'Backing up!'
           ja_JP: 'バックします！'
       path: '台词/倒车请注意.mp3'
     -
       name:
         lang:
           zh_CN: '唔啊好过分'
-          en: ''
+          en: 'Uwee, thats cruel'
           ja_JP: 'うぇんー、ひどいよ'
       path: '台词/唔啊好过分.mp3'
     -
@@ -146,7 +146,7 @@
 - group_name:
     lang:
       zh_CN: '拟声'
-      en: 'onomatopoeia'
+      en: 'Onomatopoeia'
       ja_JP: '擬声語'
   buttons:
     -
@@ -195,21 +195,21 @@
       name:
         lang:
           zh_CN: '嗷呜'
-          en: ''
+          en: 'Hauuu'
           ja_JP: 'はうううー'
       path: '拟声/嗷呜.mp3'
 
 - group_name:
     lang:
       zh_CN: '母国语'
-      en: ''
+      en: 'Mother Tongue'
       ja_JP: '母国語'
   buttons:
     -
       name:
         lang:
           zh_CN: '母国语1'
-          en: ''
+          en: 'mother tongue1'
           ja_JP: '母国語1'
       path: '母国语/母国语1.mp3'
     -
@@ -230,7 +230,7 @@
       name:
         lang:
           zh_CN: '我知道了（委屈巴巴）'
-          en: ''
+          en: 'understood.. (weep)'
           ja_JP: '分かった（悔しそう）'
       path: '通用/我知道了（委屈巴巴）.mp3'
 
@@ -244,14 +244,14 @@
       name:
         lang:
           zh_CN: '倒计时（元气）'
-          en: ''
+          en: 'Countdown (pumped)'
           ja_JP: 'カウントダウン（元気）'
       path: '倒计时/倒计时（元气）.mp3'
     -
       name:
         lang:
           zh_CN: '倒计时（安眠）'
-          en: ''
+          en: 'Countdown (Goodnight)'
           ja_JP: 'カウントダウン（おやすみ）'
       path: '倒计时/倒计时（安眠）.mp3'
 
