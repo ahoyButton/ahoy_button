@@ -6,9 +6,11 @@
             {{$t('buttons.mainTitle')}}
         </nut-navbar>
 
-        <keep-alive>
-            <router-view></router-view>
-        </keep-alive>
+        <div style="margin-bottom: 5em">
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
+        </div>
 
         <nut-backtop :distance="20"></nut-backtop>
 
@@ -58,7 +60,7 @@
                 </nut-avatar>
             </nut-cell>
             <nut-cell :title="currentLang"
-                      @click-cell="showLangs = !showLangs">
+                      @click-cell="showLangSwitchMenu = !showLangSwitchMenu">
                 <div slot="avatar">
                     <nut-avatar bg-color="#fff"
                                 size="large"
@@ -67,23 +69,38 @@
                 </div>
             </nut-cell>
             <nut-menu type="simple"
-                      :is-visible="showLangs"
+                      :is-visible="showLangSwitchMenu"
                       :list="langs"
-                      @choose="switchLang" @close="showLangs = false">
+                      @choose="switchLang"
+                      @close="showLangSwitchMenu = false">
             </nut-menu>
         </nut-popup>
+
+        <nut-tabbar :bottom="true"
+                    :tabbar-list="tabList"
+                    type="card"
+                    @tab-switch="handleSwitch">
+        </nut-tabbar>
     </div>
 </template>
 
 <script>
-    import {FILLING_ICON_PATH,
+    import Vue from 'vue'
+    import {
+        FILLING_ICON_PATH,
         languages,
-        MUTE_ICON_PATH
-    } from "../../utils/constants";
-    import {MODIFY_VOLUME} from "../../store/mutation-types";
+        MUTE_ICON_PATH,
+        tabList as tabs
+    } from '../../utils/constants'
+    import GetVolumeMixin from '../../mixins/get-volume'
+    import GetLangMixin from '../../mixins/get-lang'
 
     export default {
         name: "MobileApp",
+        mixins: [
+            GetVolumeMixin,
+            GetLangMixin
+        ],
         data() {
             let langs = []
             for (let i = 0; i < languages.length; i++) {
@@ -97,7 +114,8 @@
             return {
                 showSettings: false,
                 langs,
-                showLangs: false
+                showLangSwitchMenu: false,
+                tabList: tabs[this.$i18n.locale]
             }
         },
         methods: {
@@ -109,7 +127,7 @@
             },
             switchLang(item, index) {
                 this.$i18n.locale = item.lang
-                this.showLangs = false
+                this.showLangSwitchMenu = false
                 this.langs.map((_, index) => this.langs[index].selected = false)
                 this.langs[index].selected = true
             },
@@ -120,20 +138,18 @@
                 }
 
                 this.volume = 100
+            },
+            handleSwitch(_, index) {
+                this.tabList.forEach(ele => Vue.set(ele, 'curr', false))
+                Vue.set(this.tabList[index], 'curr', true)
             }
         },
         computed: {
             currentLang() {
-                let item = this.langs.find(({selected}) => {return selected})
+                let item = this.langs.find(({selected}) => {
+                    return selected
+                })
                 return item.text
-            },
-            volume: {
-                get: function () {
-                    return this.$store.state.volume
-                },
-                set: function (value) {
-                    this.$store.commit(MODIFY_VOLUME, value)
-                }
             },
             soundControlIcon() {
                 if (this.volume) {
@@ -141,6 +157,31 @@
                 }
 
                 return MUTE_ICON_PATH
+            },
+            playListSize() {
+                return this.$store.state.playList.length
+            }
+        },
+        watch: {
+            // we need to update tab bar's data by ourselves
+            lang(newValue) {
+                let tmp = Array.from(tabs[newValue])
+                tmp.forEach(ele => ele.curr = false)
+                let curr = this.tabList.findIndex(ele => ele.curr === true)
+                tmp[curr].curr = true
+                let badgeIndex = this.tabList.findIndex(ele => ele.num !== undefined)
+                // 不同于curr，badge会有不存在的情况
+                if (badgeIndex !== -1) {
+                    tmp[badgeIndex].num = this.tabList[badgeIndex].num
+                }
+                this.tabList = [...tmp]
+            },
+            playListSize(newValue) {
+                if (newValue > 0) {
+                    Vue.set(this.tabList[1], 'num', this.playListSize)
+                } else {
+                    Vue.delete(this.tabList[1], 'num')
+                }
             }
         }
     }

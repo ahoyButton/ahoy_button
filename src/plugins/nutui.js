@@ -13,7 +13,8 @@ import {
     SideNavBar,
     SideNavBarItem,
     Slider,
-    Switch
+    Switch,
+    Tabbar
 } from '@nutui/nutui'
 import '@nutui/nutui/dist/nutui.css'
 
@@ -31,3 +32,4 @@ SideNavBar.install(Vue)
 SideNavBarItem.install(Vue)
 Slider.install(Vue)
 Switch.install(Vue)
+Tabbar.install(Vue)

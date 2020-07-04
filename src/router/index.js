@@ -29,6 +29,13 @@ Vue.use(VueRouter)
           mate: {
             keepAlive: true
           }
+        },
+        {
+          path: 'playlist',
+          component: () => import('../components/mobile/PlayList'),
+          mate: {
+            keepAlive: true
+          }
         }
       ]
     }
