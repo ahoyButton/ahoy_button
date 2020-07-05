@@ -33,22 +33,36 @@
             return {
                 showIcon: false,
                 inAnime: false,
-                outAnime: false
+                outAnime: false,
+                timeoutId: null
             }
         },
         methods: {
             showDelete() {
+                this.clearTimeoutId()
                 this.showIcon = true
                 this.outAnime = false
                 this.inAnime = true
+                this.timeoutId = setTimeout(() => {
+                    this.hideDelete()
+                }, 3000)
             },
             hideDelete() {
+                this.clearTimeoutId()
                 this.inAnime = false
                 this.outAnime = true
                 setTimeout(() => this.showIcon = false, 300)
             },
             delItem(path) {
+                this.showIcon = false
+                this.clearTimeoutId()
                 this.$store.commit(REMOVE_ORDER_BY_PATH, path)
+            },
+            clearTimeoutId() {
+                if (this.timeoutId !== null) {
+                    clearTimeout(this.timeoutId)
+                    this.timeoutId = null
+                }
             }
         }
     }
