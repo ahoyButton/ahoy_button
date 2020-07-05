@@ -24,15 +24,16 @@
 
 <script>
     import {genMessage} from '../../utils/utils'
+    import {Authors, Contributors} from '../../utils/constants'
 
     export default {
         name: "Footer",
         data() {
             return {
                 // 开发者
-                authors: [],
+                authors: Authors,
                 // 素材提供者
-                contributors: [],
+                contributors: Contributors,
             }
         },
         computed: {

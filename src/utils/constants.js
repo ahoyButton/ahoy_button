@@ -17,6 +17,13 @@ export const languages = [
     }
 ]
 
+export const Authors = [
+    'apocelipes'
+]
+export const Contributors = [
+    '宝钟玛林保护协会'
+]
+
 const mobileHomePath = '/#/mobile/main'
 const mobileHomeIcon = '/images/home.png' // bg-color: #848484
 const mobileHomeActiveIcon = '/images/home-active.png' // bg-color: #f0250f
