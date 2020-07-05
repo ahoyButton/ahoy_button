@@ -23,27 +23,11 @@
 </template>
 
 <script>
-    import {genMessage} from '../../utils/utils'
-    import {Authors, Contributors} from '../../utils/constants'
+    import ContributorInfoMixin from '../../mixins/contributor-info'
 
     export default {
         name: "Footer",
-        data() {
-            return {
-                // 开发者
-                authors: Authors,
-                // 素材提供者
-                contributors: Contributors,
-            }
-        },
-        computed: {
-            authorMessage() {
-                return genMessage(this.authors)
-            },
-            contributorMessage() {
-                return genMessage(this.contributors)
-            }
-        }
+        mixins: [ContributorInfoMixin]
     }
 </script>
 
