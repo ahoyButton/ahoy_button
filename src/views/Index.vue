@@ -22,6 +22,8 @@
                 </nut-buttongroup>
             </nut-col>
         </nut-row>
+
+        <a href="http://www.beian.miit.gov.cn" class="beian">苏ICP备20037760号</a>
     </div>
 </template>
 
@@ -88,5 +90,13 @@
 
     .git-btn-group {
         margin-bottom: 3rem;
+    }
+
+    .beian {
+        position: absolute;
+        bottom: 0;
+        max-width: 10em;
+        margin: 0 auto;
+        color: aliceblue;
     }
 </style>
