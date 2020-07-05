@@ -36,6 +36,10 @@ Vue.use(VueRouter)
           mate: {
             keepAlive: true
           }
+        },
+        {
+          path: 'aboutUs',
+          component: () => import('../components/mobile/AboutUs')
         }
       ]
     }

@@ -30,6 +30,9 @@ const mobileHomeActiveIcon = '/images/home-active.png' // bg-color: #f0250f
 const mobilePlaylistPath = '/#/mobile/playlist'
 const mobilePlaylistIcon = '/images/playlist.png'
 const mobilePlaylistActiveIcon = '/images/playlist-active.png'
+const mobileAboutUsPath = '/#/mobile/aboutUs'
+const mobileAboutUsIcon = '/images/about-us.png'
+const mobileAboutUsActiveIcon = '/images/about-us-active.png'
 export const tabList = {
     zh_CN: [
         {
@@ -46,6 +49,13 @@ export const tabList = {
             'icon': mobilePlaylistIcon,
             'activeIcon': mobilePlaylistActiveIcon
         },
+        {
+            'tabTitle': '关于我们',
+            'curr': false,
+            'href': mobileAboutUsPath,
+            'icon': mobileAboutUsIcon,
+            'activeIcon': mobileAboutUsActiveIcon
+        }
     ],
     ja_JP: [
         {
@@ -62,6 +72,13 @@ export const tabList = {
             'icon': mobilePlaylistIcon,
             'activeIcon': mobilePlaylistActiveIcon
         },
+        {
+            'tabTitle': '私たちにおいて',
+            'curr': false,
+            'href': mobileAboutUsPath,
+            'icon': mobileAboutUsIcon,
+            'activeIcon': mobileAboutUsActiveIcon
+        }
     ],
     en: [
         {
@@ -78,5 +95,12 @@ export const tabList = {
             'icon': mobilePlaylistIcon,
             'activeIcon': mobilePlaylistActiveIcon
         },
+        {
+            'tabTitle': 'About Us',
+            'curr': false,
+            'href': mobileAboutUsPath,
+            'icon': mobileAboutUsIcon,
+            'activeIcon': mobileAboutUsActiveIcon
+        }
     ]
 }

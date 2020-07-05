@@ -1,6 +1,6 @@
 <template>
     <div class="mobile-play-list">
-        <nut-row class="play-list-info-row">
+        <nut-row class="play-list-info-row" style="margin-top: 5px">
             <nut-col :span="24" style="text-align: center;">
                 <span>
                     {{$t('playList.dialogTitle')}}

@@ -23,5 +23,8 @@
     "currentPlayingInfo": "正在播放第%d个",
     "loopMode": "循环播放",
     "delete": "删除"
+  },
+  "aboutUs": {
+    "title": "关于我们"
   }
 }

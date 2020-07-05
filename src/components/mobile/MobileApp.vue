@@ -1,12 +1,12 @@
 <template>
-    <div id="mobile">
+    <div style="height: 100%" v-touch:swipeup="showTab" v-touch:swipedown="closeTab">
         <nut-navbar class="mobile-nav"
                     @on-click-back="back"
                     @on-click-more="showSettings = !showSettings">
             {{$t('buttons.mainTitle')}}
         </nut-navbar>
 
-        <div style="margin-bottom: 5em">
+        <div class="view">
             <keep-alive>
                 <router-view></router-view>
             </keep-alive>
@@ -76,11 +76,15 @@
             </nut-menu>
         </nut-popup>
 
-        <nut-tabbar :bottom="true"
-                    :tabbar-list="tabList"
-                    type="card"
-                    @tab-switch="handleSwitch">
-        </nut-tabbar>
+        <transition enter-active-class="animate__animated animate__fadeInUp"
+                    leave-active-class="animate__animated animate__fadeOutDown">
+            <nut-tabbar v-show="showTabBar"
+                        :bottom="true"
+                        :tabbar-list="tabList"
+                        type="card"
+                        @tab-switch="handleSwitch">
+            </nut-tabbar>
+        </transition>
     </div>
 </template>
 
@@ -94,12 +98,14 @@
     } from '../../utils/constants'
     import GetVolumeMixin from '../../mixins/get-volume'
     import GetLangMixin from '../../mixins/get-lang'
+    import TouchEventMixin from '../../mixins/touch-event'
 
     export default {
         name: "MobileApp",
         mixins: [
             GetVolumeMixin,
-            GetLangMixin
+            GetLangMixin,
+            TouchEventMixin
         ],
         data() {
             let langs = []
@@ -115,7 +121,9 @@
                 showSettings: false,
                 langs,
                 showLangSwitchMenu: false,
-                tabList: tabs[this.$i18n.locale]
+                tabList: tabs[this.$i18n.locale],
+                showTabBar: false,
+                timeoutHandle: null
             }
         },
         methods: {
@@ -140,8 +148,29 @@
                 this.volume = 100
             },
             handleSwitch(_, index) {
+                this.clearTimeoutHandle()
                 this.tabList.forEach(ele => Vue.set(ele, 'curr', false))
                 Vue.set(this.tabList[index], 'curr', true)
+                this.timeoutHandle = setTimeout(() => {
+                    this.showTabBar = false
+                }, 100)
+            },
+            showTab() {
+                this.clearTimeoutHandle()
+                this.showTabBar = true
+                this.timeoutHandle = setTimeout(() => {
+                    this.showTabBar = false
+                }, 5000)
+            },
+            closeTab() {
+                this.clearTimeoutHandle()
+                this.showTabBar = false
+            },
+            clearTimeoutHandle() {
+                if (this.timeoutHandle !== null) {
+                    clearTimeout(this.timeoutHandle)
+                    this.timeoutHandle = null
+                }
             }
         },
         computed: {
@@ -194,5 +223,12 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    box-shadow: 0 3px 4px -1px #333;
+}
+
+.view {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
 }
 </style>

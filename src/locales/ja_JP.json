@@ -23,5 +23,8 @@
     "currentPlayingInfo": "%d番目のボイス再生中です",
     "loopMode": "連続再生",
     "delete": "削除"
+  },
+  "aboutUs": {
+    "title": "私たちにおいて"
   }
 }

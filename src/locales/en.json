@@ -23,5 +23,8 @@
     "currentPlayingInfo": "NOW PLAYING %d",
     "loopMode": "loop mode",
     "delete": "delete"
+  },
+  "aboutUs": {
+    "title": "About Us"
   }
 }
