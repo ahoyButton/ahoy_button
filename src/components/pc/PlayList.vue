@@ -6,10 +6,10 @@
             <span>
                 {{titleInfo}}
             </span>
-            <el-button icon="el-icon-close"
-                       class="close-btn"
+            <el-button class="close-btn"
                        circle
                        @click="handleClose">
+                <i class="el-icon-close"></i>
             </el-button>
         </div>
         <div>
@@ -59,37 +59,25 @@
 </template>
 
 <script>
-import {addSourcePrefix} from '../utils'
-import {
-    REMOVE_ORDER,
-    CLEAN_ALL_ITEMS,
-    CLOSE_PLAY_LIST_DIALOG
-} from '../store/mutation-types'
+import {Player} from '../../utils/player'
+import {REMOVE_ORDER} from '../../store/mutation-types'
 import {sprintf} from 'sprintf-js'
+import {AUDIO_PREFIX} from '../../utils/constants'
+
+import PlayListControlMixin from '../../mixins/play-list-control'
+import GetLangMixin from '../../mixins/get-lang'
+import GetVolumeMixin from '../../mixins/get-volume'
 
 export default {
     name: 'PlayList',
-    props: {
-        audioPrefix: {
-            type: String,
-            required: true
-        },
-        volume: {
-            type: Number,
-            default: 100
-        }
-    },
-    created() {
-        this.audio.addEventListener('ended', this.handleOrder, false)
-        this.audio.preload = 'auto'
-    },
+    mixins: [
+        PlayListControlMixin,
+        GetLangMixin,
+        GetVolumeMixin
+    ],
     data() {
         return {
-            audio: new Audio,
-            currentIndex: 0,
-            isPlaying: false,
-            isPaused: false,
-            isLoop: false
+            audio: new Player(AUDIO_PREFIX, this.volume, this.handleOrder)
         }
     },
     methods: {
@@ -98,55 +86,6 @@ export default {
                 this.currentIndex -= 1
             }
             this.$store.commit(REMOVE_ORDER, index)
-        },
-        startPlay() {
-            this.currentIndex = 0
-            this.handleOrder()
-        },
-        handleOrder() {
-            if (this.currentIndex >= this.listItems.length) {
-                if (!this.isLoop) {
-                    this.isPlaying = false
-                    return
-                } else {
-                    this.currentIndex = 0
-                }
-            }
-
-            this.audio.src = addSourcePrefix(this.listItems[this.currentIndex].path, this.audioPrefix)
-            this.audio.volume = this.audioVolume
-            this.isPlaying = true
-            this.audio.play()
-            this.currentIndex++
-        },
-        handlePause() {
-            if (this.isPaused) {
-                this.audio.play()
-                this.isPaused = false
-                this.isPlaying = true
-                return
-            } else if (!this.isPlaying && !this.isPaused) {
-                // 播放没有开始，暂停无效果
-                return
-            }
-
-            this.audio.pause()
-            this.isPaused = true
-            this.isPlaying = false
-        },
-        handleStop() {
-            this.currentIndex = 0
-            this.audio.pause()
-            this.isPlaying = false
-            this.isPaused = false
-            this.audio.currentTime = 0
-        },
-        handleClean() {
-            this.handleStop()
-            this.$store.commit(CLEAN_ALL_ITEMS)
-        },
-        handleClose() {
-            this.$store.commit(CLOSE_PLAY_LIST_DIALOG)
         }
     },
     computed: {
@@ -165,15 +104,6 @@ export default {
         },
         show() {
             return this.$store.state.showPlayListDialog
-        },
-        listItems() {
-            return this.$store.state.playList
-        },
-        audioVolume() {
-            return this.volume / 100
-        },
-        lang() {
-            return this.$i18n.locale
         }
     }
 }
@@ -188,15 +118,21 @@ export default {
     margin: -20px -20px 0;
     font-size: 25px;
     color: aliceblue;
+    position: relative;
 }
 
 .close-btn {
     font-size: 20px;
     color: aliceblue;
-    float: right;
+    position: absolute;
+    top: 33%;
+    bottom: 33%;
+    right: 20px;
     background-color: #c16275;
-    margin-top: -10px;
     border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .current-list-title {

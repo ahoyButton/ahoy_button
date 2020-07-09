@@ -13,8 +13,8 @@
                     <el-link icon="iconfont el-icon-abgithub"
                              href="https://github.com/ahoyButton/ahoy_button/">
                     </el-link>
-                    <gh-btns-fork class="git-btn" slug="ahoyButton/ahoy_button" show-count></gh-btns-fork>
-                    <gh-btns-star class="git-btn" slug="ahoyButton/ahoy_button" show-count></gh-btns-star>
+                    <gh-btns-fork slug="ahoyButton/ahoy_button" show-count></gh-btns-fork>
+                    <gh-btns-star slug="ahoyButton/ahoy_button" show-count></gh-btns-star>
                     <gh-btns-follow user="ahoyButton" show-count></gh-btns-follow>
                 </el-col>
             </el-row>
@@ -23,26 +23,11 @@
 </template>
 
 <script>
-    import {genMessage} from '../utils'
+    import ContributorInfoMixin from '../../mixins/contributor-info'
 
     export default {
         name: "Footer",
-        data() {
-            return {
-                // 开发者
-                authors: [],
-                // 素材提供者
-                contributors: [],
-            }
-        },
-        computed: {
-            authorMessage() {
-                return genMessage(this.authors)
-            },
-            contributorMessage() {
-                return genMessage(this.contributors)
-            }
-        }
+        mixins: [ContributorInfoMixin]
     }
 </script>
 

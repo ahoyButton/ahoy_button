@@ -48,24 +48,13 @@
 </template>
 
 <script>
+    import {languages} from "../../utils/constants";
+
     export default {
         name: "Header",
         data() {
             return {
-                languages: [
-                    {
-                        title: '中文',
-                        value: 'zh_CN'
-                    },
-                    {
-                        title: 'English',
-                        value: 'en'
-                    },
-                    {
-                        title: '日本語',
-                        value: 'ja_JP'
-                    }
-                ]
+                languages
             }
         },
         methods: {

@@ -19,3 +19,7 @@ export function genMessage(names, splitter = '、') {
     }
     return names.join(splitter)
 }
+
+export function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|micromessenger|MQQBrowser/i.test(navigator.userAgent)
+}

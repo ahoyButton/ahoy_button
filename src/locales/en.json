@@ -21,6 +21,10 @@
     "dialogTitle": "Playlist",
     "currentTotal": "%d ITEM(S)",
     "currentPlayingInfo": "NOW PLAYING %d",
-    "loopMode": "loop mode"
+    "loopMode": "loop mode",
+    "delete": "delete"
+  },
+  "aboutUs": {
+    "title": "About Us"
   }
 }

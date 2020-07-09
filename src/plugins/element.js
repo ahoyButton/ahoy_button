@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {
+    Badge,
     Button,
     ButtonGroup,
     Card,
@@ -20,6 +21,7 @@ import {
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/base.css'
 
+Vue.use(Badge)
 Vue.use(Button)
 Vue.use(ButtonGroup)
 Vue.use(Card)

@@ -36,58 +36,63 @@
                            class="iconfont sound-icon"
                            :class="soundIconClass">
                 </el-button>
-                <el-slider class="sound-slider" v-model="volume"></el-slider>
+                <el-slider class="sound-slider" v-model.number.lazy="volume"></el-slider>
             </div>
         </el-popover>
 
         <transition name="el-zoom-in-center">
-            <el-button type="primary" class="play-list-btn"
-                       circle
-                       icon="iconfont el-icon-abcategory"
-                       v-show="isOrdered"
-                       @click="showPlayList">
-            </el-button>
+            <div v-show="isOrdered" class="play-list-btn">
+                <el-badge :value="playListLength"
+                          :hidden="playListLength === 0"
+                          :max="99">
+                    <el-button type="primary"
+                               circle
+                               icon="iconfont el-icon-abcategory"
+                               @click="showPlayList">
+                    </el-button>
+                </el-badge>
+            </div>
         </transition>
 
-        <play-list :audio-prefix="sourcePrefix"
-                   :volume="volume">
-        </play-list>
+        <play-list></play-list>
     </div>
 </template>
 
 <script>
-    import groups from '../assets/voices.json'
-    import {addSourcePrefix} from '../utils'
+    import groups from '../../assets/voices.json'
+    import {Player} from '../../utils/player'
     import PlayList from './PlayList'
     import {
         ADD_ORDER,
         OPEN_PLAY_LIST_DIALOG
-    } from '../store/mutation-types'
+    } from '../../store/mutation-types'
+    import {AUDIO_PREFIX} from "../../utils/constants"
+
+    import GetLangMixin from '../../mixins/get-lang'
+    import GetVolumeMixin from '../../mixins/get-volume'
 
     export default {
         name: "Buttons",
+        mixins: [
+            GetLangMixin,
+            GetVolumeMixin
+        ],
         components: {
             PlayList
         },
         data() {
             return {
                 btnGroups: groups,
-                // to use a absolute path avoiding resolving a relative one
-                sourcePrefix: "/voices/",
-                volume: 100,
                 isOrdered: false
             }
         },
         methods: {
             play(item) {
-                const voicePath = addSourcePrefix(item.path, this.sourcePrefix)
                 if (this.isOrdered) {
                     this.$store.commit(ADD_ORDER, item)
                 }
-                const player = new Audio(voicePath)
-                player.preload = 'auto'
-                player.volume = this.volume / 100
-                player.play()
+                const player = new Player(AUDIO_PREFIX, this.volume)
+                player.play(item.path)
             },
             soundSwitch() {
                 if (this.volume === 0) {
@@ -113,8 +118,8 @@
                         this.volume?'el-icon-absound-filling':'el-icon-absound-Mute'
                     ].join(' ')
             },
-            lang() {
-                return this.$i18n.locale
+            playListLength() {
+                return this.$store.state.playList.length
             }
         },
     }

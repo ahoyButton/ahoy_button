@@ -15,5 +15,12 @@ module.exports = {
           args[0].title = process.env.VUE_APP_TITLE;
           return args;
         });
-  }
+  },
+    css: {
+        loaderOptions: {
+            scss: {
+                prependData: `@import "@nutui/nutui/dist/styles/index.scss";`,
+            }
+        },
+    }
 }

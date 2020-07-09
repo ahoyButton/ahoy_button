@@ -1,6 +1,7 @@
 const state = () => ({
     playList: [],
-    showPlayListDialog: false
+    showPlayListDialog: false,
+    volume: 100
 })
 
 export default state
