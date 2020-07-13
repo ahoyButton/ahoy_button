@@ -1,0 +1,31 @@
+@import 'variables';
+
+@mixin fixedButton($size, $pos, $icon-size: $icon-font-size) {
+  position: fixed;
+  height: $size;
+  width: $size;
+  font-size: $icon-size;
+  z-index: 999;
+
+  // the default position is bottom-left
+  @if map_has_key($pos, "left") {
+    left: map_get($pos, "left");
+  } @else if map_has_key($pos, "right") {
+    right: map_get($pos, "right");
+  } @else {
+    left: 0;
+  }
+
+  @if map_has_key($pos, "bottom") {
+    bottom: map_get($pos, "bottom");
+  } @else {
+    bottom: 0;
+  }
+}
+
+@mixin fullSize {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

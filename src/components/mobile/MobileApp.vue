@@ -216,10 +216,12 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .mobile-nav {
-    background-color: #c16275;
-    color: aliceblue;
+    background-color: $ahoy-primary-color;
+    color: $ahoy-text-color;
     position: sticky;
     top: 0;
     z-index: 999;

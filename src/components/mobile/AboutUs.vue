@@ -20,7 +20,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .about-us-content {
     word-break: break-word;
     max-width: 15em;

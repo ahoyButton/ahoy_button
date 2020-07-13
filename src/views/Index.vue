@@ -64,7 +64,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../styles/index.scss';
+
     html {
         height: 100%;
         width: 100%;
@@ -79,13 +81,13 @@
         margin: 0;
         justify-content: center;
         align-items: center;
-        background-color: #c16275;
+        background-color: $ahoy-primary-color;
     }
 
     .main-title {
         font-size: 3rem;
         margin-bottom: 1rem;
-        color: aliceblue;
+        color: $ahoy-text-color;
     }
 
     .git-btn-group {
@@ -97,6 +99,6 @@
         bottom: 0;
         max-width: 10em;
         margin: 0 auto;
-        color: aliceblue;
+        color: $ahoy-text-color;
     }
 </style>

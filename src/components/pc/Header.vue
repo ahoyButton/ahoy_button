@@ -68,7 +68,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .nav-bar {
     position: sticky;
     top: 0;
@@ -78,28 +80,28 @@
     height: 64px;
     border: 0;
     border-radius: 0;
-    background-color: #c16275;
-    color: aliceblue;
+    background-color: $ahoy-primary-color;
+    color: $ahoy-text-color;
 }
 
 .btn {
     margin-top: -15px;
-    font-size: 16px;
+    font-size: $small-font-size;
     display: flex;
     align-items: center;
 }
 
 .ytb-btn {
-    background-color: red;
+    background-color: $youtube-color;
 }
 
 .twt-btn {
-    background-color: #1da1f2;
+    background-color: $twitter-color;
 }
 
 .help-us-btn {
     margin-top: -15px;
-    font-size: 20px;
+    font-size: $normal-text-font-size;
     display: flex;
     align-items: center;
     float: right;
@@ -107,7 +109,7 @@
 
 .title {
     text-align: center;
-    font-size: 16px;
+    font-size: $small-font-size;
 }
 
 .divider {
@@ -128,7 +130,7 @@
 .lang-btn {
     margin-left: 10px;
     border: 0;
-    background-color: #c16275;
-    color: aliceblue;
+    background-color: $ahoy-primary-color;
+    color: $ahoy-text-color;
 }
 </style>

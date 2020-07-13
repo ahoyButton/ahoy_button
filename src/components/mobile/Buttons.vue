@@ -66,7 +66,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .mobile-btn-panel-title {
     text-align: center;
     font-size: 2rem
@@ -77,8 +79,8 @@
     margin-right: 0.5rem;
     padding: 0 10px;
     float: left;
-    background-color: #c16275;
-    color: aliceblue;
+    background-color: $ahoy-primary-color;
+    color: $ahoy-text-color;
 }
 
 .group {

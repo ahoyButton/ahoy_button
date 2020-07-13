@@ -31,16 +31,18 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .footer-container {
     margin: 30px 50px;
     text-align: left;
     font-style: italic;
-    color: aliceblue;
+    color: $ahoy-text-color;
 }
 
 .footer {
-    background-color: #272727;
+    background-color: $ahoy-footer-background-color;
     border: 0;
     border-radius: 0;
     width: 100%;

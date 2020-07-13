@@ -125,27 +125,21 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .group {
     padding: 10px;
-    margin-bottom: 10px;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin: 0 80px 10px;
 }
 
 .sound-btn {
-    font-size: 20px;
+    font-size: $normal-text-font-size;
     margin-bottom: 10px;
 }
 
 .sound-control {
-    z-index: 999;
-    height: 60px;
-    width: 60px;
-    position: fixed;
-    bottom: 30px;
-    left: 20px;
-    font-size: 30px;
+    @include fixedButton(60px, ("bottom": 30px, "left": 20px));
 }
 
 .btn-panel-title {
@@ -162,7 +156,7 @@
 .sound-icon {
     float: left;
     margin-left: 5px;
-    font-size: 30px;
+    font-size: $icon-font-size;
     border: 0;
 }
 
@@ -178,12 +172,6 @@
 }
 
 .play-list-btn {
-  z-index: 999;
-  height: 60px;
-  width: 60px;
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  font-size: 30px;
+    @include fixedButton(60px, ("bottom": 100px, "right": 20px));
 }
 </style>

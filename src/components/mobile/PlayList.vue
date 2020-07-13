@@ -86,14 +86,16 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .play-list-btn-panel {
     display: flex;
     align-items: center;
 }
 
 .play-list-btn {
-    color: aliceblue;
+    color: $ahoy-text-color;
     padding: 0 10px;
     border: 1px;
 }
