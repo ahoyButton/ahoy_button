@@ -2,6 +2,9 @@ export const AUDIO_PREFIX = '/voices/'
 export const MUTE_ICON_PATH = '/images/sound-Mute.png'
 export const FILLING_ICON_PATH = '/images/sound-filling.png'
 
+export const VTB_YTB_CHANNEL = 'UCCzUftO8KOVkV4wQG1vkUvg'
+export const VTB_BILIBILI_CHANNEL = 454955503
+
 export const languages = [
     {
         title: '中文',

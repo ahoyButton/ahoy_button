@@ -1,0 +1,2 @@
+export const FETCH_LIVE_INFO = 'FETCH_LIVE_INFO'
+export const FETCH_UPCOMING = 'FETCH_UPCOMING'
