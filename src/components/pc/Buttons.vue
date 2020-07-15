@@ -150,6 +150,8 @@
 }
 
 .btn-row {
+    display: flex;
+    flex-wrap: wrap;
     text-align: left;
 }
 

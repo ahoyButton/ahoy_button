@@ -18,7 +18,7 @@
             <div slot="header">
                 <span style="font-size: 1.5rem;">{{group.group_name.lang[lang]}}</span>
             </div>
-            <nut-row>
+            <nut-row type="flex" flex-wrap="wrap">
                 <nut-button class="sound-btn"
                             type="light"
                             v-for="(btn, i) in group.buttons"
@@ -78,7 +78,6 @@
     margin-bottom: 0.5rem;
     margin-right: 0.5rem;
     padding: 0 10px;
-    float: left;
     background-color: $ahoy-primary-color;
     color: $ahoy-text-color;
 }
