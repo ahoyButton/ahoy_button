@@ -12,9 +12,11 @@
   "dependencies": {
     "@nutui/nutui": "^2.2.6",
     "animate.css": "^4.1.0",
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
     "filepath": "^1.1.0",
+    "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "sprintf-js": "^1.1.2",

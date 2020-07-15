@@ -22,8 +22,6 @@
                 </nut-buttongroup>
             </nut-col>
         </nut-row>
-
-        <a href="http://www.beian.miit.gov.cn" class="beian">苏ICP备20037760号</a>
     </div>
 </template>
 
@@ -64,7 +62,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../styles/index.scss';
+
     html {
         height: 100%;
         width: 100%;
@@ -79,24 +79,16 @@
         margin: 0;
         justify-content: center;
         align-items: center;
-        background-color: #c16275;
+        background-color: $ahoy-primary-color;
     }
 
     .main-title {
         font-size: 3rem;
         margin-bottom: 1rem;
-        color: aliceblue;
+        color: $ahoy-text-color;
     }
 
     .git-btn-group {
         margin-bottom: 3rem;
-    }
-
-    .beian {
-        position: absolute;
-        bottom: 0;
-        max-width: 10em;
-        margin: 0 auto;
-        color: aliceblue;
     }
 </style>

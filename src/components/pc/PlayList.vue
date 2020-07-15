@@ -109,7 +109,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .play-list-title {
     height: 100%;
     width: 100%;
@@ -122,13 +124,13 @@ export default {
 }
 
 .close-btn {
-    font-size: 20px;
-    color: aliceblue;
+    font-size: $normal-text-font-size;
+    color: $ahoy-text-color;
+    background-color: $ahoy-primary-color;
     position: absolute;
     top: 33%;
     bottom: 33%;
     right: 20px;
-    background-color: #c16275;
     border: 0;
     display: flex;
     justify-content: center;
@@ -137,7 +139,7 @@ export default {
 
 .current-list-title {
     display: block;
-    font-size: 20px;
+    font-size: $normal-text-font-size;
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -149,14 +151,14 @@ export default {
 }
 
 .play-list-item {
-    color: aliceblue;
-    font-size: 22px;
+    color: a$ahoy-text-color;
+    font-size: $normal-text-font-size;
     margin-right: 20px;
-    border: 1px solid #c16275;
+    border: 1px solid $ahoy-primary-color;
     margin-bottom: 10px;
 }
 
 .el-button {
-    font-size: 16px;
+    font-size: $small-font-size;
 }
 </style>

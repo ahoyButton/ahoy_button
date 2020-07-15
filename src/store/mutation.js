@@ -5,7 +5,9 @@ import {
     CLEAN_ALL_ITEMS,
     OPEN_PLAY_LIST_DIALOG,
     CLOSE_PLAY_LIST_DIALOG,
-    MODIFY_VOLUME
+    MODIFY_VOLUME,
+    CHANGE_LIVE_INFO,
+    ADD_UPCOMING
 } from './mutation-types'
 
 const mutations = {
@@ -30,6 +32,12 @@ const mutations = {
     },
     [MODIFY_VOLUME](state, volume) {
         state.volume = volume
+    },
+    [CHANGE_LIVE_INFO](state, info) {
+        state.liveInfo = {...info}
+    },
+    [ADD_UPCOMING](state, upcomingInfo) {
+        state.upcoming.push(upcomingInfo)
     }
 }
 

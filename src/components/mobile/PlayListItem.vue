@@ -68,21 +68,29 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .play-item {
     overflow: hidden;
     padding-right: 0;
     margin: 0 10px;
 }
 
-.slip-delete-in {
+.slider {
     margin: 0;
+    padding: 0 10px;
     position: relative;
     right: -100%;
-    padding: 0 10px;
-    transform: translateX(0%);
-    animation: moveIn 0.3s linear;
+}
+
+@mixin animeHelper($transX, $animeClass) {
+    transform: translateX($transX);
+    animation: $animeClass 0.3s linear;
     animation-fill-mode: forwards;
+}
+
+.slip-delete-in {
+    @extend .slider;
+    @include animeHelper(0%, moveIn);
 }
 
 @keyframes moveIn {
@@ -96,13 +104,8 @@
 }
 
 .slip-delete-out {
-    margin: 0;
-    position: relative;
-    right: -100%;
-    padding: 0 10px;
-    transform: translateX(-100%);
-    animation: moveOut 0.3s linear;
-    animation-fill-mode: forwards;
+    @extend .slider;
+    @include animeHelper(-100%, moveOut);
 }
 
 @keyframes moveOut {

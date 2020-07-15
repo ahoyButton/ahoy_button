@@ -18,7 +18,7 @@
             <div slot="header">
                 <span style="font-size: 1.5rem;">{{group.group_name.lang[lang]}}</span>
             </div>
-            <nut-row>
+            <nut-row type="flex" flex-wrap="wrap">
                 <nut-button class="sound-btn"
                             type="light"
                             v-for="(btn, i) in group.buttons"
@@ -66,7 +66,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/index';
+
 .mobile-btn-panel-title {
     text-align: center;
     font-size: 2rem
@@ -76,9 +78,8 @@
     margin-bottom: 0.5rem;
     margin-right: 0.5rem;
     padding: 0 10px;
-    float: left;
-    background-color: #c16275;
-    color: aliceblue;
+    background-color: $ahoy-primary-color;
+    color: $ahoy-text-color;
 }
 
 .group {

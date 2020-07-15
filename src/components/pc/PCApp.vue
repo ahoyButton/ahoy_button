@@ -56,25 +56,14 @@ export default {
 }
 </script>
 
-<style>
-#pc {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
+<style lang="scss">
+@import '../../styles/index';
 
-html,body{
-  padding:0;
-  margin:0;
+html,body,#pc {
+  @include fullSize;
 }
 
 .back-top {
-  height: 60px;
-  width: 60px;
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  font-size: 30px;
+  @include fixedButton(60px, ("bottom": 30px, "right": 20px));
 }
 </style>
