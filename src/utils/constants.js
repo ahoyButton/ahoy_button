@@ -24,7 +24,7 @@ export const Authors = [
     'apocelipes'
 ]
 export const Contributors = [
-    '宝钟玛林保护协会'
+    '宝钟玛琳保护协会'
 ]
 
 const mobileHomePath = '/#/mobile/main'
