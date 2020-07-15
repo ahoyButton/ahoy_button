@@ -72,9 +72,7 @@
 @import '../../styles/index';
 
 .nav-bar {
-    position: sticky;
-    top: 0;
-    z-index: 200;
+    @include stickyHeader;
     margin: 0;
     padding: 15px 5px;
     height: 64px;

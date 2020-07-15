@@ -220,11 +220,9 @@
 @import '../../styles/index';
 
 .mobile-nav {
+    @include stickyHeader;
     background-color: $ahoy-primary-color;
     color: $ahoy-text-color;
-    position: sticky;
-    top: 0;
-    z-index: 999;
     box-shadow: 0 3px 4px -1px #333;
 }
 
