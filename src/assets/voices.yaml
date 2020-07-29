@@ -9,6 +9,7 @@
 #       zh_CN: '分类1'         ---> 中文
 #       en: 'category1'       --->　English
 #       ja_JP: 'カテゴリー1'    ---> 日本語
+#   egg: yes      ---> 是否为彩蛋
 #   buttons:
 #     -
 #       name:
@@ -23,6 +24,7 @@
 #       zh_CN: '分类2'         ---> 中文
 #       en: 'category2'       --->　English
 #       ja_JP: 'カテゴリー2'    ---> 日本語
+#   egg: no      ---> 是否为彩蛋
 #   buttons:
 #     -
 #       name:
@@ -37,6 +39,7 @@
       zh_CN: '笑声'
       en: 'Laughing'
       ja_JP: '笑い声'
+  egg: no
   buttons:
     - name:
         lang:
@@ -64,6 +67,7 @@
       zh_CN: '名台词'
       en: 'Classic Lines'
       ja_JP: '名セリフ'
+  egg: no
   buttons:
     -
       name:
@@ -120,6 +124,7 @@
       zh_CN: '哈欠'
       en: 'Yawn'
       ja_JP: '欠伸'
+  egg: no
   buttons:
     -
       name:
@@ -148,6 +153,7 @@
       zh_CN: '拟声'
       en: 'Onomatopoeia'
       ja_JP: '擬声語'
+  egg: no
   buttons:
     -
       name:
@@ -204,6 +210,7 @@
       zh_CN: '母国语'
       en: 'Mother Tongue'
       ja_JP: '母国語'
+  egg: no
   buttons:
     -
       name:
@@ -225,6 +232,7 @@
       zh_CN: '通用'
       en: 'General'
       ja_JP: '通用'
+  egg: no
   buttons:
     -
       name:
@@ -239,6 +247,7 @@
       zh_CN: '倒计时'
       en: 'Countdown'
       ja_JP: 'カウントダウン'
+  egg: no
   buttons:
     -
       name:
@@ -255,3 +264,31 @@
           ja_JP: 'カウントダウン（おやすみ）'
       path: '倒计时/倒计时（安眠）.mp3'
 
+- group_name:
+    lang:
+      zh_CN: '最后祝你身体健康'
+      en: 'DANGER!!!'
+      ja_JP: '気をつけて、そしてお大事に'
+  egg: yes
+  buttons:
+    -
+      name:
+        lang:
+          zh_CN: '啊啊别硬塞'
+          en: "Don't force it in ahh～"
+          ja_JP: 'ういうい押し込めああん～'
+      path: '最后祝你身体健康/ういうい押し込めああん～.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '要上了（）'
+          en: 'AH COMING... SOON!'
+          ja_JP: 'あっあっイクっちょっ'
+      path: '最后祝你身体健康/あっあっイクっちょっ.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '啊啊啊沁音前辈的脸，欧柏'
+          en: "AHAHAHA korone's face and breast"
+          ja_JP: 'あっあっあっああんころね先輩の顔うあぁぁんお〇ぱい'
+      path: '最后祝你身体健康/あっあっあっああんころね先輩の顔うあぁぁんお〇ぱい.mp3'

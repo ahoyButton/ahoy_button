@@ -7,6 +7,7 @@
         "ja_JP": "\u7b11\u3044\u58f0"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -48,6 +49,7 @@
         "ja_JP": "\u540d\u30bb\u30ea\u30d5"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -129,6 +131,7 @@
         "ja_JP": "\u6b20\u4f38"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -170,6 +173,7 @@
         "ja_JP": "\u64ec\u58f0\u8a9e"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -251,6 +255,7 @@
         "ja_JP": "\u6bcd\u56fd\u8a9e"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -282,6 +287,7 @@
         "ja_JP": "\u901a\u7528"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -303,6 +309,7 @@
         "ja_JP": "\u30ab\u30a6\u30f3\u30c8\u30c0\u30a6\u30f3"
       }
     },
+    "egg": false,
     "buttons": [
       {
         "name": {
@@ -323,6 +330,48 @@
           }
         },
         "path": "\u5012\u8ba1\u65f6/\u5012\u8ba1\u65f6\uff08\u5b89\u7720\uff09.mp3"
+      }
+    ]
+  },
+  {
+    "group_name": {
+      "lang": {
+        "zh_CN": "\u6700\u540e\u795d\u4f60\u8eab\u4f53\u5065\u5eb7",
+        "en": "DANGER!!!",
+        "ja_JP": "\u6c17\u3092\u3064\u3051\u3066\u3001\u305d\u3057\u3066\u304a\u5927\u4e8b\u306b"
+      }
+    },
+    "egg": true,
+    "buttons": [
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u554a\u554a\u522b\u786c\u585e",
+            "en": "Don't force it in ahh\uff5e",
+            "ja_JP": "\u3046\u3044\u3046\u3044\u62bc\u3057\u8fbc\u3081\u3042\u3042\u3093\uff5e"
+          }
+        },
+        "path": "\u6700\u540e\u795d\u4f60\u8eab\u4f53\u5065\u5eb7/\u3046\u3044\u3046\u3044\u62bc\u3057\u8fbc\u3081\u3042\u3042\u3093\uff5e.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u8981\u4e0a\u4e86\uff08\uff09",
+            "en": "AH COMING... SOON!",
+            "ja_JP": "\u3042\u3063\u3042\u3063\u30a4\u30af\u3063\u3061\u3087\u3063"
+          }
+        },
+        "path": "\u6700\u540e\u795d\u4f60\u8eab\u4f53\u5065\u5eb7/\u3042\u3063\u3042\u3063\u30a4\u30af\u3063\u3061\u3087\u3063.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u554a\u554a\u554a\u6c81\u97f3\u524d\u8f88\u7684\u8138\uff0c\u6b27\u67cf",
+            "en": "AHAHAHA korone's face and breast",
+            "ja_JP": "\u3042\u3063\u3042\u3063\u3042\u3063\u3042\u3042\u3093\u3053\u308d\u306d\u5148\u8f29\u306e\u9854\u3046\u3042\u3041\u3041\u3093\u304a\u3007\u3071\u3044"
+          }
+        },
+        "path": "\u6700\u540e\u795d\u4f60\u8eab\u4f53\u5065\u5eb7/\u3042\u3063\u3042\u3063\u3042\u3063\u3042\u3042\u3093\u3053\u308d\u306d\u5148\u8f29\u306e\u9854\u3046\u3042\u3041\u3041\u3093\u304a\u3007\u3071\u3044.mp3"
       }
     ]
   }
