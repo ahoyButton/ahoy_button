@@ -32,16 +32,15 @@
 </template>
 
 <script>
-    import groups from '../../assets/voices.json'
-    import {Player} from "../../utils/player";
-    import {ADD_ORDER} from "../../store/mutation-types";
-    import {AUDIO_PREFIX} from "../../utils/constants";
+    import {mapState} from 'vuex'
+    import {Player} from '../../utils/player'
+    import {ADD_ORDER} from '../../store/mutation-types'
+    import {AUDIO_PREFIX} from '../../utils/constants'
 
     export default {
         name: "Buttons",
         data() {
             return {
-                btnGroups: groups,
                 isListMode: false,
                 sourcePrefix: AUDIO_PREFIX
             }
@@ -50,9 +49,11 @@
             lang() {
                 return this.$i18n.locale
             },
-            volume() {
-                return this.$store.state.volume
-            }
+            ...mapState([
+                'btnGroups',
+                'egg',
+                'volume'
+            ])
         },
         methods: {
             play(item) {

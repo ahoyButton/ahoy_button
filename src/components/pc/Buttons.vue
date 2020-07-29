@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div class="btn-panel-title">{{$t('buttons.mainTitle')}}</div>
+        <div class="btn-panel-title"
+             @click="easterEgg"
+             :class="{'rainbow-text':rainbowText}">
+            {{$t('buttons.mainTitle')}}
+        </div>
         <el-row style="margin: 20px 0;" type="flex" justify="center">
             <el-col :span="3" style="text-align: center;">
                 <el-switch v-model="isOrdered"
@@ -12,7 +16,7 @@
         
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
-                <span style="font-size: 32px">{{group.group_name.lang[lang]}}</span>
+                <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
             </div>
             <el-row :gutter="15" class="btn-row">
                 <el-button class="sound-btn" type="danger"
@@ -20,6 +24,20 @@
                            :key="i"
                            @click="play(btn)">
                     {{btn.name.lang[lang]}}
+                </el-button>
+            </el-row>
+        </el-card>
+
+        <el-card v-if="showEgg" class="group">
+            <div slot="header">
+                <span class="bth-group-title shield">{{egg.group_name.lang[lang]}}</span>
+            </div>
+            <el-row :gutter="15" class="btn-row">
+                <el-button class="sound-btn egg-btn"
+                           v-for="(btn, i) in egg.buttons"
+                           :key="i"
+                           @click="play(btn)">
+                    <span class="shield">{{btn.name.lang[lang]}}</span>
                 </el-button>
             </el-row>
         </el-card>
@@ -59,7 +77,7 @@
 </template>
 
 <script>
-    import groups from '../../assets/voices.json'
+    import {mapState} from 'vuex'
     import {Player} from '../../utils/player'
     import PlayList from './PlayList'
     import {
@@ -67,6 +85,7 @@
         OPEN_PLAY_LIST_DIALOG
     } from '../../store/mutation-types'
     import {AUDIO_PREFIX} from "../../utils/constants"
+    import {random} from 'lodash'
 
     import GetLangMixin from '../../mixins/get-lang'
     import GetVolumeMixin from '../../mixins/get-volume'
@@ -82,11 +101,27 @@
         },
         data() {
             return {
-                btnGroups: groups,
-                isOrdered: false
+                isOrdered: false,
+                showEgg: false,
+                clickCount: 0,
+                eggTrigger: random(3, 6),
+                rainbowText: false
             }
         },
         methods: {
+            easterEgg() {
+                if (this.showEgg) {
+                    this.rainbowText = false
+                    this.showEgg = false
+                    this.clickCount = 0
+                    return
+                }
+
+                if (++this.clickCount === this.eggTrigger) {
+                    this.rainbowText = true
+                    this.showEgg = true
+                }
+            },
             play(item) {
                 if (this.isOrdered) {
                     this.$store.commit(ADD_ORDER, item)
@@ -106,6 +141,10 @@
             }
         },
         computed: {
+            ...mapState([
+                'btnGroups',
+                'egg'
+            ]),
             soundIconClass() {
                 return {
                     'el-icon-absound-filling': this.volume,
@@ -138,6 +177,10 @@
     margin-bottom: 10px;
 }
 
+.egg-btn {
+    background-color: $shield-color;
+}
+
 .sound-control {
     @include fixedButton(60px, ("bottom": 30px, "left": 20px));
 }
@@ -147,12 +190,53 @@
     font-size: 60px;
     text-align: center;
     margin-bottom: 10px;
+    pointer-events: none;
+}
+
+@mixin eggItem {
+    display: block;
+    font-size: 20px;
+    width: 22px;
+    content: '\01F3F4\0200D\02620\0FE0F';
+    cursor: pointer;
+    pointer-events: auto;
+    margin: 0 auto;
+}
+
+@mixin fadeAnimeGenerator($className) {
+    animation-name: $className;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.btn-panel-title:hover::after {
+    @include eggItem;
+    @include fadeAnimeGenerator(fadeIn);
+}
+
+.btn-panel-title::after {
+    @include eggItem;
+    @include fadeAnimeGenerator(fadeOut);
 }
 
 .btn-row {
     display: flex;
     flex-wrap: wrap;
     text-align: left;
+}
+
+.bth-group-title {
+    font-size: 32px;
+}
+
+.shield {
+    background-color: $shield-color;
+    color: $shield-color;
+}
+
+.shield:hover {
+    color: $ahoy-text-color;
+    transition: color 0.13s linear;
 }
 
 .sound-icon {
