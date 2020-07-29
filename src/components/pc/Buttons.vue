@@ -175,10 +175,13 @@
 .sound-btn {
     font-size: $normal-text-font-size;
     margin-bottom: 10px;
+    background-color: $ahoy-primary-color;
+    border: 0;
 }
 
 .egg-btn {
     background-color: $shield-color;
+    border: 0;
 }
 
 .sound-control {
