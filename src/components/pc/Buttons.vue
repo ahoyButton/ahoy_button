@@ -13,7 +13,9 @@
                 </el-switch>
             </el-col>
         </el-row>
-        
+
+        <LiveInfo title-size="32px" class="live-info-panel"></LiveInfo>
+
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
                 <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
@@ -80,6 +82,7 @@
     import {mapState} from 'vuex'
     import {Player} from '../../utils/player'
     import PlayList from './PlayList'
+    import LiveInfo from '../LiveInfo'
     import {
         ADD_ORDER,
         OPEN_PLAY_LIST_DIALOG
@@ -97,7 +100,8 @@
             GetVolumeMixin
         ],
         components: {
-            PlayList
+            PlayList,
+            LiveInfo
         },
         data() {
             return {
@@ -192,9 +196,14 @@
     @include fixedButton(60px, ("bottom": 30px, "left": 20px));
 }
 
+.live-info-panel {
+    margin: 10px 80px;
+}
+
 .btn-panel-title {
     font-weight: bold;
     font-size: 60px;
+    letter-spacing: 5px;
     text-align: center;
     margin-bottom: 10px;
     pointer-events: none;

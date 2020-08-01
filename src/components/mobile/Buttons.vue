@@ -14,6 +14,8 @@
             </nut-col>
         </nut-row>
 
+        <LiveInfo title-size="1.5rem" class="live-info-panel"></LiveInfo>
+
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
                 <span style="font-size: 1.5rem;">{{group.group_name.lang[lang]}}</span>
@@ -36,9 +38,13 @@
     import {Player} from '../../utils/player'
     import {ADD_ORDER} from '../../store/mutation-types'
     import {AUDIO_PREFIX} from '../../utils/constants'
+    import LiveInfo from '../LiveInfo'
 
     export default {
         name: "Buttons",
+        components: {
+            LiveInfo
+        },
         data() {
             return {
                 isListMode: false,
@@ -81,6 +87,11 @@
     padding: 0 10px;
     background-color: $ahoy-primary-color;
     color: $ahoy-text-color;
+}
+
+.live-info-panel {
+    font-size: 14px !important;
+    margin: 0.5rem;
 }
 
 .group {

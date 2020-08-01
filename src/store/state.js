@@ -14,7 +14,7 @@ const state = () => ({
     playList: [],
     showPlayListDialog: false,
     volume: 100,
-    liveInfo: null,
+    liveInfo: {},
     upcoming: [],
     btnGroups,
     egg
