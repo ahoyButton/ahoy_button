@@ -11,6 +11,10 @@ export default {
     },
     methods: {
         startPlay() {
+            if (this.isPaused) {
+                this.handlePause()
+                return
+            }
             this.currentIndex = 0
             this.handleOrder()
         },

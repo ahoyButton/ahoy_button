@@ -4,20 +4,29 @@ import {VTB_BILIBILI_CHANNEL, VTB_YTB_CHANNEL} from "../utils/constants"
 import {ADD_UPCOMING, CHANGE_LIVE_INFO} from "./mutation-types"
 import moment from 'moment'
 
-function setYtbData(liveInfo, currentLive) {
-    liveInfo.ytb = {}
-    liveInfo.ytb.title = currentLive.title
-    liveInfo.ytb.start = currentLive.start
-    liveInfo.ytb.viewers = currentLive.viewers
-    liveInfo.ytb.url = `https://youtube.com/watch?v=${currentLive.id}`
-}
+const TIME_FORMAT = 'Y-M-D LTS'
+const BILI_TYPE = 'bb'
+const YTB_TYPE = 'ytb'
 
-function setBBData(liveInfo, currentLive) {
-    liveInfo.bb = {}
-    liveInfo.bb.title = currentLive.title
-    liveInfo.bb.start = currentLive.startTime
-    liveInfo.bb.viewers = currentLive.viewers
-    liveInfo.bb.url = `https://live.bilibili.com/${currentLive.bbRoomId}`
+function setData(liveInfo, currentLive, linkType) {
+    if (!currentLive) {
+        return
+    }
+
+    if (linkType === YTB_TYPE) {
+        liveInfo.ytb = {}
+        liveInfo = liveInfo.ytb
+        liveInfo.link = `https://youtube.com/watch?v=${currentLive.yt_video_key}`
+    } else if (linkType === BILI_TYPE) {
+        liveInfo.bb = {}
+        liveInfo = liveInfo.bb
+        liveInfo.link = `https://live.bilibili.com/${currentLive.bb_video_id}`
+    } else {
+        return
+    }
+    liveInfo.title = currentLive.title
+    liveInfo.start = moment(currentLive.live_start).format(TIME_FORMAT)
+    liveInfo.schedule = moment(currentLive.live_schedule).format(TIME_FORMAT)
 }
 
 let cached_data = {
@@ -26,26 +35,26 @@ let cached_data = {
 }
 async function fetchData() {
     if (cached_data.cached_time === null || moment().unix() - cached_data.cached_time.unix() > 600) {
-        const resp = await axios.get('https://api.jetri.co/live/1.1')
+        const resp = await axios.get('https://api.holotools.app/v1/live')
         if (resp.status !== 200) {
             throw new Error('cannot get live info')
         }
-        cached_data.cached_time = moment().unix()
+        cached_data.cached_time = moment()
         cached_data.data =  resp.data
     }
 }
 
 const actions = {
     async [FETCH_LIVE_INFO]({state, commit}) {
-        if (state.liveInfo !== null) {
+        if (Object.keys(state.liveInfo).length !== 0) {
             return
         }
         await fetchData()
         const live = cached_data.data.live
         // 处理转播
         let liveInfo = {}
-        setYtbData(liveInfo, live.find((elem) => elem.channel === VTB_YTB_CHANNEL))
-        setBBData(liveInfo, live.find((elem) => elem.bbUid === VTB_BILIBILI_CHANNEL))
+        setData(liveInfo, live.find((elem) => elem.channel.yt_channel_id === VTB_YTB_CHANNEL), YTB_TYPE)
+        setData(liveInfo, live.find((elem) => elem.channel.bb_space_id === VTB_BILIBILI_CHANNEL), BILI_TYPE)
         commit(CHANGE_LIVE_INFO, liveInfo)
     },
     async [FETCH_UPCOMING]({state, commit}) {
@@ -54,11 +63,11 @@ const actions = {
         }
         await fetchData()
         for (let elem of cached_data.data.upcoming) {
-            if (elem.channel === VTB_YTB_CHANNEL && elem.title.search(/freechat/i) === -1) {
+            if (elem.channel.yt_channel_id === VTB_YTB_CHANNEL && elem.title.search(/freechat/i) === -1) {
                 commit(ADD_UPCOMING, {
                     title: elem.title,
-                    startTime: elem.startTime,
-                    link: `https://youtube.com/watch?v=${elem.id}`
+                    schedule: moment(elem.live_schedule).format('Y-M-D LTS'),
+                    link: `https://youtube.com/watch?v=${elem.yt_video_key}`
                 })
             }
         }

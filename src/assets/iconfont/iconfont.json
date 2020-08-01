@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5478676",
+      "name": "streaming",
+      "font_class": "streaming",
+      "unicode": "e94f",
+      "unicode_decimal": 59727
+    },
+    {
+      "icon_id": "16034578",
+      "name": "bilibili-fill",
+      "font_class": "bilibili-fill",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "128784",
+      "name": "alarm",
+      "font_class": "alarm",
+      "unicode": "e6ee",
+      "unicode_decimal": 59118
+    },
+    {
+      "icon_id": "11983519",
+      "name": "youtube",
+      "font_class": "youtube1",
+      "unicode": "ea07",
+      "unicode_decimal": 59911
+    },
+    {
       "icon_id": "1294651",
       "name": "地球",
       "font_class": "diqiu",

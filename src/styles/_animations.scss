@@ -1,0 +1,67 @@
+.rainbow-text {
+  color: transparent;
+  animation-name: test;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes test {
+  100% {
+    background: linear-gradient(to right, red, orange, yellow, green, aquamarine, blue, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  86% {
+    background: linear-gradient(to right, orange, yellow, green, aquamarine, blue, purple, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  72% {
+    background: linear-gradient(to right, yellow, green, aquamarine, blue, purple, red, orange);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  58% {
+    background-color: linear-gradient(to right, green, aquamarine, blue, purple, red, orange, yellow);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  44% {
+    background: linear-gradient(to right, aquamarine, blue, purple, red, orange, yellow, green);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  30% {
+    background: linear-gradient(to right, blue, purple, red, orange, yellow, green, aquamarine);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  15% {
+    background: linear-gradient(to right, purple, red, orange, yellow, green, aquamarine, blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  0% {
+    background: linear-gradient(to right, red, orange, yellow, green, aquamarine, blue, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
