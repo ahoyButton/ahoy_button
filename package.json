@@ -10,7 +10,7 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
-    "@nutui/nutui": "^2.2.7",
+    "@nutui/nutui": "^2.2.8",
     "animate.css": "^4.1.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
@@ -23,7 +23,7 @@
     "sprintf-js": "^1.1.2",
     "vue": "^2.6.11",
     "vue-github-buttons": "^3.1.0",
-    "vue-i18n": "^8.19.0",
+    "vue-i18n": "^8.20.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.5.1"
   },
