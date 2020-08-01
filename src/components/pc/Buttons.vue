@@ -110,6 +110,10 @@
         },
         methods: {
             easterEgg() {
+                if (!process.env.BUTTONS_EASTER_EGG) {
+                    return
+                }
+
                 if (this.showEgg) {
                     this.rainbowText = false
                     this.showEgg = false
