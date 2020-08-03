@@ -53,10 +53,10 @@
                 <ul v-if="hasUpcoming">
                     {{$t('liveInfo.schedule')}}
                     <li v-for="(schedule, key) in upcoming" :key="key">
-                        <details>
+                        <details open>
                         <summary class="schedule-summary">{{schedule.title}}</summary>
                         <section>
-                            <ul>
+                            <ul style="margin-top: 10px;">
                                 <li>
                                     <el-icon class="iconfont el-icon-abalarm time-icon">
                                     </el-icon>
@@ -170,6 +170,7 @@ details {
 
     li {
         margin-left: 2em;
+        list-style: none;
     }
 }
 
@@ -204,5 +205,9 @@ $content-icon-size: 1.75em;
 .live-icon {
     font-size: $content-icon-size;
     color: greenyellow;
+}
+
+.stream-link {
+    font-size: unset;
 }
 </style>

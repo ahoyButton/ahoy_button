@@ -7,6 +7,8 @@ module.exports = {
       enableInSFC: false
     }
   },
+    // 禁止生成map
+    productionSourceMap: false,
   // 处理自定义title
   chainWebpack: (config) => {
     config
