@@ -66,10 +66,7 @@
     @import '../styles/index.scss';
 
     html {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+        @include fullSize;
     }
 
     #start-page {
