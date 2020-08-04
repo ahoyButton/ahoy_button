@@ -225,6 +225,13 @@
           en: 'Ayayayayayayaya'
           ja_JP: 'アヤヤヤヤヤヤヤ'
       path: '拟声/啊呀呀呀呀呀呀呀.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '肚子叫'
+          en: 'My stomach is growling'
+          ja_JP: 'お腹が鳴った'
+      path: '拟声/肚子叫.mp3'
 
 - group_name:
     lang:
