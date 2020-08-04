@@ -16,17 +16,21 @@
 
         <LiveInfo title-size="32px" class="live-info-panel"></LiveInfo>
 
-        <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
+        <el-card v-for="(group, index) in btnGroups" class="group" :key="index">
             <div slot="header">
-                <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
+                <el-badge :hidden="!!!group.isNew" value="NEW">
+                    <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
+                </el-badge>
             </div>
             <el-row :gutter="15" class="btn-row">
-                <el-button class="sound-btn" type="danger"
-                           round v-for="(btn, i) in group.buttons"
-                           :key="i"
-                           @click="play(btn)">
-                    {{btn.name.lang[lang]}}
-                </el-button>
+                <el-badge v-for="(btn, i) in group.buttons" :hidden="!!!btn.isNew" value="NEW" :key="i">
+                    <el-button type="danger"
+                               round
+                               class="sound-btn"
+                               @click="play(btn)">
+                        {{btn.name.lang[lang]}}
+                    </el-button>
+                </el-badge>
             </el-row>
         </el-card>
 
@@ -182,7 +186,8 @@
 
 .sound-btn {
     font-size: $normal-text-font-size;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-left: 22px;
     background-color: $ahoy-primary-color;
     border: 0;
 }
