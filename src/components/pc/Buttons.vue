@@ -118,7 +118,7 @@
         },
         methods: {
             easterEgg() {
-                if (!process.env.BUTTONS_EASTER_EGG) {
+                if (!process.env.VUE_APP_BUTTONS_EASTER_EGG) {
                     return
                 }
 
@@ -205,15 +205,6 @@
     margin: 10px 80px;
 }
 
-.btn-panel-title {
-    font-weight: bold;
-    font-size: 60px;
-    letter-spacing: 5px;
-    text-align: center;
-    margin-bottom: 10px;
-    pointer-events: none;
-}
-
 @mixin eggItem {
     display: block;
     font-size: 20px;
@@ -230,14 +221,23 @@
     animation-fill-mode: forwards;
 }
 
-.btn-panel-title:hover::after {
-    @include eggItem;
-    @include fadeAnimeGenerator(fadeIn);
-}
+.btn-panel-title {
+    font-weight: bold;
+    font-size: 60px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    pointer-events: none;
 
-.btn-panel-title::after {
-    @include eggItem;
-    @include fadeAnimeGenerator(fadeOut);
+    &:hover::after {
+        @include eggItem;
+        @include fadeAnimeGenerator(fadeIn);
+    }
+
+    &::after {
+        @include eggItem;
+        @include fadeAnimeGenerator(fadeOut);
+    }
 }
 
 .btn-row {
@@ -253,11 +253,11 @@
 .shield {
     background-color: $shield-color;
     color: $shield-color;
-}
 
-.shield:hover {
-    color: $ahoy-text-color;
-    transition: color 0.13s linear;
+    &:hover {
+        color: $ahoy-text-color;
+        transition: color 0.13s linear;
+    }
 }
 
 .sound-icon {
