@@ -2,6 +2,7 @@ import Vue from 'vue'
 import {
     Avatar,
     BackTop,
+    Badge,
     Button,
     ButtonGroup,
     Cell,
@@ -20,6 +21,7 @@ import '@nutui/nutui/dist/nutui.css'
 
 Avatar.install(Vue)
 BackTop.install(Vue)
+Badge.install(Vue)
 Button.install(Vue)
 ButtonGroup.install(Vue)
 Cell.install(Vue)
