@@ -92,7 +92,7 @@
         OPEN_PLAY_LIST_DIALOG
     } from '../../store/mutation-types'
     import {AUDIO_PREFIX} from "../../utils/constants"
-    import {random} from 'lodash'
+    import {randomInt} from '../../utils/utils'
 
     import GetLangMixin from '../../mixins/get-lang'
     import GetVolumeMixin from '../../mixins/get-volume'
@@ -112,7 +112,7 @@
                 isOrdered: false,
                 showEgg: false,
                 clickCount: 0,
-                eggTrigger: random(3, 6),
+                eggTrigger: randomInt(3, 6),
                 rainbowText: false
             }
         },
@@ -177,7 +177,9 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/animations';
+@import '../../styles/mixins';
+@import '../../styles/variables';
 
 .group {
     padding: 10px;

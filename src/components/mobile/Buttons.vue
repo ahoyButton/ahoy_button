@@ -79,7 +79,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/variables';
 
 .mobile-btn-panel-title {
     text-align: center;

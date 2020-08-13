@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "analyse": "vue-cli-service build --report",
     "gen-resource": "bash src/genVoices.sh",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
@@ -15,8 +16,6 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
-    "filepath": "^1.1.0",
-    "lodash": "^4.17.19",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",

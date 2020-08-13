@@ -69,7 +69,8 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/mixins';
+@import '../../styles/variables';
 
 .nav-bar {
     @include stickyHeader;

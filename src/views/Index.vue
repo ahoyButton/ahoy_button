@@ -63,7 +63,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../styles/index.scss';
+    @import '../styles/variables';
+    @import '../styles/mixins';
 
     html {
         @include fullSize;

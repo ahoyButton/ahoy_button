@@ -32,7 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/variables';
 
 .footer-container {
     margin: 30px 50px;

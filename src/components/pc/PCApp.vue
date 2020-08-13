@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../styles/index';
+@import '../../styles/mixins';
 
 html,body,#pc {
   @include fullSize;

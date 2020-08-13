@@ -34,4 +34,4 @@ addNewItemTag(originObj, confObj)
 
 
 with open('assets/voices.json', 'w') as target:
-    json.dump(confObj, target, indent=2)
+    json.dump(confObj, target)
