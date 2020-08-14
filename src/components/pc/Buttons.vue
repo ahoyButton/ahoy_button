@@ -142,11 +142,7 @@
                 player.play(item.path)
             },
             soundSwitch() {
-                if (this.volume === 0) {
-                    this.volume = 100
-                    return
-                }
-                this.volume = 0
+                this.volume = this.volume ? 0 : 100
             },
             showPlayList() {
                 this.$store.commit(OPEN_PLAY_LIST_DIALOG)

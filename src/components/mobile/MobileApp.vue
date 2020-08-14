@@ -140,12 +140,7 @@
                 this.langs[index].selected = true
             },
             setMute() {
-                if (this.volume) {
-                    this.volume = 0
-                    return
-                }
-
-                this.volume = 100
+                this.volume = this.volume ? 0 : 100
             },
             handleSwitch(_, index) {
                 this.clearTimeoutHandle()
