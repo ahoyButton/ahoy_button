@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from "../views/Index";
 
 Vue.use(VueRouter)
 
@@ -8,7 +7,7 @@ Vue.use(VueRouter)
     {
       path: '/',
       name: 'Index',
-      component: Index,
+      component: () => import('../views/Index'),
       meta: {
         keepAlive: true
       }

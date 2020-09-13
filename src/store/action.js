@@ -34,14 +34,16 @@ let cached_data = {
     cached_time: null
 }
 async function fetchData() {
-    if (cached_data.cached_time === null || moment().unix() - cached_data.cached_time.unix() > 600) {
-        const resp = await axios.get('https://api.holotools.app/v1/live')
-        if (resp.status !== 200) {
-            throw new Error('cannot get live info')
-        }
-        cached_data.cached_time = moment()
-        cached_data.data =  resp.data
+    if (cached_data.cached_time !== null && moment().unix() - cached_data.cached_time.unix() <= 600) {
+        return
     }
+
+    const resp = await axios.get('https://api.holotools.app/v1/live')
+    if (resp.status !== 200) {
+        throw new Error('cannot get live info')
+    }
+    cached_data.cached_time = moment()
+    cached_data.data =  resp.data
 }
 
 const actions = {

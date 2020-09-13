@@ -118,6 +118,20 @@
           en: 'ETC Card'
           ja_JP: 'etcカードが挿入されました'
       path: '台词/etc卡.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '欧拉欧拉欧拉欧拉'
+          en: 'ORAORAORAORAORA'
+          ja_JP: 'オラオラオラオラオラオラオラオラッ'
+      path: '台词/欧拉欧拉欧拉欧拉.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '再见（布加拉提并感）'
+          en: 'Arrivederci'
+          ja_JP: 'アリーヴェデルチ'
+      path: '台词/arrivederci.mp3'
 
 - group_name:
     lang:
@@ -204,6 +218,20 @@
           en: 'Hauuu'
           ja_JP: 'はうううー'
       path: '拟声/嗷呜.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '嗷啊呀呀呀呀呀呀呀'
+          en: 'Ayayayayayayaya'
+          ja_JP: 'アヤヤヤヤヤヤヤ'
+      path: '拟声/啊呀呀呀呀呀呀呀.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '肚子叫'
+          en: 'My stomach is growling'
+          ja_JP: 'お腹が鳴った'
+      path: '拟声/肚子叫.mp3'
 
 - group_name:
     lang:
@@ -241,6 +269,27 @@
           en: 'understood.. (weep)'
           ja_JP: '分かった（悔しそう）'
       path: '通用/我知道了（委屈巴巴）.mp3'
+    -
+      name:
+        lang:
+          zh_CN: 'f○ck'
+          en: 'F○CK'
+          ja_JP: 'f○ck'
+      path: '通用/f○ck.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '笨蛋'
+          en: 'baka'
+          ja_JP: 'バカ'
+      path: '通用/笨蛋.mp3'
+    -
+      name:
+        lang:
+          zh_CN: '欧拉'
+          en: 'ORA'
+          ja_JP: 'オラッ'
+      path: '通用/欧拉.mp3'
 
 - group_name:
     lang:

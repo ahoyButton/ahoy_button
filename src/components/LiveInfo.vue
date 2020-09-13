@@ -116,7 +116,8 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/index';
+@import '../styles/variables';
+@import '../styles/animations';
 
 .info-panel {
     padding: 10px;

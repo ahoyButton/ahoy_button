@@ -87,7 +87,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/variables';
 
 .play-list-btn-panel {
     display: flex;

@@ -16,17 +16,21 @@
 
         <LiveInfo title-size="32px" class="live-info-panel"></LiveInfo>
 
-        <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
+        <el-card v-for="(group, index) in btnGroups" class="group" :key="index">
             <div slot="header">
-                <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
+                <el-badge :hidden="!!!group.isNew" value="NEW">
+                    <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
+                </el-badge>
             </div>
             <el-row :gutter="15" class="btn-row">
-                <el-button class="sound-btn" type="danger"
-                           round v-for="(btn, i) in group.buttons"
-                           :key="i"
-                           @click="play(btn)">
-                    {{btn.name.lang[lang]}}
-                </el-button>
+                <el-badge v-for="(btn, i) in group.buttons" :hidden="!!!btn.isNew" value="NEW" :key="i">
+                    <el-button type="danger"
+                               round
+                               class="sound-btn"
+                               @click="play(btn)">
+                        {{btn.name.lang[lang]}}
+                    </el-button>
+                </el-badge>
             </el-row>
         </el-card>
 
@@ -88,7 +92,7 @@
         OPEN_PLAY_LIST_DIALOG
     } from '../../store/mutation-types'
     import {AUDIO_PREFIX} from "../../utils/constants"
-    import {random} from 'lodash'
+    import {randomInt} from '../../utils/utils'
 
     import GetLangMixin from '../../mixins/get-lang'
     import GetVolumeMixin from '../../mixins/get-volume'
@@ -108,13 +112,13 @@
                 isOrdered: false,
                 showEgg: false,
                 clickCount: 0,
-                eggTrigger: random(3, 6),
+                eggTrigger: randomInt(3, 6),
                 rainbowText: false
             }
         },
         methods: {
             easterEgg() {
-                if (!process.env.BUTTONS_EASTER_EGG) {
+                if (!process.env.VUE_APP_BUTTONS_EASTER_EGG) {
                     return
                 }
 
@@ -138,11 +142,7 @@
                 player.play(item.path)
             },
             soundSwitch() {
-                if (this.volume === 0) {
-                    this.volume = 100
-                    return
-                }
-                this.volume = 0
+                this.volume = this.volume ? 0 : 100
             },
             showPlayList() {
                 this.$store.commit(OPEN_PLAY_LIST_DIALOG)
@@ -173,7 +173,9 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/animations';
+@import '../../styles/mixins';
+@import '../../styles/variables';
 
 .group {
     padding: 10px;
@@ -182,7 +184,8 @@
 
 .sound-btn {
     font-size: $normal-text-font-size;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-left: 22px;
     background-color: $ahoy-primary-color;
     border: 0;
 }
@@ -198,15 +201,6 @@
 
 .live-info-panel {
     margin: 10px 80px;
-}
-
-.btn-panel-title {
-    font-weight: bold;
-    font-size: 60px;
-    letter-spacing: 5px;
-    text-align: center;
-    margin-bottom: 10px;
-    pointer-events: none;
 }
 
 @mixin eggItem {
@@ -225,14 +219,23 @@
     animation-fill-mode: forwards;
 }
 
-.btn-panel-title:hover::after {
-    @include eggItem;
-    @include fadeAnimeGenerator(fadeIn);
-}
+.btn-panel-title {
+    font-weight: bold;
+    font-size: 60px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    pointer-events: none;
 
-.btn-panel-title::after {
-    @include eggItem;
-    @include fadeAnimeGenerator(fadeOut);
+    &:hover::after {
+        @include eggItem;
+        @include fadeAnimeGenerator(fadeIn);
+    }
+
+    &::after {
+        @include eggItem;
+        @include fadeAnimeGenerator(fadeOut);
+    }
 }
 
 .btn-row {
@@ -248,11 +251,11 @@
 .shield {
     background-color: $shield-color;
     color: $shield-color;
-}
 
-.shield:hover {
-    color: $ahoy-text-color;
-    transition: color 0.13s linear;
+    &:hover {
+        color: $ahoy-text-color;
+        transition: color 0.13s linear;
+    }
 }
 
 .sound-icon {

@@ -140,12 +140,7 @@
                 this.langs[index].selected = true
             },
             setMute() {
-                if (this.volume) {
-                    this.volume = 0
-                    return
-                }
-
-                this.volume = 100
+                this.volume = this.volume ? 0 : 100
             },
             handleSwitch(_, index) {
                 this.clearTimeoutHandle()
@@ -217,7 +212,8 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .mobile-nav {
     @include stickyHeader;
@@ -230,6 +226,6 @@
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    margin-bottom: 2em;
+    margin-bottom: 65px;
 }
 </style>

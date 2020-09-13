@@ -23,9 +23,9 @@ export default {
                 if (!this.isLoop) {
                     this.isPlaying = false
                     return
-                } else {
-                    this.currentIndex = 0
                 }
+
+                this.currentIndex = 0
             }
 
             this.audio.volume = this.volume

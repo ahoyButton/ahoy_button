@@ -110,16 +110,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/variables';
 
 .play-list-title {
     height: 100%;
     width: 100%;
-    background-color: #c16275;
+    background-color: $ahoy-primary-color;
     padding: 20px 20px 10px 20px;
     margin: -20px -20px 0;
     font-size: 25px;
-    color: aliceblue;
+    color: $ahoy-text-color;
     position: relative;
 }
 
@@ -151,7 +151,7 @@ export default {
 }
 
 .play-list-item {
-    color: a$ahoy-text-color;
+    color: $ahoy-text-color;
     font-size: $normal-text-font-size;
     margin-right: 20px;
     border: 1px solid $ahoy-primary-color;

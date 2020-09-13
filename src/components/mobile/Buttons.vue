@@ -18,16 +18,21 @@
 
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <div slot="header">
-                <span style="font-size: 1.5rem;">{{group.group_name.lang[lang]}}</span>
+                <nut-badge value="NEW" :hidden="!!!group.isNew">
+                    <span style="font-size: 1.5rem;">{{group.group_name.lang[lang]}}</span>
+                </nut-badge>
             </div>
             <nut-row type="flex" flex-wrap="wrap">
-                <nut-button class="sound-btn"
-                            type="light"
-                            v-for="(btn, i) in group.buttons"
-                           :key="i"
-                           @click="play(btn)">
-                    {{btn.name.lang[lang]}}
-                </nut-button>
+                <nut-badge value="NEW" :hidden="!!!btn.isNew"
+                           v-for="(btn, i) in group.buttons"
+                           :key="i" style="margin-top: 0.5em"
+                           right="2em">
+                    <nut-button class="sound-btn"
+                                type="light" shape="circle"
+                                @click="play(btn)">
+                        {{btn.name.lang[lang]}}
+                    </nut-button>
+                </nut-badge>
             </nut-row>
         </el-card>
     </div>
@@ -74,7 +79,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/index';
+@import '../../styles/variables';
 
 .mobile-btn-panel-title {
     text-align: center;
@@ -84,7 +89,7 @@
 .sound-btn {
     margin-bottom: 0.5rem;
     margin-right: 0.5rem;
-    padding: 0 10px;
+    padding: 0 1em;
     background-color: $ahoy-primary-color;
     color: $ahoy-text-color;
 }

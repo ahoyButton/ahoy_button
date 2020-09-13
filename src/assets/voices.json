@@ -120,6 +120,26 @@
           }
         },
         "path": "\u53f0\u8bcd/etc\u5361.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u6b27\u62c9\u6b27\u62c9\u6b27\u62c9\u6b27\u62c9",
+            "en": "ORAORAORAORAORA",
+            "ja_JP": "\u30aa\u30e9\u30aa\u30e9\u30aa\u30e9\u30aa\u30e9\u30aa\u30e9\u30aa\u30e9\u30aa\u30e9\u30aa\u30e9\u30c3"
+          }
+        },
+        "path": "\u53f0\u8bcd/\u6b27\u62c9\u6b27\u62c9\u6b27\u62c9\u6b27\u62c9.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u518d\u89c1\uff08\u5e03\u52a0\u62c9\u63d0\u5e76\u611f\uff09",
+            "en": "Arrivederci",
+            "ja_JP": "\u30a2\u30ea\u30fc\u30f4\u30a7\u30c7\u30eb\u30c1"
+          }
+        },
+        "path": "\u53f0\u8bcd/arrivederci.mp3"
       }
     ]
   },
@@ -244,6 +264,27 @@
           }
         },
         "path": "\u62df\u58f0/\u55f7\u545c.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u55f7\u554a\u5440\u5440\u5440\u5440\u5440\u5440\u5440",
+            "en": "Ayayayayayayaya",
+            "ja_JP": "\u30a2\u30e4\u30e4\u30e4\u30e4\u30e4\u30e4\u30e4"
+          }
+        },
+        "path": "\u62df\u58f0/\u554a\u5440\u5440\u5440\u5440\u5440\u5440\u5440.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u809a\u5b50\u53eb",
+            "en": "My stomach is growling",
+            "ja_JP": "\u304a\u8179\u304c\u9cf4\u3063\u305f"
+          }
+        },
+        "path": "\u62df\u58f0/\u809a\u5b50\u53eb.mp3",
+        "isNew": true
       }
     ]
   },
@@ -298,6 +339,36 @@
           }
         },
         "path": "\u901a\u7528/\u6211\u77e5\u9053\u4e86\uff08\u59d4\u5c48\u5df4\u5df4\uff09.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "f\u25cbck",
+            "en": "F\u25cbCK",
+            "ja_JP": "f\u25cbck"
+          }
+        },
+        "path": "\u901a\u7528/f\u25cbck.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u7b28\u86cb",
+            "en": "baka",
+            "ja_JP": "\u30d0\u30ab"
+          }
+        },
+        "path": "\u901a\u7528/\u7b28\u86cb.mp3"
+      },
+      {
+        "name": {
+          "lang": {
+            "zh_CN": "\u6b27\u62c9",
+            "en": "ORA",
+            "ja_JP": "\u30aa\u30e9\u30c3"
+          }
+        },
+        "path": "\u901a\u7528/\u6b27\u62c9.mp3"
       }
     ]
   },

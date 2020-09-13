@@ -36,18 +36,20 @@
             }
         },
         mounted() {
-            if (!this.clicked) {
-                setTimeout(() => {
-                    if (this.clicked) {
-                        return
-                    }
-                    if (isMobile()) {
-                        this.toMobileApp()
-                        return
-                    }
-                    this.toPCApp()
-                }, 3000)
+            if (this.clicked) {
+                return
             }
+
+            setTimeout(() => {
+                if (this.clicked) {
+                    return
+                }
+                if (isMobile()) {
+                    this.toMobileApp()
+                    return
+                }
+                this.toPCApp()
+            }, 3000)
         },
         methods: {
             toPCApp() {
@@ -63,7 +65,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../styles/index.scss';
+    @import '../styles/variables';
+    @import '../styles/mixins';
 
     html {
         @include fullSize;
