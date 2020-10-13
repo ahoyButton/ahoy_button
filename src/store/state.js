@@ -1,4 +1,4 @@
-import buttonData from '../assets/voices.json'
+import buttonData from '@/assets/voices.json'
 
 // 分离彩蛋和普通按钮
 let btnGroups = buttonData

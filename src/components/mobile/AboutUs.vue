@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import ContributorInfoMixin from '../../mixins/contributor-info'
+    import ContributorInfoMixin from '@/mixins/contributor-info'
 
     export default {
         name: "AboutUs",

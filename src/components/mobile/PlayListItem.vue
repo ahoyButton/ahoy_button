@@ -13,8 +13,8 @@
 </template>
 
 <script>
-    import {REMOVE_ORDER_BY_PATH} from '../../store/mutation-types'
-    import TouchEventMixin from '../../mixins/touch-event'
+    import {REMOVE_ORDER_BY_PATH} from '@/store/mutation-types'
+    import TouchEventMixin from '@/mixins/touch-event'
 
     export default {
         name: "PlayListItem",

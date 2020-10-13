@@ -46,7 +46,7 @@ async function fetchData() {
     cached_data.data =  resp.data
 }
 
-const actions = {
+export default {
     async [FETCH_LIVE_INFO]({state, commit}) {
         if (Object.keys(state.liveInfo).length !== 0) {
             return
@@ -75,5 +75,3 @@ const actions = {
         }
     }
 }
-
-export default actions

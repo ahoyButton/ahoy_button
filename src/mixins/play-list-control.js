@@ -1,4 +1,4 @@
-import {CLEAN_ALL_ITEMS, CLOSE_PLAY_LIST_DIALOG} from "../store/mutation-types"
+import {CLEAN_ALL_ITEMS, CLOSE_PLAY_LIST_DIALOG} from '@/store/mutation-types'
 
 export default {
     data() {

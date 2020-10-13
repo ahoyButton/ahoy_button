@@ -40,10 +40,10 @@
 
 <script>
     import {mapState} from 'vuex'
-    import {Player} from '../../utils/player'
-    import {ADD_ORDER} from '../../store/mutation-types'
-    import {AUDIO_PREFIX} from '../../utils/constants'
-    import LiveInfo from '../LiveInfo'
+    import {Player} from '@/utils/player'
+    import {ADD_ORDER} from '@/store/mutation-types'
+    import {AUDIO_PREFIX} from '@/utils/constants'
+    import LiveInfo from '@/components/LiveInfo'
 
     export default {
         name: "Buttons",
