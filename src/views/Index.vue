@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import {isMobile} from "../utils/utils";
+    import {isMobile} from '@/utils/utils'
 
     export default {
         name: "Index",

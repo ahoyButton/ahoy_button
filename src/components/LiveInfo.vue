@@ -86,7 +86,7 @@
 </template>
 
 <script>
-    import {FETCH_LIVE_INFO, FETCH_UPCOMING} from '../store/action-types'
+    import {FETCH_LIVE_INFO, FETCH_UPCOMING} from '@/store/action-types'
     import {mapState} from 'vuex'
 
     export default {

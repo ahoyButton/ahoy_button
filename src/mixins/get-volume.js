@@ -1,4 +1,4 @@
-import {MODIFY_VOLUME} from "../store/mutation-types";
+import {MODIFY_VOLUME} from '@/store/mutation-types'
 
 export default {
     computed: {

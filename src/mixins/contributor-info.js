@@ -1,5 +1,5 @@
-import {genMessage} from '../utils/utils'
-import {Authors, Contributors} from '../utils/constants'
+import {genMessage} from '@/utils/utils'
+import {Authors, Contributors} from '@/utils/constants'
 
 export default {
     data() {

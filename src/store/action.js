@@ -1,10 +1,10 @@
-import {FETCH_LIVE_INFO, FETCH_UPCOMING} from "./action-types"
+import {FETCH_LIVE_INFO, FETCH_UPCOMING} from './action-types'
 import axios from 'axios'
-import {VTB_BILIBILI_CHANNEL, VTB_YTB_CHANNEL} from "../utils/constants"
-import {ADD_UPCOMING, CHANGE_LIVE_INFO} from "./mutation-types"
-import moment from 'moment'
+import {VTB_BILIBILI_CHANNEL, VTB_YTB_CHANNEL} from '@/utils/constants'
+import {ADD_UPCOMING, CHANGE_LIVE_INFO} from './mutation-types'
+import dayjs from 'dayjs'
 
-const TIME_FORMAT = 'Y-M-D LTS'
+const TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss Z'
 const BILI_TYPE = 'bb'
 const YTB_TYPE = 'ytb'
 
@@ -25,8 +25,8 @@ function setData(liveInfo, currentLive, linkType) {
         return
     }
     liveInfo.title = currentLive.title
-    liveInfo.start = moment(currentLive.live_start).format(TIME_FORMAT)
-    liveInfo.schedule = moment(currentLive.live_schedule).format(TIME_FORMAT)
+    liveInfo.start = dayjs(currentLive.live_start).format(TIME_FORMAT)
+    liveInfo.schedule = dayjs(currentLive.live_schedule).format(TIME_FORMAT)
 }
 
 let cached_data = {
@@ -34,7 +34,7 @@ let cached_data = {
     cached_time: null
 }
 async function fetchData() {
-    if (cached_data.cached_time !== null && moment().unix() - cached_data.cached_time.unix() <= 600) {
+    if (cached_data.cached_time !== null && dayjs().diff(cached_data.cached_time) <= 600000) {
         return
     }
 
@@ -42,11 +42,11 @@ async function fetchData() {
     if (resp.status !== 200) {
         throw new Error('cannot get live info')
     }
-    cached_data.cached_time = moment()
+    cached_data.cached_time = dayjs()
     cached_data.data =  resp.data
 }
 
-const actions = {
+export default {
     async [FETCH_LIVE_INFO]({state, commit}) {
         if (Object.keys(state.liveInfo).length !== 0) {
             return
@@ -68,12 +68,10 @@ const actions = {
             if (elem.channel.yt_channel_id === VTB_YTB_CHANNEL && elem.title.search(/freechat/i) === -1) {
                 commit(ADD_UPCOMING, {
                     title: elem.title,
-                    schedule: moment(elem.live_schedule).format('Y-M-D LTS'),
+                    schedule: dayjs(elem.live_schedule).format('Y-M-D LTS'),
                     link: `https://youtube.com/watch?v=${elem.yt_video_key}`
                 })
             }
         }
     }
 }
-
-export default actions

@@ -59,14 +59,14 @@
 </template>
 
 <script>
-import {Player} from '../../utils/player'
-import {REMOVE_ORDER} from '../../store/mutation-types'
+import {Player} from '@/utils/player'
+import {REMOVE_ORDER} from '@/store/mutation-types'
 import {sprintf} from 'sprintf-js'
-import {AUDIO_PREFIX} from '../../utils/constants'
+import {AUDIO_PREFIX} from '@/utils/constants'
 
-import PlayListControlMixin from '../../mixins/play-list-control'
-import GetLangMixin from '../../mixins/get-lang'
-import GetVolumeMixin from '../../mixins/get-volume'
+import PlayListControlMixin from '@/mixins/play-list-control'
+import GetLangMixin from '@/mixins/get-lang'
+import GetVolumeMixin from '@/mixins/get-volume'
 
 export default {
     name: 'PlayList',

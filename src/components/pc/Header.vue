@@ -48,7 +48,7 @@
 </template>
 
 <script>
-    import {languages} from "../../utils/constants";
+    import {languages} from '@/utils/constants'
 
     export default {
         name: "Header",

@@ -95,10 +95,10 @@
         languages,
         MUTE_ICON_PATH,
         tabList as tabs
-    } from '../../utils/constants'
-    import GetVolumeMixin from '../../mixins/get-volume'
-    import GetLangMixin from '../../mixins/get-lang'
-    import TouchEventMixin from '../../mixins/touch-event'
+    } from '@/utils/constants'
+    import GetVolumeMixin from '@/mixins/get-volume'
+    import GetLangMixin from '@/mixins/get-lang'
+    import TouchEventMixin from '@/mixins/touch-event'
 
     export default {
         name: "MobileApp",

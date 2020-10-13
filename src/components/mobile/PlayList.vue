@@ -62,11 +62,11 @@
 
 <script>
     import PlayListItem from './PlayListItem'
-    import PlayListControlMixin from '../../mixins/play-list-control'
-    import GetVolumeMixin from '../../mixins/get-volume'
-    import GetLangMixin from '../../mixins/get-lang'
-    import {Player} from '../../utils/player'
-    import {AUDIO_PREFIX} from '../../utils/constants'
+    import PlayListControlMixin from '@/mixins/play-list-control'
+    import GetVolumeMixin from '@/mixins/get-volume'
+    import GetLangMixin from '@/mixins/get-lang'
+    import {Player} from '@/utils/player'
+    import {AUDIO_PREFIX} from '@/utils/constants'
 
     export default {
         name: "PlayList",

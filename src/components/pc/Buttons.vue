@@ -84,18 +84,18 @@
 
 <script>
     import {mapState} from 'vuex'
-    import {Player} from '../../utils/player'
+    import {Player} from '@/utils/player'
     import PlayList from './PlayList'
-    import LiveInfo from '../LiveInfo'
+    import LiveInfo from '@/components/LiveInfo'
     import {
         ADD_ORDER,
         OPEN_PLAY_LIST_DIALOG
-    } from '../../store/mutation-types'
-    import {AUDIO_PREFIX} from "../../utils/constants"
-    import {randomInt} from '../../utils/utils'
+    } from '@/store/mutation-types'
+    import {AUDIO_PREFIX} from "@/utils/constants"
+    import {randomInt} from '@/utils/utils'
 
-    import GetLangMixin from '../../mixins/get-lang'
-    import GetVolumeMixin from '../../mixins/get-volume'
+    import GetLangMixin from '@/mixins/get-lang'
+    import GetVolumeMixin from '@/mixins/get-volume'
 
     export default {
         name: "Buttons",
