@@ -68,7 +68,7 @@ export default {
             if (elem.channel.yt_channel_id === VTB_YTB_CHANNEL && elem.title.search(/freechat/i) === -1) {
                 commit(ADD_UPCOMING, {
                     title: elem.title,
-                    schedule: dayjs(elem.live_schedule).format('Y-M-D LTS'),
+                    schedule: dayjs(elem.live_schedule).format(TIME_FORMAT),
                     link: `https://youtube.com/watch?v=${elem.yt_video_key}`
                 })
             }
