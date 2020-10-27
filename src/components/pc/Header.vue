@@ -39,7 +39,7 @@
                     </el-dropdown>
                     <el-button icon="iconfont el-icon-abgithub"
                                 class="help-us-btn"
-                                @click="see('https://github.com/ahoyButton/ahoy_button')">
+                                @click="see(PROJECT_REPO_URL)">
                         {{$t('header.helpUsImprove')}}
                     </el-button>
             </el-col>
@@ -49,7 +49,7 @@
 
 <script>
     import {languages} from '@/utils/constants'
-    import {YTB_URL, TWT_URL} from '@/utils/urls'
+    import {YTB_URL, TWT_URL, PROJECT_REPO_URL} from '@/utils/urls'
 
     export default {
         name: "Header",
@@ -57,7 +57,8 @@
             return {
                 languages,
                 YTB_URL,
-                TWT_URL
+                TWT_URL,
+                PROJECT_REPO_URL
             }
         },
         methods: {
