@@ -12,13 +12,13 @@
                 <el-button round type="danger"
                            class="btn ytb-btn"
                            icon="iconfont el-icon-abyoutube"
-                           @click="see('https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg?sub_confirmation=1')">
+                           @click="see(YTB_URL)">
                     Marine Ch. 宝鐘マリン
                 </el-button>
                 <el-button round type="primary"
                            class="btn twt-btn"
                            icon="iconfont el-icon-absocialtwitteroutline"
-                           @click="see('https://twitter.com/houshoumarine')">
+                           @click="see(TWT_URL)">
                     @houshoumarine
                 </el-button>
                 </el-button-group>
@@ -49,12 +49,15 @@
 
 <script>
     import {languages} from '@/utils/constants'
+    import {YTB_URL, TWT_URL} from '@/utils/urls'
 
     export default {
         name: "Header",
         data() {
             return {
-                languages
+                languages,
+                YTB_URL,
+                TWT_URL
             }
         },
         methods: {

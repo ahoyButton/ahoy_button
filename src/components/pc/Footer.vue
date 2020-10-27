@@ -11,7 +11,7 @@
                 <el-col :span="10">
                 <span>{{$t('footer.followUs')}}</span>
                     <el-link icon="iconfont el-icon-abgithub"
-                             href="https://github.com/ahoyButton/ahoy_button/">
+                             :href="PROJECT_REPO_URL">
                     </el-link>
                     <gh-btns-fork slug="ahoyButton/ahoy_button" show-count></gh-btns-fork>
                     <gh-btns-star slug="ahoyButton/ahoy_button" show-count></gh-btns-star>
@@ -24,10 +24,16 @@
 
 <script>
     import ContributorInfoMixin from '@/mixins/contributor-info'
+    import {PROJECT_REPO_URL} from '@/utils/urls'
 
     export default {
         name: "Footer",
-        mixins: [ContributorInfoMixin]
+        mixins: [ContributorInfoMixin],
+        data() {
+            return {
+                PROJECT_REPO_URL
+            }
+        }
     }
 </script>
 

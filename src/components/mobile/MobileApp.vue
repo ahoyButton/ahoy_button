@@ -18,7 +18,7 @@
                    v-model="showSettings"
                    style="width: 75%;height: 100%;">
             <nut-cell title="Marine Ch. 宝鐘マリン"
-                      @click-cell="see('https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg?sub_confirmation=1')">
+                      @click-cell="see(YTB_URL)">
                 <div slot="avatar">
                     <nut-avatar bg-color="#fff"
                                 size="large"
@@ -27,7 +27,7 @@
                 </div>
             </nut-cell>
             <nut-cell title="@houshoumarine"
-                      @click-cell="see('https://twitter.com/houshoumarine')">
+                      @click-cell="see(TWT_URL)">
                 <div slot="avatar">
                     <nut-avatar bg-color="#fff"
                                 size="large"
@@ -36,7 +36,7 @@
                 </div>
             </nut-cell>
             <nut-cell :title="$t('header.helpUsImprove')"
-                      @click-cell="see('https://github.com/ahoyButton/ahoy_button')">
+                      @click-cell="see(PROJECT_REPO_URL)">
                 <div slot="avatar">
                     <nut-avatar bg-color="#fff"
                                 size="large"
@@ -99,6 +99,7 @@
     import GetVolumeMixin from '@/mixins/get-volume'
     import GetLangMixin from '@/mixins/get-lang'
     import TouchEventMixin from '@/mixins/touch-event'
+    import {YTB_URL, TWT_URL, PROJECT_REPO_URL} from '@/utils/urls'
 
     export default {
         name: "MobileApp",
@@ -123,7 +124,10 @@
                 showLangSwitchMenu: false,
                 tabList: tabs[this.$i18n.locale],
                 showTabBar: false,
-                timeoutHandle: null
+                timeoutHandle: null,
+                YTB_URL,
+                TWT_URL,
+                PROJECT_REPO_URL
             }
         },
         methods: {
