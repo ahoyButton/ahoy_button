@@ -16,14 +16,22 @@ export class Player {
         this.audio.volume = value/100
     }
 
-    play(source) {
+    async play(source) {
         this.audio.src = addSourcePrefix(source, this.audioPrefix)
-        this.audio.play()
+        try {
+            await this.audio.play()
+        } catch (e) {
+            console.log(e)
+        }
     }
 
-    continuePlay() {
+    async continuePlay() {
         if (this.audio.currentSrc !== '') {
-            this.audio.play()
+            try {
+                await this.audio.play()
+            } catch (e) {
+                console.log(e)
+            }
         }
     }
 
