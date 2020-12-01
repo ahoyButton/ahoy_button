@@ -1,75 +1,101 @@
 import {FETCH_LIVE_INFO, FETCH_UPCOMING} from './action-types'
 import axios from 'axios'
-import {VTB_BILIBILI_CHANNEL, VTB_YTB_CHANNEL} from '@/utils/constants'
-import {ADD_UPCOMING, CHANGE_LIVE_INFO} from './mutation-types'
+import {ADD_UPCOMING, CHANGE_LIVE_INFO, CLEAR_UPCOMING} from './mutation-types'
 import dayjs from 'dayjs'
 
 const TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss Z'
-const BILI_TYPE = 'bb'
-const YTB_TYPE = 'ytb'
+const vtb_id = 'marine'
 
-function setData(liveInfo, currentLive, linkType) {
-    if (!currentLive) {
-        return
-    }
-
-    if (linkType === YTB_TYPE) {
-        liveInfo.ytb = {}
-        liveInfo = liveInfo.ytb
-        liveInfo.link = `https://youtube.com/watch?v=${currentLive.yt_video_key}`
-    } else if (linkType === BILI_TYPE) {
-        liveInfo.bb = {}
-        liveInfo = liveInfo.bb
-        liveInfo.link = `https://live.bilibili.com/${currentLive.bb_video_id}`
-    } else {
-        return
-    }
-    liveInfo.title = currentLive.title
-    liveInfo.start = dayjs(currentLive.live_start).format(TIME_FORMAT)
-    liveInfo.schedule = dayjs(currentLive.live_schedule).format(TIME_FORMAT)
+let cacheData = {
+    data: {
+        inStreaming: null,
+        schedule: null
+    },
+    cachedTime: null
 }
 
-let cached_data = {
-    data: null,
-    cached_time: null
+async function fetchStream(id) {
+    const {data: {streams}, status} = await axios.get('https://holo.poi.cat/api/v3/youtube_streams', {
+        params: {
+            ids: id,
+            endAt: dayjs().toISOString()
+        }
+    })
+    if (status !== 200) {
+        throw new Error('cannot get streaming info')
+    }
+
+    let streamInfo = {
+        title: '',
+        start: '',
+        link: '',
+        averageViewerCount: NaN,
+        maxViewerCount: NaN
+    }
+
+    const index = streams.findIndex((elem)=>{return elem.endTime === undefined})
+    if (index !== -1) {
+        streamInfo.title = streams[index].title
+        streamInfo.start = streams[index].startTime
+        streamInfo.link = `https://youtube.com/watch?v=${streams[index].streamId}`
+        streamInfo.averageViewerCount = streams[index].averageViewerCount
+        streamInfo.maxViewerCount = streams[index].maxViewerCount
+    }
+
+    return streamInfo
 }
-async function fetchData() {
-    if (cached_data.cached_time !== null && dayjs().diff(cached_data.cached_time) <= 600000) {
+
+async function fetchSchedule(id) {
+    const {data: {streams: schedule}, status} = await axios.get('https://holo.poi.cat/api/v3/youtube_schedule_streams', {
+        params: {
+            ids: id
+        }
+    })
+    if (status !== 200) {
+        throw new Error('cannot get schedule info')
+    }
+
+    return schedule
+}
+
+function isCacheTimeout() {
+    return !(cacheData.cachedTime !== null && dayjs().diff(cacheData.cachedTime) <= 600000)
+}
+
+async function fetchData(id) {
+    if (!isCacheTimeout()) {
         return
     }
 
-    const resp = await axios.get('https://api.holotools.app/v1/live')
-    if (resp.status !== 200) {
-        throw new Error('cannot get live info')
-    }
-    cached_data.cached_time = dayjs()
-    cached_data.data =  resp.data
+    const stream = await fetchStream(id)
+    const schedule = await fetchSchedule(id)
+
+    cacheData.cachedTime = dayjs()
+    cacheData.data.inStreaming = stream
+    cacheData.data.schedule = schedule
 }
 
 export default {
     async [FETCH_LIVE_INFO]({state, commit}) {
-        if (Object.keys(state.liveInfo).length !== 0) {
+        if (Object.keys(state.liveInfo).length !== 0 && !isCacheTimeout()) {
             return
         }
-        await fetchData()
-        const live = cached_data.data.live
-        // 处理转播
-        let liveInfo = {}
-        setData(liveInfo, live.find((elem) => elem.channel.yt_channel_id === VTB_YTB_CHANNEL), YTB_TYPE)
-        setData(liveInfo, live.find((elem) => elem.channel.bb_space_id === VTB_BILIBILI_CHANNEL), BILI_TYPE)
+        await fetchData(vtb_id)
+        const liveInfo = cacheData.data.inStreaming
         commit(CHANGE_LIVE_INFO, liveInfo)
     },
     async [FETCH_UPCOMING]({state, commit}) {
-        if (state.upcoming.length !== 0) {
+        if (state.upcoming.length !== 0 && !isCacheTimeout()) {
             return
         }
-        await fetchData()
-        for (let elem of cached_data.data.upcoming) {
-            if (elem.channel.yt_channel_id === VTB_YTB_CHANNEL && elem.title.search(/freechat/i) === -1) {
+        await fetchData(vtb_id)
+        commit(CLEAR_UPCOMING)
+        for (let elem of cacheData.data.schedule) {
+            if (elem.title.search(/free *?chat|chat(ting)? *?room/i) === -1) {
                 commit(ADD_UPCOMING, {
                     title: elem.title,
-                    schedule: dayjs(elem.live_schedule).format(TIME_FORMAT),
-                    link: `https://youtube.com/watch?v=${elem.yt_video_key}`
+                    schedule: dayjs(elem.scheduleTime).format(TIME_FORMAT),
+                    link: `https://youtube.com/watch?v=${elem.streamId}`
                 })
             }
         }

@@ -19,26 +19,16 @@
                                     <el-icon class="iconfont el-icon-abstreaming live-icon">
                                     </el-icon>
                                     :
-                                    {{liveInfo.ytb.start}}
+                                    {{liveInfo.start}}
                                 </li>
                                 <li>
                                     <el-icon class="iconfont el-icon-abyoutube1 title-icon">
                                     </el-icon>
                                     :
                                     <el-link class="stream-link"
-                                             :href="liveInfo.ytb.link"
+                                             :href="liveInfo.link"
                                              type="danger">
-                                        {{liveInfo.ytb.title}}
-                                    </el-link>
-                                </li>
-                                <li v-if="liveInfo.bb !== undefined">
-                                    <el-icon class="iconfont el-icon-abbilibili-fill bilibili-icon">
-                                    </el-icon>
-                                    :
-                                    <el-link class="stream-link"
-                                             :href="liveInfo.bb.link"
-                                             type="primary">
-                                        {{liveInfo.bb.title}}
+                                        {{liveInfo.title}}
                                     </el-link>
                                 </li>
                             </ul>
@@ -105,8 +95,9 @@
             ...mapState(
                 ['liveInfo', 'upcoming']
             ),
+          //TODO: 增加显示直播观看人数
             hasLiveInfo() {
-                return Object.keys(this.liveInfo).length !== 0
+                return Object.keys(this.liveInfo).length !== 0 && this.liveInfo.title !== ''
             },
             hasUpcoming() {
                 return this.upcoming.length !== 0
@@ -186,11 +177,6 @@ $content-icon-size: 1.75em;
 .title-icon {
     font-size: $content-icon-size;
     color: $youtube-color;
-}
-
-.bilibili-icon {
-    font-size: $content-icon-size;
-    color: $bilibili-color;
 }
 
 .schedule-summary {

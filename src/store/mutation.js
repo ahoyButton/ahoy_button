@@ -7,7 +7,8 @@ import {
     CLOSE_PLAY_LIST_DIALOG,
     MODIFY_VOLUME,
     CHANGE_LIVE_INFO,
-    ADD_UPCOMING
+    ADD_UPCOMING,
+    CLEAR_UPCOMING
 } from './mutation-types'
 
 const mutations = {
@@ -38,6 +39,9 @@ const mutations = {
     },
     [ADD_UPCOMING](state, upcomingInfo) {
         state.upcoming.push(upcomingInfo)
+    },
+    [CLEAR_UPCOMING](state) {
+        state.upcoming = []
     }
 }
 
