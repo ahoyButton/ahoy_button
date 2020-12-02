@@ -17,11 +17,11 @@
         <LiveInfo title-size="32px" class="live-info-panel"></LiveInfo>
 
         <el-card v-for="(group, index) in btnGroups" class="group" :key="index">
-            <div slot="header">
+            <template v-slot:header>
                 <el-badge :hidden="!!!group.isNew" value="NEW">
                     <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
                 </el-badge>
-            </div>
+            </template>
             <el-row :gutter="15" class="btn-row">
                 <el-badge v-for="(btn, i) in group.buttons" :hidden="!!!btn.isNew" value="NEW" :key="i">
                     <el-button type="danger"
@@ -35,9 +35,9 @@
         </el-card>
 
         <el-card v-if="showEgg" class="group">
-            <div slot="header">
+            <template v-slot:header>
                 <span class="bth-group-title shield">{{egg.group_name.lang[lang]}}</span>
-            </div>
+            </template>
             <el-row :gutter="15" class="btn-row">
                 <el-button class="sound-btn egg-btn"
                            v-for="(btn, i) in egg.buttons"
@@ -50,11 +50,13 @@
 
         <!--弹出内容垂直居中-->
         <el-popover placement="bottom-start">
-            <el-button class="sound-control" slot="reference" 
-                       type="danger"
-                       circle
-                       :icon="soundControlIcon">
-            </el-button>
+            <template v-slot:reference>
+                <el-button class="sound-control"
+                           type="danger"
+                           circle
+                           :icon="soundControlIcon">
+                </el-button>
+            </template>
             <div class="popover-container">
                 <el-button circle @click="soundSwitch"
                            class="iconfont sound-icon"

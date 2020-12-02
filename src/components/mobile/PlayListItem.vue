@@ -4,10 +4,11 @@
                   :show-icon="showIcon" class="play-item"
                   v-touch:swipeleft="showDelete"
                   v-touch:swiperight="hideDelete">
-                <nut-button slot="icon"
-                            :class="{ 'slip-delete-in': inAnime, 'slip-delete-out': outAnime}" @click="delItem(path)">
-                    {{$t('playList.delete')}}
-                </nut-button>
+                <template v-slot:icon>
+                    <nut-button :class="{ 'slip-delete-in': inAnime, 'slip-delete-out': outAnime}" @click="delItem(path)">
+                        {{$t('playList.delete')}}
+                    </nut-button>
+                </template>
         </nut-cell>
     </div>
 </template>

@@ -17,11 +17,11 @@
         <LiveInfo title-size="1.5rem" class="live-info-panel"></LiveInfo>
 
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
-            <div slot="header">
+            <template v-slot:header>
                 <nut-badge value="NEW" :hidden="!!!group.isNew">
                     <span style="font-size: 1.5rem;">{{group.group_name.lang[lang]}}</span>
                 </nut-badge>
-            </div>
+            </template>
             <nut-row type="flex" flex-wrap="wrap">
                 <nut-badge value="NEW" :hidden="!!!btn.isNew"
                            v-for="(btn, i) in group.buttons"

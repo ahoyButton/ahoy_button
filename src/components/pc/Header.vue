@@ -29,13 +29,15 @@
                                    class="btn lang-btn"
                                    icon="iconfont el-icon-abdiqiu">
                         </el-button>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item v-for="lang in languages"
-                                              :command="lang.value"
-                                              :key="lang.title">
-                                {{lang.title}}
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
+                        <template v-slot:dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item v-for="lang in languages"
+                                                  :command="lang.value"
+                                                  :key="lang.title">
+                                    {{lang.title}}
+                                </el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
                     </el-dropdown>
                     <el-button icon="iconfont el-icon-abgithub"
                                 class="help-us-btn"
