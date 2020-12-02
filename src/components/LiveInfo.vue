@@ -31,6 +31,26 @@
                                         {{liveInfo.title}}
                                     </el-link>
                                 </li>
+                                <li>
+                                    <el-icon class="iconfont el-icon-abeye viewer-count-icon">
+                                    </el-icon>
+                                    :
+                                    <span class="view-count">
+                                      <el-tooltip>
+                                          <template v-slot:content>
+                                              <div class="view-count-tooltip">{{$t('liveInfo.averageViewerCount')}}</div>
+                                          </template>
+                                          <span>{{liveInfo.averageViewerCount}}</span>
+                                      </el-tooltip>
+                                      &nbsp;/&nbsp;
+                                      <el-tooltip>
+                                          <template v-slot:content>
+                                              <div class="view-count-tooltip">{{$t('liveInfo.maxViewerCount')}}</div>
+                                          </template>
+                                          <span>{{liveInfo.maxViewerCount}}</span>
+                                      </el-tooltip>
+                                    </span>
+                                </li>
                             </ul>
                         </section>
                     </li>
@@ -95,7 +115,6 @@
             ...mapState(
                 ['liveInfo', 'upcoming']
             ),
-          //TODO: 增加显示直播观看人数
             hasLiveInfo() {
                 return Object.keys(this.liveInfo).length !== 0 && this.liveInfo.title !== ''
             },
@@ -192,6 +211,19 @@ $content-icon-size: 1.75em;
 .live-icon {
     font-size: $content-icon-size;
     color: greenyellow;
+}
+
+.viewer-count-icon {
+  font-size: $content-icon-size;
+  color: $view-count-color;
+}
+
+.view-count {
+  color: $view-count-color;
+}
+
+.view-count-tooltip {
+  font-size: $content-icon-size;
 }
 
 .stream-link {

@@ -16,7 +16,8 @@ import {
     Row,
     Slider,
     Switch,
-    Tag
+    Tag,
+    Tooltip
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/base.css'
@@ -38,3 +39,4 @@ Vue.use(Row)
 Vue.use(Slider)
 Vue.use(Switch)
 Vue.use(Tag)
+Vue.use(Tooltip)
