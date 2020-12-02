@@ -19,27 +19,37 @@
                                     <el-icon class="iconfont el-icon-abstreaming live-icon">
                                     </el-icon>
                                     :
-                                    {{liveInfo.ytb.start}}
+                                    {{liveInfo.start}}
                                 </li>
                                 <li>
                                     <el-icon class="iconfont el-icon-abyoutube1 title-icon">
                                     </el-icon>
                                     :
                                     <el-link class="stream-link"
-                                             :href="liveInfo.ytb.link"
+                                             :href="liveInfo.link"
                                              type="danger">
-                                        {{liveInfo.ytb.title}}
+                                        {{liveInfo.title}}
                                     </el-link>
                                 </li>
-                                <li v-if="liveInfo.bb !== undefined">
-                                    <el-icon class="iconfont el-icon-abbilibili-fill bilibili-icon">
+                                <li>
+                                    <el-icon class="iconfont el-icon-abeye viewer-count-icon">
                                     </el-icon>
                                     :
-                                    <el-link class="stream-link"
-                                             :href="liveInfo.bb.link"
-                                             type="primary">
-                                        {{liveInfo.bb.title}}
-                                    </el-link>
+                                    <span class="view-count">
+                                      <el-tooltip>
+                                          <template v-slot:content>
+                                              <div class="view-count-tooltip">{{$t('liveInfo.averageViewerCount')}}</div>
+                                          </template>
+                                          <span>{{liveInfo.averageViewerCount}}</span>
+                                      </el-tooltip>
+                                      &nbsp;/&nbsp;
+                                      <el-tooltip>
+                                          <template v-slot:content>
+                                              <div class="view-count-tooltip">{{$t('liveInfo.maxViewerCount')}}</div>
+                                          </template>
+                                          <span>{{liveInfo.maxViewerCount}}</span>
+                                      </el-tooltip>
+                                    </span>
                                 </li>
                             </ul>
                         </section>
@@ -106,7 +116,7 @@
                 ['liveInfo', 'upcoming']
             ),
             hasLiveInfo() {
-                return Object.keys(this.liveInfo).length !== 0
+                return Object.keys(this.liveInfo).length !== 0 && this.liveInfo.title !== ''
             },
             hasUpcoming() {
                 return this.upcoming.length !== 0
@@ -188,11 +198,6 @@ $content-icon-size: 1.75em;
     color: $youtube-color;
 }
 
-.bilibili-icon {
-    font-size: $content-icon-size;
-    color: $bilibili-color;
-}
-
 .schedule-summary {
     color: $ahoy-primary-color;
 }
@@ -206,6 +211,19 @@ $content-icon-size: 1.75em;
 .live-icon {
     font-size: $content-icon-size;
     color: greenyellow;
+}
+
+.viewer-count-icon {
+  font-size: $content-icon-size;
+  color: $view-count-color;
+}
+
+.view-count {
+  color: $view-count-color;
+}
+
+.view-count-tooltip {
+  font-size: $content-icon-size;
 }
 
 .stream-link {

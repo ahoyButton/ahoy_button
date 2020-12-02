@@ -2,16 +2,18 @@
     <el-dialog :visible="show" center
                :before-close="handleClose"
                :show-close="false">
-        <div slot="title" class="play-list-title">
-            <span>
-                {{titleInfo}}
-            </span>
-            <el-button class="close-btn"
-                       circle
-                       @click="handleClose">
-                <i class="el-icon-close"></i>
-            </el-button>
-        </div>
+        <template v-slot:title>
+            <div class="play-list-title">
+                <span>
+                    {{titleInfo}}
+                </span>
+                <el-button class="close-btn"
+                           circle
+                           @click="handleClose">
+                    <i class="el-icon-close"></i>
+                </el-button>
+            </div>
+        </template>
         <div>
             <el-row>
                 <span class='current-list-title'>

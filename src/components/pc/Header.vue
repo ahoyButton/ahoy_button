@@ -12,13 +12,13 @@
                 <el-button round type="danger"
                            class="btn ytb-btn"
                            icon="iconfont el-icon-abyoutube"
-                           @click="see('https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg?sub_confirmation=1')">
+                           @click="see(YTB_URL)">
                     Marine Ch. 宝鐘マリン
                 </el-button>
                 <el-button round type="primary"
                            class="btn twt-btn"
                            icon="iconfont el-icon-absocialtwitteroutline"
-                           @click="see('https://twitter.com/houshoumarine')">
+                           @click="see(TWT_URL)">
                     @houshoumarine
                 </el-button>
                 </el-button-group>
@@ -29,17 +29,19 @@
                                    class="btn lang-btn"
                                    icon="iconfont el-icon-abdiqiu">
                         </el-button>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item v-for="lang in languages"
-                                              :command="lang.value"
-                                              :key="lang.title">
-                                {{lang.title}}
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
+                        <template v-slot:dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item v-for="lang in languages"
+                                                  :command="lang.value"
+                                                  :key="lang.title">
+                                    {{lang.title}}
+                                </el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
                     </el-dropdown>
                     <el-button icon="iconfont el-icon-abgithub"
                                 class="help-us-btn"
-                                @click="see('https://github.com/ahoyButton/ahoy_button')">
+                                @click="see(PROJECT_REPO_URL)">
                         {{$t('header.helpUsImprove')}}
                     </el-button>
             </el-col>
@@ -49,12 +51,16 @@
 
 <script>
     import {languages} from '@/utils/constants'
+    import {YTB_URL, TWT_URL, PROJECT_REPO_URL} from '@/utils/urls'
 
     export default {
         name: "Header",
         data() {
             return {
-                languages
+                languages,
+                YTB_URL,
+                TWT_URL,
+                PROJECT_REPO_URL
             }
         },
         methods: {

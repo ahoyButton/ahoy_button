@@ -6,18 +6,18 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6403452",
+      "name": "eye",
+      "font_class": "eye",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "5478676",
       "name": "streaming",
       "font_class": "streaming",
       "unicode": "e94f",
       "unicode_decimal": 59727
-    },
-    {
-      "icon_id": "16034578",
-      "name": "bilibili-fill",
-      "font_class": "bilibili-fill",
-      "unicode": "e652",
-      "unicode_decimal": 58962
     },
     {
       "icon_id": "128784",

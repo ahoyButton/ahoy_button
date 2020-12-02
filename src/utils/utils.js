@@ -1,6 +1,8 @@
 // 拼接路径，删除拼接后开头的'/'
 // prefix需要以/结尾
 // path不能以/开头
+import {confetti} from "dom-confetti";
+
 export function addSourcePrefix(path, prefix) {
     if (prefix === undefined || path === undefined) {
         return path
@@ -25,4 +27,10 @@ export function isMobile() {
 
 export function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+export function doConfetti(domNode, elemCount = 60) {
+    confetti(domNode, {
+        elementCount: elemCount
+    })
 }

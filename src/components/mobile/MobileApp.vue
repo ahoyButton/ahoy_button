@@ -18,55 +18,58 @@
                    v-model="showSettings"
                    style="width: 75%;height: 100%;">
             <nut-cell title="Marine Ch. 宝鐘マリン"
-                      @click-cell="see('https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg?sub_confirmation=1')">
-                <div slot="avatar">
+                      @click-cell="see(YTB_URL)">
+                <template v-slot:avatar>
                     <nut-avatar bg-color="#fff"
                                 size="large"
                                 bg-icon="/images/youtube.png">
                     </nut-avatar>
-                </div>
+                </template>
             </nut-cell>
             <nut-cell title="@houshoumarine"
-                      @click-cell="see('https://twitter.com/houshoumarine')">
-                <div slot="avatar">
+                      @click-cell="see(TWT_URL)">
+                <template v-slot:avatar>
                     <nut-avatar bg-color="#fff"
                                 size="large"
                                 bg-icon="/images/Twitter.png">
                     </nut-avatar>
-                </div>
+                </template>
             </nut-cell>
             <nut-cell :title="$t('header.helpUsImprove')"
-                      @click-cell="see('https://github.com/ahoyButton/ahoy_button')">
-                <div slot="avatar">
+                      @click-cell="see(PROJECT_REPO_URL)">
+                <template v-slot:avatar>
                     <nut-avatar bg-color="#fff"
                                 size="large"
                                 bg-icon="/images/github.png">
                     </nut-avatar>
-                </div>
+                </template>
             </nut-cell>
             <nut-cell>
-                <div slot="title" style="display: flex;align-items: center;">
-                    <el-slider v-model.lazy.number="volume"
-                               :show-tooltip="false"
-                               style="margin-right: 0.5em;display: inline-block;width: 80%;">
-                    </el-slider>
-                    <span style="margin: 0 0.5em">{{volume}}</span>
-                </div>
-                <nut-avatar slot="avatar"
-                            size="large"
-                            bg-color="#fff"
-                            :bg-icon="soundControlIcon"
-                            @active-avatar="setMute">
-                </nut-avatar>
+                <template v-slot:title>
+                    <div style="display: flex;align-items: center;">
+                        <el-slider v-model.lazy.number="volume"
+                                   :show-tooltip="false"
+                                   style="margin-right: 0.5em;display: inline-block;width: 80%;">
+                        </el-slider>
+                        <span style="margin: 0 0.5em">{{volume}}</span>
+                    </div>
+                </template>
+                <template v-slot:avatar>
+                    <nut-avatar size="large"
+                                bg-color="#fff"
+                                :bg-icon="soundControlIcon"
+                                @active-avatar="setMute">
+                    </nut-avatar>
+                </template>
             </nut-cell>
             <nut-cell :title="currentLang"
                       @click-cell="showLangSwitchMenu = !showLangSwitchMenu">
-                <div slot="avatar">
+                <template v-slot:avatar>
                     <nut-avatar bg-color="#fff"
                                 size="large"
                                 bg-icon="/images/earth.png">
                     </nut-avatar>
-                </div>
+                </template>
             </nut-cell>
             <nut-menu type="simple"
                       :is-visible="showLangSwitchMenu"
@@ -99,6 +102,7 @@
     import GetVolumeMixin from '@/mixins/get-volume'
     import GetLangMixin from '@/mixins/get-lang'
     import TouchEventMixin from '@/mixins/touch-event'
+    import {YTB_URL, TWT_URL, PROJECT_REPO_URL} from '@/utils/urls'
 
     export default {
         name: "MobileApp",
@@ -123,7 +127,10 @@
                 showLangSwitchMenu: false,
                 tabList: tabs[this.$i18n.locale],
                 showTabBar: false,
-                timeoutHandle: null
+                timeoutHandle: null,
+                YTB_URL,
+                TWT_URL,
+                PROJECT_REPO_URL
             }
         },
         methods: {

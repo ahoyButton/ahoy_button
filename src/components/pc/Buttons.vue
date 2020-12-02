@@ -17,17 +17,17 @@
         <LiveInfo title-size="32px" class="live-info-panel"></LiveInfo>
 
         <el-card v-for="(group, index) in btnGroups" class="group" :key="index">
-            <div slot="header">
+            <template v-slot:header>
                 <el-badge :hidden="!!!group.isNew" value="NEW">
                     <span class="bth-group-title">{{group.group_name.lang[lang]}}</span>
                 </el-badge>
-            </div>
+            </template>
             <el-row :gutter="15" class="btn-row">
                 <el-badge v-for="(btn, i) in group.buttons" :hidden="!!!btn.isNew" value="NEW" :key="i">
                     <el-button type="danger"
                                round
                                class="sound-btn"
-                               @click="play(btn)">
+                               @click="onClick($event, btn)">
                         {{btn.name.lang[lang]}}
                     </el-button>
                 </el-badge>
@@ -35,14 +35,14 @@
         </el-card>
 
         <el-card v-if="showEgg" class="group">
-            <div slot="header">
+            <template v-slot:header>
                 <span class="bth-group-title shield">{{egg.group_name.lang[lang]}}</span>
-            </div>
+            </template>
             <el-row :gutter="15" class="btn-row">
                 <el-button class="sound-btn egg-btn"
                            v-for="(btn, i) in egg.buttons"
                            :key="i"
-                           @click="play(btn)">
+                           @click="onClick($event, btn)">
                     <span class="shield">{{btn.name.lang[lang]}}</span>
                 </el-button>
             </el-row>
@@ -50,11 +50,13 @@
 
         <!--弹出内容垂直居中-->
         <el-popover placement="bottom-start">
-            <el-button class="sound-control" slot="reference" 
-                       type="danger"
-                       circle
-                       :icon="soundControlIcon">
-            </el-button>
+            <template v-slot:reference>
+                <el-button class="sound-control"
+                           type="danger"
+                           circle
+                           :icon="soundControlIcon">
+                </el-button>
+            </template>
             <div class="popover-container">
                 <el-button circle @click="soundSwitch"
                            class="iconfont sound-icon"
@@ -92,7 +94,7 @@
         OPEN_PLAY_LIST_DIALOG
     } from '@/store/mutation-types'
     import {AUDIO_PREFIX} from "@/utils/constants"
-    import {randomInt} from '@/utils/utils'
+    import {randomInt, doConfetti} from '@/utils/utils'
 
     import GetLangMixin from '@/mixins/get-lang'
     import GetVolumeMixin from '@/mixins/get-volume'
@@ -132,7 +134,12 @@
                 if (++this.clickCount === this.eggTrigger) {
                     this.rainbowText = true
                     this.showEgg = true
+                    doConfetti(document.body, 200)
                 }
+            },
+            onClick(event, item) {
+              doConfetti(event.target)
+              this.play(item)
             },
             play(item) {
                 if (this.isOrdered) {
@@ -224,7 +231,7 @@
     font-size: 60px;
     letter-spacing: 5px;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
     pointer-events: none;
 
     &:hover::after {

@@ -32,6 +32,8 @@
     "nonContent": "NO STREAMING OR SCHEDULES",
     "streaming": "STREAMING：",
     "nonStreaming": "NO STREAMING",
-    "schedule": "SCHEDULE："
+    "schedule": "SCHEDULE：",
+    "averageViewerCount": "AVERAGE VIEWER COUNT",
+    "maxViewerCount": "MAX VIEWER COUNT"
   }
 }

@@ -32,6 +32,8 @@
     "nonContent": "配信中又は配信予定はありません",
     "streaming": "配信中：",
     "nonStreaming": "配信中の内容はありません",
-    "schedule": "待機中："
+    "schedule": "待機中：",
+    "averageViewerCount": "平均同接",
+    "maxViewerCount": "最大同接"
   }
 }
