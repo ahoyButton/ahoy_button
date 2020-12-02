@@ -27,7 +27,7 @@
                     <el-button type="danger"
                                round
                                class="sound-btn"
-                               @click="play(btn)">
+                               @click="onClick($event, btn)">
                         {{btn.name.lang[lang]}}
                     </el-button>
                 </el-badge>
@@ -42,7 +42,7 @@
                 <el-button class="sound-btn egg-btn"
                            v-for="(btn, i) in egg.buttons"
                            :key="i"
-                           @click="play(btn)">
+                           @click="onClick($event, btn)">
                     <span class="shield">{{btn.name.lang[lang]}}</span>
                 </el-button>
             </el-row>
@@ -92,7 +92,7 @@
         OPEN_PLAY_LIST_DIALOG
     } from '@/store/mutation-types'
     import {AUDIO_PREFIX} from "@/utils/constants"
-    import {randomInt} from '@/utils/utils'
+    import {randomInt, doConfetti} from '@/utils/utils'
 
     import GetLangMixin from '@/mixins/get-lang'
     import GetVolumeMixin from '@/mixins/get-volume'
@@ -132,7 +132,12 @@
                 if (++this.clickCount === this.eggTrigger) {
                     this.rainbowText = true
                     this.showEgg = true
+                    doConfetti(document.body, 200)
                 }
+            },
+            onClick(event, item) {
+              doConfetti(event.target)
+              this.play(item)
             },
             play(item) {
                 if (this.isOrdered) {
@@ -224,7 +229,7 @@
     font-size: 60px;
     letter-spacing: 5px;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
     pointer-events: none;
 
     &:hover::after {
