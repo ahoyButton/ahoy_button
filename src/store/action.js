@@ -36,7 +36,7 @@ async function fetchStream(id) {
     const index = streams.findIndex((elem)=>{return elem.endTime === undefined})
     if (index !== -1) {
         streamInfo.title = streams[index].title
-        streamInfo.start = streams[index].startTime
+        streamInfo.start = dayjs(streams[index].startTime).format(TIME_FORMAT)
         streamInfo.link = `https://youtube.com/watch?v=${streams[index].streamId}`
         streamInfo.averageViewerCount = streams[index].averageViewerCount
         streamInfo.maxViewerCount = streams[index].maxViewerCount
