@@ -3,7 +3,7 @@
         <div class="btn-panel-title"
              @click="easterEgg"
              :class="{'rainbow-text':rainbowText}">
-            {{$t('buttons.mainTitle')}}
+            <div>{{$t('buttons.mainTitle')}}</div>
         </div>
         <el-row style="margin: 20px 0;" type="flex" justify="center">
             <el-col :span="3" style="text-align: center;">
@@ -217,7 +217,6 @@
     content: '\01F3F4\0200D\02620\0FE0F';
     cursor: pointer;
     pointer-events: auto;
-    margin: 0 auto;
 }
 
 @mixin fadeAnimeGenerator($className) {
@@ -230,9 +229,12 @@
     font-weight: bold;
     font-size: 60px;
     letter-spacing: 5px;
-    text-align: center;
-    margin: 0 auto 10px;
+    margin-bottom: 10px;
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     &:hover::after {
         @include eggItem;
