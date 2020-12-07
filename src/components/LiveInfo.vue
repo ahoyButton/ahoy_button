@@ -19,7 +19,7 @@
                                     <el-icon class="iconfont el-icon-abstreaming live-icon">
                                     </el-icon>
                                     :
-                                    {{liveInfo.start}}
+                                    {{liveInfo.start.locale(dayjsLocale).format('LLLL')}}
                                 </li>
                                 <li>
                                     <el-icon class="iconfont el-icon-abyoutube1 title-icon">
@@ -72,7 +72,7 @@
                                     </el-icon>
                                     :
                                     <span>
-                                        {{schedule.schedule}}
+                                        {{schedule.schedule.locale(dayjsLocale).format('LLLL')}}
                                     </span>
                                 </li>
                                 <li>
@@ -98,9 +98,13 @@
 <script>
     import {FETCH_LIVE_INFO, FETCH_UPCOMING} from '@/store/action-types'
     import {mapState} from 'vuex'
+    import GetLangMixin from '@/mixins/get-lang'
 
     export default {
         name: "LiveInfo",
+        mixins: [
+            GetLangMixin
+        ],
         created() {
             this.$store.dispatch(FETCH_LIVE_INFO)
             this.$store.dispatch(FETCH_UPCOMING)
@@ -120,6 +124,16 @@
             },
             hasUpcoming() {
                 return this.upcoming.length !== 0
+            },
+            dayjsLocale() {
+                switch (this.lang) {
+                case 'zh_CN':
+                    return 'zh-cn'
+                case 'ja_JP':
+                    return 'ja'
+                default:
+                    return 'en'
+                }
             }
         }
     }
