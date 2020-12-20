@@ -114,6 +114,14 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/variables';
 
+.el-dialog__wrapper {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.0px);
+  -webkit-backdrop-filter: blur(13.0px);
+  border-radius: 10px;
+}
+
 .play-list-title {
     height: 100%;
     width: 100%;
