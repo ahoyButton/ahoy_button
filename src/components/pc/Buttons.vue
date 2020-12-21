@@ -3,7 +3,7 @@
         <div class="btn-panel-title"
              @click="easterEgg"
              :class="{'rainbow-text':rainbowText}">
-            <div>{{$t('buttons.mainTitle')}}</div>
+            <div ref="mainTitle">{{$t('buttons.mainTitle')}}</div>
         </div>
         <el-row style="margin: 20px 0;" type="flex" justify="center">
             <el-col :span="3" style="text-align: center;">
@@ -134,7 +134,7 @@
                 if (++this.clickCount === this.eggTrigger) {
                     this.rainbowText = true
                     this.showEgg = true
-                    doConfetti(document.body, 200)
+                    doConfetti(this.$refs.mainTitle, 500)
                 }
             },
             onClick(event, item) {
