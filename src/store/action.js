@@ -90,7 +90,8 @@ export default {
         await fetchData(vtb_id)
         commit(CLEAR_UPCOMING)
         for (let elem of cacheData.data.schedule) {
-            if (elem.title.search(/free *?chat|chat(ting)? *?room/i) === -1) {
+            // 过滤掉不用来进行直播预告的聊天室，正则会经常变动
+            if (elem.title.search(/free *?chat|chat(ting)? *?room|チャット広場/i) === -1) {
                 commit(ADD_UPCOMING, {
                     title: elem.title,
                     schedule: dayjs(elem.scheduleTime),
