@@ -15,7 +15,7 @@
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "core-js": "^3.8.2",
-    "dayjs": "^1.10.1",
+    "dayjs": "^1.10.2",
     "dom-confetti": "^0.2.2",
     "element-ui": "^2.14.1",
     "node-sass": "^4.14.1",
