@@ -19,7 +19,7 @@
                                     <el-icon class="iconfont el-icon-abstreaming live-icon">
                                     </el-icon>
                                     :
-                                    {{liveInfo.start}}
+                                    <LiveInfoTimeBar :start-at="liveInfo.start"></LiveInfoTimeBar>
                                 </li>
                                 <li>
                                     <el-icon class="iconfont el-icon-abyoutube1 title-icon">
@@ -71,9 +71,7 @@
                                     <el-icon class="iconfont el-icon-abalarm time-icon">
                                     </el-icon>
                                     :
-                                    <span>
-                                        {{schedule.schedule}}
-                                    </span>
+                                    <LiveInfoTimeBar :start-at="schedule.schedule"></LiveInfoTimeBar>
                                 </li>
                                 <li>
                                     <el-icon class="iconfont el-icon-abyoutube1 title-icon">
@@ -98,9 +96,11 @@
 <script>
     import {FETCH_LIVE_INFO, FETCH_UPCOMING} from '@/store/action-types'
     import {mapState} from 'vuex'
+    import LiveInfoTimeBar from '@/components/LiveInfoTimeBar'
 
     export default {
         name: "LiveInfo",
+        components: {LiveInfoTimeBar},
         created() {
             this.$store.dispatch(FETCH_LIVE_INFO)
             this.$store.dispatch(FETCH_UPCOMING)

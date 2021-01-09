@@ -3,7 +3,6 @@ import axios from 'axios'
 import {ADD_UPCOMING, CHANGE_LIVE_INFO, CLEAR_UPCOMING} from './mutation-types'
 import dayjs from 'dayjs'
 
-const TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss Z'
 const vtb_id = 'marine'
 
 let cacheData = {
@@ -36,7 +35,7 @@ async function fetchStream(id) {
     const index = streams.findIndex((elem)=>{return elem.endTime === undefined})
     if (index !== -1) {
         streamInfo.title = streams[index].title
-        streamInfo.start = streams[index].startTime
+        streamInfo.start = dayjs(streams[index].startTime)
         streamInfo.link = `https://youtube.com/watch?v=${streams[index].streamId}`
         streamInfo.averageViewerCount = streams[index].averageViewerCount
         streamInfo.maxViewerCount = streams[index].maxViewerCount
@@ -91,10 +90,11 @@ export default {
         await fetchData(vtb_id)
         commit(CLEAR_UPCOMING)
         for (let elem of cacheData.data.schedule) {
-            if (elem.title.search(/free *?chat|chat(ting)? *?room/i) === -1) {
+            // 过滤掉不用来进行直播预告的聊天室，正则会经常变动
+            if (elem.title.search(/free *?chat|chat(ting)? *?room|チャット広場/i) === -1) {
                 commit(ADD_UPCOMING, {
                     title: elem.title,
-                    schedule: dayjs(elem.scheduleTime).format(TIME_FORMAT),
+                    schedule: dayjs(elem.scheduleTime),
                     link: `https://youtube.com/watch?v=${elem.streamId}`
                 })
             }

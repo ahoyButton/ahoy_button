@@ -39,19 +39,23 @@
             <el-row>
                 <el-button-group>
                   <el-button type="primary" @click="startPlay"
-                             icon="el-icon-video-play">
+                             icon="el-icon-video-play"
+                             :disabled="isPlayListEmpty">
                       {{$t('playList.play')}}
                   </el-button>
                   <el-button type="warning" @click="handlePause"
-                             icon="el-icon-video-pause">
+                             icon="el-icon-video-pause"
+                             :disabled="isPlayListEmpty">
                       {{$t('playList.pause')}}
                   </el-button>            
                   <el-button type="info" @click="handleStop"
-                             icon="el-icon-switch-button">
+                             icon="el-icon-switch-button"
+                             :disabled="isPlayListEmpty">
                       {{$t('playList.stop')}}
                   </el-button>
                   <el-button type="danger" @click="handleClean"
-                             icon="el-icon-delete">
+                             icon="el-icon-delete"
+                             :disabled="isPlayListEmpty">
                       {{$t('playList.clear')}}
                   </el-button>
                 </el-button-group>
@@ -106,6 +110,9 @@ export default {
         },
         show() {
             return this.$store.state.showPlayListDialog
+        },
+        isPlayListEmpty() {
+            return this.$store.state.playList.length === 0
         }
     }
 }
@@ -113,6 +120,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/variables';
+
+.el-dialog__wrapper {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.0px);
+  -webkit-backdrop-filter: blur(13.0px);
+  border-radius: 10px;
+}
 
 .play-list-title {
     height: 100%;
