@@ -166,7 +166,7 @@ details {
         animation: fadeIn 0.5s ease-in-out;
     }
 
-    summary::-webkit-details-marker {
+    summary::marker {
         display: none;
     }
 

@@ -1,11 +1,11 @@
 <template>
     <el-card class="nav-bar" body-style="{height:100%}">
-        <el-row style="{display: flex;align-items: center;}" :gutter="5">
-            <el-col :span="1" class="title">
-                {{$t('buttons.mainTitle')}}
-            </el-col>
-            <el-col :span="1" class="divider">
+        <el-row :gutter="5">
+            <el-col :span="2">
+              <div class="title">{{$t('buttons.mainTitle')}}</div>
+              <div class="title-divider">
                 <el-divider direction="vertical"></el-divider>
+              </div>
             </el-col>
             <el-col :span="11">
                 <el-button-group>
@@ -113,16 +113,21 @@
 }
 
 .title {
+    display: inline-block;
+    height: 100%;
+    width: 90%;
     text-align: center;
     font-size: $small-font-size;
+    vertical-align: top;
 }
 
-.divider {
+.title-divider {
+    position: relative;
     height: 100%;
-    text-align: center;
-    padding: 0;
-    margin: -70px 0;
+    display: inline-block;
+    width: 10%;
     font-size: 120px;
+    margin-top: -68px;
 }
 
 .lang-selector {
