@@ -21,7 +21,10 @@ module.exports = {
     css: {
         loaderOptions: {
             scss: {
-                prependData: `@import "@nutui/nutui/dist/styles/index.scss";`,
+                // sass-loader v9+ uses additionalData to replace prepareData
+                additionalData: ` 
+                @import "@nutui/nutui/dist/styles/index.scss";
+                `,
             }
         },
     }
