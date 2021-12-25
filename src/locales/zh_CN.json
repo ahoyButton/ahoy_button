@@ -22,7 +22,8 @@
     "currentTotal": "当前有%d个音频",
     "currentPlayingInfo": "正在播放第%d个",
     "loopMode": "循环播放",
-    "delete": "删除"
+    "delete": "删除",
+    "error": "发生错误"
   },
   "aboutUs": {
     "title": "关于我们"

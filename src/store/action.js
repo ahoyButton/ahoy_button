@@ -14,10 +14,12 @@ let cacheData = {
 }
 
 async function fetchStream(id) {
-    const {data: {streams}, status} = await axios.get('https://holo.poi.cat/api/v3/youtube_streams', {
+    const {data: {streams}, status} = await axios.get('https://holoapi.poi.cat/api/v4/youtube_streams', {
         params: {
             ids: id,
-            endAt: dayjs().toISOString()
+            status: "live,ended",
+            startAt: dayjs(dayjs().format("YYYY-MM-DD")).unix(),
+            endAt: dayjs().unix()
         }
     })
     if (status !== 200) {
@@ -45,9 +47,11 @@ async function fetchStream(id) {
 }
 
 async function fetchSchedule(id) {
-    const {data: {streams: schedule}, status} = await axios.get('https://holo.poi.cat/api/v3/youtube_schedule_streams', {
+    const {data: {streams: schedule}, status} = await axios.get('https://holoapi.poi.cat/api/v4/youtube_streams', {
         params: {
-            ids: id
+            ids: id,
+            status: "scheduled",
+            orderBy: "schedule_time:asc"
         }
     })
     if (status !== 200) {

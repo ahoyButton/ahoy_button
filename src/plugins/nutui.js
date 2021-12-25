@@ -15,7 +15,8 @@ import {
     SideNavBarItem,
     Slider,
     Switch,
-    Tabbar
+    Tabbar,
+    Toast
 } from '@nutui/nutui'
 import '@nutui/nutui/dist/nutui.css'
 
@@ -35,3 +36,4 @@ SideNavBarItem.install(Vue)
 Slider.install(Vue)
 Switch.install(Vue)
 Tabbar.install(Vue)
+Toast.install(Vue)

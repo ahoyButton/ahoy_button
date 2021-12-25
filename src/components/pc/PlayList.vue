@@ -15,8 +15,15 @@
             </div>
         </template>
         <div>
+            <el-alert v-show="isError" show-icon
+                      class="err-bar"
+                      type="error"
+                      :title="$t('playList.error')"
+                      :description="errMsg"
+                      @close="isError = false">
+            </el-alert>
             <el-row>
-                <span class='current-list-title'>
+                <span class="current-list-title">
                     {{$t('playList.currentList')}}:
                 </span>
             </el-row>
@@ -96,6 +103,10 @@ export default {
     },
     computed: {
         titleInfo() {
+            if (this.isError) {
+                return this.$t('playList.error')
+            }
+            
             const prefix = this.$t('playList.dialogTitle')
             const currentTotal = this.$t('playList.currentTotal')
             const title = sprintf(currentTotal, this.listItems.length)
@@ -127,6 +138,10 @@ export default {
   backdrop-filter: blur(13.0px);
   -webkit-backdrop-filter: blur(13.0px);
   border-radius: 10px;
+}
+
+.err-bar {
+    margin-top: -20px;
 }
 
 .play-list-title {

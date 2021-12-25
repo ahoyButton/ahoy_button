@@ -6,7 +6,9 @@ export default {
             currentIndex: 0,
             isPlaying: false,
             isPaused: false,
-            isLoop: false
+            isLoop: false,
+            isError: false,
+            errMsg: ""
         }
     },
     methods: {
@@ -30,12 +32,30 @@ export default {
 
             this.audio.volume = this.volume
             this.isPlaying = true
-            this.audio.play(this.listItems[this.currentIndex].path)
+            try {
+                this.audio.play(this.listItems[this.currentIndex].path)
+            } catch (e) {
+                this.isError = true
+                this.errMsg = e.toString()
+                if (this.$toast) {  // for NutUI
+                    this.$toast.fail(this.$t('playList.error'))
+                }
+                return
+            }
             this.currentIndex++
         },
         handlePause() {
             if (this.isPaused) {
-                this.audio.continuePlay()
+                try {
+                    this.audio.continuePlay()
+                } catch (e) {
+                    this.isError = true
+                    this.errMsg = e.toString()
+                    if (this.$toast) {
+                        this.$toast.fail(this.$t('playList.error'))
+                    }
+                    return
+                }
                 this.isPaused = false
                 this.isPlaying = true
                 return

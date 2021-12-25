@@ -18,20 +18,12 @@ export class Player {
 
     async play(source) {
         this.audio.src = addSourcePrefix(source, this.audioPrefix)
-        try {
-            await this.audio.play()
-        } catch (e) {
-            console.log(e)
-        }
+        await this.audio.play()
     }
 
     async continuePlay() {
         if (this.audio.currentSrc !== '') {
-            try {
-                await this.audio.play()
-            } catch (e) {
-                console.log(e)
-            }
+            await this.audio.play()
         }
     }
 

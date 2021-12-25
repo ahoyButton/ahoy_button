@@ -72,7 +72,11 @@
                     this.$store.commit(ADD_ORDER, item)
                 }
                 const player = new Player(this.sourcePrefix, this.volume)
-                player.play(item.path)
+                try {
+                    player.play(item.path)
+                } catch (e) {
+                    this.$toast.fail(this.$t('playList.error'))
+                }
             }
         }
     }
