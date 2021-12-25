@@ -21,7 +21,7 @@ export class Player {
         try {
             await this.audio.play()
         } catch (e) {
-            console.log(e)
+            console.error(e)
         }
     }
 
@@ -30,7 +30,7 @@ export class Player {
             try {
                 await this.audio.play()
             } catch (e) {
-                console.log(e)
+                console.error(e)
             }
         }
     }
