@@ -85,6 +85,7 @@
 </template>
 
 <script>
+    import { Notification } from 'element-ui'
     import {mapState} from 'vuex'
     import {Player} from '@/utils/player'
     import PlayList from './PlayList'
@@ -146,7 +147,14 @@
                     this.$store.commit(ADD_ORDER, item)
                 }
                 const player = new Player(AUDIO_PREFIX, this.volume)
-                player.play(item.path)
+                try {
+                    player.play(item.path)
+                } catch (e) {
+                    Notification.error({
+                        "title": this.$t('playList.error'),
+                        "message": e.toString()
+                    })
+                }
             },
             soundSwitch() {
                 this.volume = this.volume ? 0 : 100

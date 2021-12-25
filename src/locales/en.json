@@ -22,7 +22,8 @@
     "currentTotal": "%d ITEM(S)",
     "currentPlayingInfo": "NOW PLAYING %d",
     "loopMode": "loop mode",
-    "delete": "delete"
+    "delete": "delete",
+    "error": "error occurred"
   },
   "aboutUs": {
     "title": "About Us"

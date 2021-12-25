@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {
+    Alert,
     Badge,
     Button,
     ButtonGroup,
@@ -10,8 +11,8 @@ import {
     Dropdown,
     DropdownItem,
     DropdownMenu,
-    Link,
     Icon,
+    Link,
     Popover,
     Row,
     Slider,
@@ -22,6 +23,7 @@ import {
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/base.css'
 
+Vue.use(Alert)
 Vue.use(Badge)
 Vue.use(Button)
 Vue.use(ButtonGroup)
@@ -32,8 +34,8 @@ Vue.use(Divider)
 Vue.use(Dropdown)
 Vue.use(DropdownItem)
 Vue.use(DropdownMenu)
-Vue.use(Link)
 Vue.use(Icon)
+Vue.use(Link)
 Vue.use(Popover)
 Vue.use(Row)
 Vue.use(Slider)

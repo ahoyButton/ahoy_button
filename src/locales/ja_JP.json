@@ -7,7 +7,7 @@
     "playListMode": "再生リストモード"
   },
   "footer": {
-    "authors": "作者：",
+    "authors": "作成者：",
     "contributors": "ご協力頂いた方々：",
     "license": "本サイトは個人的な興味に基づいて立てられており、ホロライブプロダクション公式との関係はありません",
     "followUs": "私たちをフォローする："
@@ -17,12 +17,13 @@
     "play": "プレイ",
     "pause": "一時停止",
     "stop": "ストップ",
-    "clear": "リストをクリア",
+    "clear": "リストを空にする",
     "dialogTitle": "再生リスト",
     "currentTotal": "今%dのボイスがあります",
     "currentPlayingInfo": "%d番目のボイス再生中です",
     "loopMode": "連続再生",
-    "delete": "削除"
+    "delete": "削除",
+    "error": "エラーが発生しました"
   },
   "aboutUs": {
     "title": "私たちにおいて"
@@ -31,7 +32,7 @@
     "title": "配信一覧",
     "nonContent": "配信中又は配信予定はありません",
     "streaming": "配信中：",
-    "nonStreaming": "配信中の内容はありません",
+    "nonStreaming": "配信中のコンテンツはありません",
     "schedule": "待機中：",
     "averageViewerCount": "平均同接",
     "maxViewerCount": "最大同接"
