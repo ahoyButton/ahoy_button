@@ -17,9 +17,9 @@ async function fetchStream(id) {
     const {data: {streams}, status} = await axios.get('https://holoapi.poi.cat/api/v4/youtube_streams', {
         params: {
             ids: id,
-            status: "live,ended",
-            startAt: dayjs(dayjs().format("YYYY-MM-DD")).unix(),
-            endAt: dayjs().unix()
+            status: "live",
+            startAt: dayjs(dayjs().format("YYYY-MM-DD")).valueOf(),
+            endAt: dayjs(dayjs().format("YYYY-MM-DD")).add(1, 'day').add(-1, 'millisecond').valueOf()
         }
     })
     if (status !== 200) {
@@ -34,7 +34,7 @@ async function fetchStream(id) {
         maxViewerCount: NaN
     }
 
-    const index = streams.findIndex((elem)=>{return elem.endTime === undefined})
+    const index = streams.findIndex((elem)=>{return elem.status === 'live'})
     if (index !== -1) {
         streamInfo.title = streams[index].title
         streamInfo.start = dayjs(streams[index].startTime)
