@@ -60,7 +60,7 @@
                         </span>
                     </li>
                 </ul>
-                <el-divider></el-divider>
+                <el-divider v-if="hasUpcoming"></el-divider>
                 <ul v-if="hasUpcoming">
                     {{$t('liveInfo.schedule')}}
                     <li v-for="(schedule, key) in upcoming" :key="key">
