@@ -13,6 +13,8 @@ module.exports = {
     [
       "@nutui/babel-plugin-separate-import",
       {
+        "libraryName": "@nutui/nutui",
+        "libraryDirectory": "dist/packages",
         "style": "scss"
       }
     ]
