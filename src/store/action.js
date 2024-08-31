@@ -3,7 +3,7 @@ import axios from 'axios'
 import {ADD_UPCOMING, CHANGE_LIVE_INFO, CLEAR_UPCOMING} from './mutation-types'
 import dayjs from 'dayjs'
 
-const vtb_id = 'marine'
+const vtb_id = '22,119'
 
 let cacheData = {
     data: {
@@ -14,12 +14,19 @@ let cacheData = {
 }
 
 async function fetchStream(id) {
-    const {data: {streams}, status} = await axios.get('https://holoapi.poi.cat/api/v4/youtube_streams', {
+    const {streams, status} = await axios.get('https://vt-api.poi.cat/api/v4/streams/live', {
         params: {
-            ids: id,
-            status: "live",
+            channelIds: id,
             startAt: dayjs(dayjs().format("YYYY-MM-DD")).valueOf(),
-            endAt: dayjs(dayjs().format("YYYY-MM-DD")).add(1, 'day').add(-1, 'millisecond').valueOf()
+        },
+        headers: {
+            Referer: "https://vt.poi.cat/",
+            Origin: "https://vt.poi.cat",
+        },
+        withCredentials: true,
+        transformResponse: (data) => {
+            console.log(data)
+            return data
         }
     })
     if (status !== 200) {
@@ -34,28 +41,49 @@ async function fetchStream(id) {
         maxViewerCount: NaN
     }
 
-    const index = streams.findIndex((elem)=>{return elem.status === 'live'})
+    const index = streams.findIndex((elem)=>{return elem.platform === 'YOUTUBE' && elem.status === 'LIVE'})
     if (index !== -1) {
         streamInfo.title = streams[index].title
         streamInfo.start = dayjs(streams[index].startTime)
-        streamInfo.link = `https://youtube.com/watch?v=${streams[index].streamId}`
-        streamInfo.averageViewerCount = streams[index].averageViewerCount
-        streamInfo.maxViewerCount = streams[index].maxViewerCount
+        streamInfo.link = `https://youtube.com/watch?v=${streams[index].platformId}`
+        streamInfo.averageViewerCount = streams[index].viewerAvg
+        streamInfo.maxViewerCount = streams[index].viewerMax
     }
 
     return streamInfo
 }
 
 async function fetchSchedule(id) {
-    const {data: {streams: schedule}, status} = await axios.get('https://holoapi.poi.cat/api/v4/youtube_streams', {
-        params: {
-            ids: id,
-            status: "scheduled",
-            orderBy: "schedule_time:asc"
-        }
-    })
-    if (status !== 200) {
+    const resp = await fetch(`https://vt-api.poi.cat/api/v4/streams/scheduled?channelIds=${id}&startAt=${dayjs().valueOf()}`, {
+        "headers": {
+            "accept": "application/json, text/plain, */*",
+            "accept-language": "ja,zh-CN;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6,zh-TW;q=0.5",
+            "priority": "u=1, i",
+        },
+        "referrer": "https://vt.poi.cat/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": null,
+        "method": "GET",
+        "mode": "no-cors",
+        "credentials": "omit"
+    });
+    if (resp.type !== 'opaque' && resp.status !== 200) {
         throw new Error('cannot get schedule info')
+    }
+
+    const data = await resp.json()
+    let schedule = new Array; 
+    for (const info of data) {
+        if (info.platform !== 'YOUTUBE') {
+            continue
+        }
+        const scheduleInfo = {
+            schedule: dayjs(info.scheduleTime),
+            title: info.title,
+            link: `https://youtube.com/watch?v=${info.platformId}`,
+            thumbnail: info.thumbnailUrl,
+        }
+        schedule.push(scheduleInfo)
     }
 
     return schedule
@@ -70,8 +98,13 @@ async function fetchData(id) {
         return
     }
 
-    const stream = await fetchStream(id)
-    const schedule = await fetchSchedule(id)
+    let stream = {}
+    try {
+    stream = await fetchStream('74'+','+id)
+    } catch(e) {
+        console.log(e)
+    }
+    const schedule = await fetchSchedule('26')
 
     cacheData.cachedTime = dayjs()
     cacheData.data.inStreaming = stream
@@ -93,15 +126,8 @@ export default {
         }
         await fetchData(vtb_id)
         commit(CLEAR_UPCOMING)
-        for (let elem of cacheData.data.schedule) {
-            // 过滤掉不用来进行直播预告的聊天室，正则会经常变动
-            if (elem.title.search(/free *?chat|chat(ting)? *?room|チャット広場/i) === -1) {
-                commit(ADD_UPCOMING, {
-                    title: elem.title,
-                    schedule: dayjs(elem.scheduleTime),
-                    link: `https://youtube.com/watch?v=${elem.streamId}`
-                })
-            }
+        for (const elem of cacheData.data.schedule) {
+            commit(ADD_UPCOMING, elem)
         }
     }
 }
