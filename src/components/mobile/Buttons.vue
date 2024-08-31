@@ -14,7 +14,7 @@
             </nut-col>
         </nut-row>
 
-        <LiveInfo title-size="1.5rem" class="live-info-panel"></LiveInfo>
+        <!--<LiveInfo title-size="1.5rem" class="live-info-panel"></LiveInfo>-->
 
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <template v-slot:header>
@@ -43,12 +43,12 @@
     import {Player} from '@/utils/player'
     import {ADD_ORDER} from '@/store/mutation-types'
     import {AUDIO_PREFIX} from '@/utils/constants'
-    import LiveInfo from '@/components/LiveInfo'
+    //import LiveInfo from '@/components/LiveInfo'
 
     export default {
         name: "Buttons",
         components: {
-            LiveInfo
+            //LiveInfo
         },
         data() {
             return {
