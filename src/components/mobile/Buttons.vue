@@ -14,8 +14,6 @@
             </nut-col>
         </nut-row>
 
-        <!--<LiveInfo title-size="1.5rem" class="live-info-panel"></LiveInfo>-->
-
         <el-card v-for="(group, index) in btnGroups" :key="index" class="group">
             <template v-slot:header>
                 <nut-badge value="NEW" :hidden="!!!group.isNew">

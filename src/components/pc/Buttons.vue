@@ -14,8 +14,6 @@
             </el-col>
         </el-row>
 
-        <!--<LiveInfo title-size="32px" class="live-info-panel"></LiveInfo>-->
-
         <el-card v-for="(group, index) in btnGroups" class="group" :key="index">
             <template v-slot:header>
                 <el-badge :hidden="!!!group.isNew" value="NEW">
