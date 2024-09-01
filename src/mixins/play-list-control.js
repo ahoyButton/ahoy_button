@@ -21,6 +21,9 @@ export default {
             this.handleOrder()
         },
         handleOrder() {
+            if (this.listItems.length === 0) {
+                return
+            }
             if (this.currentIndex >= this.listItems.length) {
                 if (!this.isLoop) {
                     this.isPlaying = false
