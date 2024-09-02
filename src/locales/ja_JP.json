@@ -27,14 +27,5 @@
   },
   "aboutUs": {
     "title": "私たちにおいて"
-  },
-  "liveInfo": {
-    "title": "配信一覧",
-    "nonContent": "配信中又は配信予定はありません",
-    "streaming": "配信中：",
-    "nonStreaming": "配信中のコンテンツはありません",
-    "schedule": "待機中：",
-    "averageViewerCount": "平均同接",
-    "maxViewerCount": "最大同接"
   }
 }

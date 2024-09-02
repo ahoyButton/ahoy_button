@@ -96,11 +96,6 @@
     color: $ahoy-text-color;
 }
 
-.live-info-panel {
-    font-size: 14px !important;
-    margin: 0.5rem;
-}
-
 .group {
     margin: 0.5rem;
 }
