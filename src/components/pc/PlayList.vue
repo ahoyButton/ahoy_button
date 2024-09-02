@@ -74,7 +74,6 @@
 <script>
 import {Player} from '@/utils/player'
 import {REMOVE_ORDER} from '@/store/mutation-types'
-import {sprintf} from 'sprintf-js'
 import {AUDIO_PREFIX} from '@/utils/constants'
 
 import PlayListControlMixin from '@/mixins/play-list-control'
@@ -109,15 +108,15 @@ export default {
             
             const prefix = this.$t('playList.dialogTitle')
             const currentTotal = this.$t('playList.currentTotal')
-            const title = sprintf(currentTotal, this.listItems.length)
+            const title = currentTotal.replace('%d', this.listItems.length.toString())
             if (this.isPlaying) {
                 // index在play后被立即+1,无需重复
                 const currentPlayingInfo = this.$t('playList.currentPlayingInfo')
-                const currentPlaying = sprintf(currentPlayingInfo, this.currentIndex===0?1:this.currentIndex)
-                return sprintf('%s（%s - %s）', prefix, title, currentPlaying)
+                const idx = this.currentIndex === 0 ? 1 : this.currentIndex
+                return `${prefix}（${title} - ${currentPlayingInfo.replace('%d', idx.toString())}）`
             }
 
-            return sprintf('%s（%s）', prefix, title)
+            return `${prefix}（${title}）`
         },
         show() {
             return this.$store.state.showPlayListDialog
