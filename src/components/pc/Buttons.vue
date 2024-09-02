@@ -212,10 +212,6 @@
     @include fixedButton(60px, ("bottom": 30px, "left": 20px));
 }
 
-.live-info-panel {
-    margin: 10px 80px;
-}
-
 @mixin eggItem {
     display: block;
     font-size: 20px;

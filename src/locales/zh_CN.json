@@ -27,14 +27,5 @@
   },
   "aboutUs": {
     "title": "关于我们"
-  },
-  "liveInfo": {
-    "title": "直播信息",
-    "nonContent": "当前无直播和直播预定",
-    "streaming": "直播：",
-    "nonStreaming": "当前没有直播",
-    "schedule": "预定：",
-    "averageViewerCount": "平均同接",
-    "maxViewerCount": "最高同接"
   }
 }
