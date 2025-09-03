@@ -14,9 +14,9 @@
   "dependencies": {
     "@nutui/nutui": "^2.3.16",
     "animate.css": "^4.1.1",
-    "axios": "^1.8.2",
-    "core-js": "^3.38.1",
-    "dayjs": "^1.11.13",
+    "axios": "^1.11.0",
+    "core-js": "^3.45.1",
+    "dayjs": "^1.11.18",
     "dom-confetti": "^0.2.2",
     "element-ui": "^2.15.14",
     "sass": "^1.77.8",
