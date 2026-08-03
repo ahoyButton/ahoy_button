@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": ">=22.11.0"
+  },
+  "overrides": {
+    "vue-i18n-extract": "1.0.3"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -14,33 +20,32 @@
   "dependencies": {
     "@nutui/nutui": "^2.3.16",
     "animate.css": "^4.1.1",
-    "axios": "^1.18.0",
-    "core-js": "^3.45.1",
-    "dayjs": "^1.11.18",
+    "axios": "^1.19.0",
+    "core-js": "^3.49.0",
+    "dayjs": "^1.11.21",
     "dom-confetti": "^0.2.2",
     "element-ui": "^2.15.14",
-    "sass": "^1.77.8",
-    "sass-loader": "^10.5.2",
-    "vue": "^2.7.16",
+    "vue": "2.7.16",
     "vue-github-buttons": "^3.1.0",
     "vue-i18n": "^8.28.2",
-    "vue-loader": "^17.4.2",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.29.7",
     "@nutui/babel-plugin-separate-import": "^1.2.2",
-    "@vue/cli-plugin-babel": "^4.5.19",
-    "@vue/cli-plugin-eslint": "^4.5.19",
-    "@vue/cli-plugin-router": "^4.5.19",
-    "@vue/cli-plugin-vuex": "^4.5.19",
-    "@vue/cli-service": "^4.5.19",
-    "babel-eslint": "^10.1.0",
+    "@vue/cli-plugin-babel": "^5.0.9",
+    "@vue/cli-plugin-eslint": "^5.0.9",
+    "@vue/cli-plugin-router": "^5.0.9",
+    "@vue/cli-plugin-vuex": "^5.0.9",
+    "@vue/cli-service": "^5.0.9",
     "babel-plugin-component": "^1.1.1",
-    "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^10.10.0",
+    "sass": "^1.102.0",
+    "sass-loader": "^17.0.0",
     "vue-cli-plugin-element": "^1.0.1",
-    "vue-cli-plugin-i18n": "~1.0.1",
-    "vue-template-compiler": "^2.7.16"
+    "vue-cli-plugin-i18n": "^2.3.2",
+    "vue-template-compiler": "2.7.16"
   }
 }
