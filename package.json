@@ -20,7 +20,7 @@
   "dependencies": {
     "@nutui/nutui": "^2.3.16",
     "animate.css": "^4.1.1",
-    "axios": "^1.19.0",
+    "axios": "^1.20.0",
     "core-js": "^3.49.0",
     "dayjs": "^1.11.21",
     "dom-confetti": "^0.2.2",
