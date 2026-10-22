@@ -1,12 +1,4 @@
 module.exports = {
-  pluginOptions: {
-    i18n: {
-      locale: 'zh_CN',
-      fallbackLocale: 'en',
-      localeDir: 'locales',
-      enableInSFC: false
-    }
-  },
     // 禁止生成map
     productionSourceMap: false,
   // 处理自定义title

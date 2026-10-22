@@ -7,7 +7,20 @@
     "node": ">=22.11.0"
   },
   "overrides": {
-    "vue-i18n-extract": "1.0.3"
+    "@vue/cli-service": {
+      "webpack-dev-server": "^5.2.7"
+    },
+    "@vue/component-compiler-utils": {
+      "postcss": "^8.5.31"
+    },
+    "postcss-selector-parser": "^7.1.7",
+    "serialize-javascript": "^7.1.2",
+    "sockjs": {
+      "uuid": "^11.1.1"
+    },
+    "yorkie": {
+      "cross-spawn": "^6.0.6"
+    }
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,14 +28,14 @@
     "lint": "vue-cli-service lint",
     "analyse": "vue-cli-service build --report",
     "gen-resource": "bash src/genVoices.sh",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-i18n-extract --vueFiles './src/**/*.{js,vue}' --languageFiles './src/locales/**/*.json'"
   },
   "dependencies": {
     "@nutui/nutui": "^2.3.16",
     "animate.css": "^4.1.1",
     "axios": "^1.20.0",
-    "core-js": "^3.49.0",
-    "dayjs": "^1.11.21",
+    "core-js": "^3.51.0",
+    "dayjs": "^1.11.23",
     "dom-confetti": "^0.2.2",
     "element-ui": "^2.15.14",
     "vue": "2.7.16",
@@ -32,20 +45,16 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.29.7",
+    "@babel/eslint-parser": "^7.29.9",
     "@nutui/babel-plugin-separate-import": "^1.2.2",
     "@vue/cli-plugin-babel": "^5.0.9",
     "@vue/cli-plugin-eslint": "^5.0.9",
-    "@vue/cli-plugin-router": "^5.0.9",
-    "@vue/cli-plugin-vuex": "^5.0.9",
     "@vue/cli-service": "^5.0.9",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^8.57.1",
-    "eslint-plugin-vue": "^10.10.0",
-    "sass": "^1.102.0",
-    "sass-loader": "^17.0.0",
-    "vue-cli-plugin-element": "^1.0.1",
-    "vue-cli-plugin-i18n": "^2.3.2",
-    "vue-template-compiler": "2.7.16"
+    "eslint-plugin-vue": "^10.11.1",
+    "sass": "^1.106.1",
+    "sass-loader": "^17.0.1",
+    "vue-i18n-extract": "^2.0.7"
   }
 }
